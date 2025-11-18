@@ -10,11 +10,13 @@ An e-commerce website built with modern web technologies.
 ## Installation
 
 1. Install pnpm if you haven't already:
+
 ```bash
 npm install -g pnpm
 ```
 
 2. Install all dependencies:
+
 ```bash
 pnpm install
 ```
@@ -22,6 +24,7 @@ pnpm install
 ## Development
 
 Run the development server:
+
 ```bash
 pnpm dev
 ```
@@ -29,6 +32,7 @@ pnpm dev
 ## Build
 
 Build for production:
+
 ```bash
 pnpm build
 ```
