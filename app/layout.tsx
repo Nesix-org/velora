@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Space_Grotesk, Playfair_Display } from "next/font/google";
 import "./globals.css";
+import Navbar from "@/components/navbar";
+import Footer from "@/components/footer";
 
 const geistSans = Space_Grotesk({
   variable: "--font-geist-sans",
@@ -25,9 +27,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen max-w-7xl bg-bgWhite px-40 font-sans dark:bg-black `}
       >
+        <Navbar />
         {children}
+        <Footer />
       </body>
     </html>
   );

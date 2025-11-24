@@ -23,8 +23,7 @@ export default function HomePage() {
   return (
     <>
       <DynamicHead />
-      <div className="flex flex-col min-h-screen max-w-7xl mx-auto items-center justify-center bg-bgWhite px-8 gap-8 font-sans dark:bg-black">
-        <Navbar />
+      <div className="flex flex-col  items-center  gap-8 ">
         <CustomerSupportCard />
         <FlashSaleSection />
         <Cartegories />
