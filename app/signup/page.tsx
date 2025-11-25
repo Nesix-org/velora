@@ -5,8 +5,8 @@ import Link from "next/link";
 
 export default function SignupPage() {
   return (
-      <div className="container mx-auto p-8">
-      <div className="max-w-md mx-auto">
+      <div className="container p-8">
+      <div className="max-w-md ">
         <h1 className="text-2xl font-bold text-center mb-8">Sign up</h1>
         <form className="mt-8">
           <div className="mb-4">

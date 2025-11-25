@@ -16,7 +16,7 @@ export default function HomePageLayout() {
   return (
     <>
       <DynamicHead />
-      <div className="min-h-screen bg-bgWhite mx-auto font-sans dark:bg-black">
+      <div className=" ">
         <HomePage />
       </div>
     </>
