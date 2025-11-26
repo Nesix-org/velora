@@ -37,11 +37,11 @@ export default function Footer() {
       <div className="px-4 py-8 md:px-8 lg:px-0">
         <div className="mx-auto max-w-7xl">
           {/* Footer Grid */}
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-5">
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-5 lg:gap-14">
             {/* Brand Section */}
-            <div className="lg:col-span-1 text-center mx-auto w-[60%] md:text-left md:mx-0 md:w-full">
+            <div className="lg:col-span-1 text-center mx-auto w-[60%] md:text-left md:mx-0 md:w-full lg:ml-[-1.5rem]">
               <div className="mb-4 flex items-center justify-center gap-2 md:justify-start">
-                <div className="flex h-18 w-18 items-center justify-center rounded-md bg-bgLemon md:h-16 md:w-16 lg:h-14 lg:w-25">
+                <div className="flex h-18 w-18 items-center justify-center rounded-md bg-bgLemon md:h-16 md:w-16">
                   <Image
                     src="/icons/veloraLogo.png"
                     alt=" brand logo"
@@ -56,57 +56,56 @@ export default function Footer() {
                   </p>
                 </span>
               </div>
-              <p className="mb-6 text-[1.5rem] text-gray-600 leading-relaxed md:text-sm">
+              <p className="mb-6 text-[1.5rem] text-gray-600 leading-relaxed md:text-sm lg:w-[30ch]">
                 We have clothes that suits your style and which you&apos;re
                 proud to wear. From women to men.
               </p>
               <div className="flex items-center justify-center gap-3 md:justify-start">
                 <Link
                   href="#"
-                  className="flex h-10 w-10 lg:h-8 lg:w-12 items-center justify-center rounded-full border border-gray-200 bg-white transition-colors hover:bg-gray-100"
+                  className="flex h-5 w-6 items-center justify-center rounded-full border border-gray-200 bg-white transition-colors hover:bg-gray-100"
                   aria-label="Twitter"
                 >
                   <Image
                     src="/icons/x.png"
                     alt="Twitter icon"
-                    width={50}
+                    width={70}
                     height={50}
                   />
                 </Link>
                 <Link
                   href="#"
-                  className="flex h-10 w-10 lg:h-8 lg:w-12 items-center justify-center rounded-full border border-gray-200 bg-black text-white transition-colors hover:bg-gray-800"
+                  className="flex h-5 w-6 items-center justify-center rounded-full border border-gray-200 text-white transition-colors hover:bg-gray-800"
                   aria-label="Facebook"
                 >
-                  <svg
-                    className="h-5 w-5"
-                    fill="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" />
-                  </svg>
+                  <Image
+                    src="/icons/facebook.png"
+                    alt="Facebook icon"
+                    width={70}
+                    height={50}
+                  />
                 </Link>
                 <Link
                   href="#"
-                  className="flex h-10 w-10 lg:h-8 lg:w-12 items-center justify-center rounded-full border border-gray-200 bg-white transition-colors hover:bg-gray-100"
+                  className="flex h-5 w-6 items-center justify-center rounded-full border border-gray-200 bg-white transition-colors hover:bg-gray-100"
                   aria-label="Instagram"
                 >
                   <Image
                     src="/icons/gram.png"
                     alt="Instagram icon"
-                    width={50}
+                    width={70}
                     height={50}
                   />
                 </Link>
                 <Link
                   href="#"
-                  className="flex h-10 w-10 lg:h-8 lg:w-12 items-center justify-center rounded-full border border-gray-200 bg-white transition-colors hover:bg-gray-100"
+                  className="flex h-5 w-6 items-center justify-center rounded-full border border-gray-200 bg-white transition-colors hover:bg-gray-100"
                   aria-label="GitHub"
                 >
                   <Image
                     src="/icons/github.png"
                     alt="GitHub icon"
-                    width={50}
+                    width={70}
                     height={50}
                   />
                 </Link>
@@ -115,13 +114,13 @@ export default function Footer() {
 
             {/* Links Section */}
             <div className="lg:col-span-4">
-              <div className="grid grid-cols-2 gap-8 mt-4 md:grid-cols-4 lg:gap-12">
+              <div className="grid grid-cols-2 gap-6 mt-4 md:grid-cols-4">
                 {/* Company Links */}
-                <div>
+                <div className="lg:ml-12">
                   <Link href="/company">
-                  <h3 className="mb-4 text-[1.4rem] font-bold uppercase tracking-wider text-gray-900 md:text-sm">
-                    Company
-                  </h3>
+                    <h3 className="mb-4 text-[1.4rem] font-bold uppercase tracking-wider text-gray-900 md:text-sm">
+                      Company
+                    </h3>
                   </Link>
                   <ul className="space-y-3">
                     <li>
@@ -162,9 +161,9 @@ export default function Footer() {
                 {/* Help Links */}
                 <div>
                   <Link href="/help">
-                  <h3 className="mb-4 text-[1.4rem] font-bold uppercase tracking-wider text-gray-900 md:text-sm">
-                    Help
-                  </h3>
+                    <h3 className="mb-4 text-[1.4rem] font-bold uppercase tracking-wider text-gray-900 md:text-sm">
+                      Help
+                    </h3>
                   </Link>
                   <ul className="space-y-3">
                     <li>
@@ -205,9 +204,9 @@ export default function Footer() {
                 {/* FAQ Links */}
                 <div>
                   <Link href="/faq">
-                  <h3 className="mb-4 text-[1.4rem] font-bold uppercase tracking-wider text-gray-900 md:text-sm">
-                    FAQ
-                  </h3>
+                    <h3 className="mb-4 text-[1.4rem] font-bold uppercase tracking-wider text-gray-900 md:text-sm">
+                      FAQ
+                    </h3>
                   </Link>
                   <ul className="space-y-3">
                     <li>
@@ -247,13 +246,15 @@ export default function Footer() {
 
                 {/* Resources Links */}
                 <div>
-                  <h3 className="mb-4 text-[1.4rem] font-bold uppercase tracking-wider text-gray-900 md:text-sm">
-                    Resources
-                  </h3>
+                  <Link href="/resources">
+                    <h3 className="mb-4 text-[1.4rem] font-bold uppercase tracking-wider text-gray-900 md:text-sm">
+                      Resources
+                    </h3>
+                  </Link>
                   <ul className="space-y-3">
                     <li>
                       <Link
-                        href="#"
+                        href="/resources"
                         className="text-[1.2rem] text-gray-600 hover:text-gray-900 md:text-sm"
                       >
                         Free eBooks
@@ -261,7 +262,7 @@ export default function Footer() {
                     </li>
                     <li>
                       <Link
-                        href="#"
+                        href="/resources"
                         className="text-[1.2rem] text-gray-600 hover:text-gray-900 md:text-sm"
                       >
                         Development Tutorial
@@ -269,7 +270,7 @@ export default function Footer() {
                     </li>
                     <li>
                       <Link
-                        href="#"
+                        href="/resources"
                         className="text-[1.2rem] text-gray-600 hover:text-gray-900 md:text-sm"
                       >
                         How to - Blog
@@ -277,7 +278,7 @@ export default function Footer() {
                     </li>
                     <li>
                       <Link
-                        href="#"
+                        href="/resources"
                         className="text-[1.2rem] text-gray-600 hover:text-gray-900 md:text-sm"
                       >
                         Youtube Playlist
@@ -292,80 +293,54 @@ export default function Footer() {
           {/* Footer Bottom */}
           <div className="mt-8 border-t border-gray-200 pt-6">
             <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
-              <p className="text-sm text-gray-600">
+              <p className="text-sm text-bgGray">
                 Velora © 2000-2023, All Rights Reserved
               </p>
               <div className="flex items-center gap-3">
-                <div className="h-8 w-12 rounded bg-white p-1 shadow-sm">
-                  <svg viewBox="0 0 48 32" className="h-full w-full">
-                    <rect width="48" height="32" fill="#00579F" rx="4" />
-                    <path fill="#FAA61A" d="M18 8h12v16H18z" />
-                    <circle cx="16" cy="16" r="8" fill="#EB001B" />
-                    <circle cx="32" cy="16" r="8" fill="#F79E1B" />
-                  </svg>
+                <div className="w-14 h-10">
+                  <Image
+                    src="/icons/visa-pay.png"
+                    alt="Visa card"
+                    width={48}
+                    height={32}
+                    className="h-full w-auto"
+                  />
                 </div>
-                <div className="h-8 w-12 rounded bg-white p-1 shadow-sm">
-                  <svg viewBox="0 0 48 32" className="h-full w-full">
-                    <rect width="48" height="32" fill="#0E4C96" rx="4" />
-                    <text
-                      x="50%"
-                      y="50%"
-                      dominantBaseline="middle"
-                      textAnchor="middle"
-                      fill="white"
-                      fontSize="14"
-                      fontWeight="bold"
-                    >
-                      VISA
-                    </text>
-                  </svg>
+                <div className="w-14 h-10">
+                  <Image
+                    src="/icons/mcard.png"
+                    alt="Mastercard"
+                    width={48}
+                    height={32}
+                    className="h-full w-auto"
+                  />
                 </div>
-                <div className="h-8 w-12 rounded bg-white p-1 shadow-sm">
-                  <svg viewBox="0 0 48 32" className="h-full w-full">
-                    <rect width="48" height="32" fill="#0070BA" rx="4" />
-                    <text
-                      x="50%"
-                      y="50%"
-                      dominantBaseline="middle"
-                      textAnchor="middle"
-                      fill="white"
-                      fontSize="8"
-                      fontWeight="bold"
-                    >
-                      PayPal
-                    </text>
-                  </svg>
+                <div className="w-14 h-10">
+                  <Image
+                    src="/icons/apple-pay.png"
+                    alt="Apple Pay"
+                    width={48}
+                    height={32}
+                    className="h-full w-auto"
+                  />
                 </div>
-                <div className="h-8 w-12 rounded bg-white p-1 shadow-sm">
-                  <svg viewBox="0 0 48 32" className="h-full w-full">
-                    <rect width="48" height="32" fill="#000" rx="4" />
-                    <text
-                      x="50%"
-                      y="50%"
-                      dominantBaseline="middle"
-                      textAnchor="middle"
-                      fill="white"
-                      fontSize="10"
-                      fontWeight="bold"
-                    >
-                      Pay
-                    </text>
-                  </svg>
+                <div className="w-14 h-10">
+                  <Image
+                    src="/icons/paypal_.png"
+                    alt="PayPal"
+                    width={48}
+                    height={32}
+                    className="h-full w-auto"
+                  />
                 </div>
-                <div className="h-8 w-12 rounded bg-white p-1 shadow-sm">
-                  <svg viewBox="0 0 48 32" className="h-full w-full">
-                    <rect width="48" height="32" fill="#fff" rx="4" />
-                    <text
-                      x="50%"
-                      y="50%"
-                      dominantBaseline="middle"
-                      textAnchor="middle"
-                      fontSize="10"
-                      fontWeight="bold"
-                    >
-                      G Pay
-                    </text>
-                  </svg>
+                <div className="w-14 h-10">
+                  <Image
+                    src="/icons/google-pay.png"
+                    alt="Google Pay"
+                    width={100}
+                    height={32}
+                    className="h-full w-auto"
+                  />
                 </div>
               </div>
             </div>
