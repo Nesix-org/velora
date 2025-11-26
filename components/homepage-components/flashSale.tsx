@@ -6,53 +6,9 @@ import {
   CarouselPrevious,
 } from "../ui/carousel";
 import ProductCard from "../productCard";
-import menClothe from "@/public/assets/menClothes/image 16.svg";
-import menShoe1 from "@/public/assets/menFootwear/image 21.svg";
-import menShoe2 from "@/public/assets/menFootwear/image 20.svg";
+import { cards } from "@/constants/products";
 
 export default function FlashSaleSection() {
-  const cards = [
-    {
-      image: menClothe,
-      price: 210,
-      name: "Men's Jacket",
-      discount: "-30%",
-      rating: 4.5,
-      reviews: "(3212 reviews)",
-    },
-    {
-      image: menShoe1,
-      price: 210,
-      name: "Men's Jacket",
-      discount: "-30%",
-      rating: 4.5,
-      reviews: "(3212 reviews)",
-    },
-    {
-      image: menShoe2,
-      price: 210,
-      name: "Men's Jacket",
-      discount: "-30%",
-      rating: 4.5,
-      reviews: "(3212 reviews)",
-    },
-    {
-      image: menClothe,
-      price: 210,
-      name: "Men's Jacket",
-      discount: "-30%",
-      rating: 4.5,
-      reviews: "(3212 reviews)",
-    },
-    {
-      image: menShoe2,
-      price: 210,
-      name: "Men's Jacket",
-      discount: "-30%",
-      rating: 4.5,
-      reviews: "(3212 reviews)",
-    },
-  ];
   return (
     <div className="">
       <h2 className="text-lg font-semibold mb-2 text-gray-900 dark:text-gray-100">
@@ -63,9 +19,9 @@ export default function FlashSaleSection() {
         discounts on selected products!
       </p>
       <div className="grid grid-cols-2 gap-5 md:hidden">
-        {cards.map((card, index) => (
+        {cards.map((card) => (
           <ProductCard
-            key={index}
+            key={card.id}
             image={card.image}
             price={card.price}
             productName={card.name}
@@ -81,8 +37,8 @@ export default function FlashSaleSection() {
           <CarouselNext className="relative right-0" />
         </div>
         <CarouselContent className=" md:flex gap-3">
-          {cards.map((card, index) => ( 
-            <CarouselItem key={index} className="basis-1/2 md:basis-1/4">
+          {cards.map((card) => (
+            <CarouselItem key={card.id} className="basis-1/2 md:basis-1/4">
               <ProductCard
                 image={card.image}
                 price={card.price}
