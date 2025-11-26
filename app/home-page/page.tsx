@@ -5,7 +5,7 @@ import CustomerSupportCard from "@/components/homepage-components/customerServic
 import Cartegories from "@/components/homepage-components/cartegories";
 import MobileDesignSection from "@/components/homepage-components/mobileDesignSection";
 import FlashSaleSection from "@/components/homepage-components/flashSale";
-import Navbar from "@/components/navbar";
+
 
 function DynamicHead() {
   return (
@@ -23,7 +23,7 @@ export default function HomePage() {
   return (
     <>
       <DynamicHead />
-      <div className="flex flex-col  items-center  gap-8 ">
+      <div className="flex flex-col  items-center  gap-8">
         <CustomerSupportCard />
         <FlashSaleSection />
         <Cartegories />
