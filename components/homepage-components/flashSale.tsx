@@ -81,7 +81,7 @@ export default function FlashSaleSection() {
           <CarouselNext className="relative right-0" />
         </div>
         <CarouselContent className=" md:flex gap-3">
-          {cards.map((card, index) => (
+          {cards.map((card, index) => ( 
             <CarouselItem key={index} className="basis-1/2 md:basis-1/4">
               <ProductCard
                 image={card.image}

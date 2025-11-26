@@ -24,19 +24,15 @@ export default function ProductCard({
     <>
       <section className="w-full h-[250px] md:w-[245px] md:h-[370px]">
         <div className="relative group w-full h-[70%] bg-[#DBDBDB] rounded-3xl">
-          <button className="hidden group-hover:block absolute bottom-0 w-full py-2 md:py-3 md:text-xl font-medium rounded-b-3xl bg-[#A1C249] z-10 cursor-pointer ">
+          <button className="absolute bottom-0 w-full py-2 md:py-3 group-hover:opacity-100 group-hover:translate-y-0 translate-y-2 opacity-0 transition-all duration-200 ease-out md:text-xl font-medium rounded-b-3xl bg-[#A1C249] z-10 cursor-pointer ">
             Add to cart
           </button>
           <span className="absolute hidden md:block top-5 px-3 py-2 bg-[#A1C249] font-medium text-xl ">
             {discount}
           </span>
-          <div>
-            <Image
-              src={HeartIcon}
-              alt="heart icon"
-              className="absolute top-1.5 right-1.5 w-[29px] h-[29px] md:w-11 md:h-11"
-            />
-          </div>
+          <button className="absolute top-1.5 right-1.5 w-[29px] h-[29px] md:w-11 md:h-11">
+            <Image src={HeartIcon} alt="heart icon" className="w-full h-full" />
+          </button>
           <Image
             className="object-contain"
             src={image}
