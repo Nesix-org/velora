@@ -1,11 +1,11 @@
 "use client";
 
 import Head from "next/head";
-import CustomerSupportCard from "@/components/homepage-components/customerService";
 import Cartegories from "@/components/homepage-components/cartegories";
 import MobileDesignSection from "@/components/homepage-components/mobileDesignSection";
 import FlashSaleSection from "@/components/homepage-components/flashSale";
 import Navbar from "@/components/navbar";
+import AppBenefits from "@/components/homepage-components/appBenefits";
 
 function DynamicHead() {
   return (
@@ -24,10 +24,10 @@ export default function HomePage() {
     <>
       <DynamicHead />
       <div className="flex flex-col  items-center  gap-8 ">
-        <CustomerSupportCard />
         <FlashSaleSection />
         <Cartegories />
         <MobileDesignSection />
+        <AppBenefits />
       </div>
     </>
   );
