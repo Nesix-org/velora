@@ -5,7 +5,7 @@ import Navbar from "@/components/navbar";
 import CustomerSupportCard from "@/components/homepage-components/appBenefits";
 import FlashSaleSection from "@/components/homepage-components/flashSale";
 import Cartegories from "@/components/homepage-components/cartegories";
-import MobileDesignSection from "@/components/homepage-components/mobileDesignSection";
+import MobileDesignSection from "@/components/homepage-components/appStoreExperience";
 
 export default function LoginPage() {
   return (
