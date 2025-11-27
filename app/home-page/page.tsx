@@ -2,10 +2,8 @@
 
 import Head from "next/head";
 import Cartegories from "@/components/homepage-components/cartegories";
-import MobileDesignSection from "@/components/homepage-components/mobileDesignSection";
 import FlashSaleSection from "@/components/homepage-components/flashSale";
-import Navbar from "@/components/navbar";
-import AppBenefits from "@/components/homepage-components/appBenefits";
+import AppStoreExperience from "@/components/homepage-components/appStoreExperience";
 
 function DynamicHead() {
   return (
@@ -26,8 +24,7 @@ export default function HomePage() {
       <div className="flex flex-col  items-center  gap-8 ">
         <FlashSaleSection />
         <Cartegories />
-        <MobileDesignSection />
-        <AppBenefits />
+        <AppStoreExperience />
       </div>
     </>
   );
