@@ -6,6 +6,7 @@ import Cartegories from "@/components/homepage-components/cartegories";
 import MobileDesignSection from "@/components/homepage-components/mobileDesignSection";
 import FlashSaleSection from "@/components/homepage-components/flashSale";
 import Navbar from "@/components/navbar";
+import NewArrival from "@/components/homepage-components/newArrival";
 
 function DynamicHead() {
   return (
@@ -27,6 +28,7 @@ export default function HomePage() {
         <CustomerSupportCard />
         <FlashSaleSection />
         <Cartegories />
+        <NewArrival />
         <MobileDesignSection />
       </div>
     </>
