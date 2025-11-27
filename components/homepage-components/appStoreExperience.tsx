@@ -24,11 +24,11 @@ export default function AppStoreExperience() {
   return (
     <section className="bg-[#A1C249] w-full pt-10 pb-5 md:px-16 md:py-0 flex flex-col md:flex-row gap-4 md:gap-8 items-center justify-between">
       <div className="flex flex-col px-6 gap-6 md:gap-12 items-center md:items-start">
-        <p className="text-2xl md:text-4xl font-medium md:text-left text-center">
+        <h2 className="text-2xl md:text-4xl font-medium md:text-left text-center">
           Enjoy better Experience with our App
-        </p>
+        </h2>
 
-        <div className="flex flex-row gap-4">
+        <nav className="flex flex-row gap-4">
           {appProps.map((app, index) => (
             <section key={index} className="">
               <div
@@ -47,9 +47,9 @@ export default function AppStoreExperience() {
               </div>
             </section>
           ))}
-        </div>
+        </nav>
       </div>
-      <div>
+      <figure>
         <Image
           src="/assets/appStoreDesign/veloraMobile.svg"
           alt="mobile app experience"
@@ -57,7 +57,7 @@ export default function AppStoreExperience() {
           height={500}
           className="w-[280px] h-auto md:w-[400px] lg:w-[500px]"
         />
-      </div>
+      </figure>
     </section>
   );
 }
