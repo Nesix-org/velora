@@ -5,7 +5,7 @@ import Navbar from "@/components/navbar";
 import CustomerSupportCard from "@/components/homepage-components/customerService";
 import FlashSaleSection from "@/components/homepage-components/flashSale";
 import Cartegories from "@/components/homepage-components/cartegories";
-import MobileDesignSection from "@/components/homepage-components/mobileDesignSection";
+import MobileDesignSection from "@/components/homepage-components/appStoreExperience";
 
 export default function LoginPage() {
   return (
@@ -45,13 +45,13 @@ export default function LoginPage() {
           </p>
         </div>
       </div>
-     <div className="flex flex-col min-h-screen mx-auto  gap-8 ">
-             <Navbar />
-             <CustomerSupportCard />
-             <FlashSaleSection />
-             <Cartegories />
-             <MobileDesignSection />
-           </div>
+      <div className="flex flex-col min-h-screen mx-auto  gap-8 ">
+        <Navbar />
+        <CustomerSupportCard />
+        <FlashSaleSection />
+        <Cartegories />
+        <MobileDesignSection />
+      </div>
     </div>
   );
 }
