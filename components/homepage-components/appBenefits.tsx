@@ -32,14 +32,14 @@ const appBenefits: AppBenefits[] = [
 export default function AppBenefits() {
   return (
     <section className="flex flex-col gap-16 md:flex-row justify-center items-center">
-      {appBenefits.map((benefit, index) => (
+      {appBenefits.map((benefit) => (
         <article
-          key={index}
+          key={benefit.title}
           className="flex flex-col items-center justify-center p-4"
         >
           <Image
             src={benefit.logoUrl}
-            alt={benefit.title}
+            alt={`${benefit.title} icon`}
             width={64}
             height={64}
             className="mb-4 p-1 bg-black rounded-full border-8 border-gray-300"
@@ -49,7 +49,7 @@ export default function AppBenefits() {
           <h3 className="text-sm mb-1 font-semibold uppercase">
             {benefit.title}
           </h3>
-          <p className="text-center text-xs text-gray-600 dark:text-gray-300 max-w-xs">
+          <p className="text-xs text-gray-600 dark:text-gray-300 max-w-xs">
             {benefit.description}
           </p>
           </header>
