@@ -31,20 +31,29 @@ export default function AppStoreExperience() {
         <nav className="flex flex-row gap-4">
           {appProps.map((app, index) => (
             <section key={index} className="">
-              <div
-                className="p-[1px] rounded-lg"
-                style={{
-                  background: "linear-gradient(90deg, #6DDCFF, #7F60F9)",
-                }}
+              <a
+                href={app.name === "App Store"
+                  ? "https://apps.apple.com/app/idYOUR_APP_ID"
+                  : "https://play.google.com/store/apps/details?id=YOUR_APP_PACKAGE"}
+                aria-label={`Download Velora app on the ${app.name}`}
+                target="_blank"
+                rel="noopener noreferrer"
               >
-                <Image
-                  src={app.appUrl}
-                  alt={`${app.action} ${app.name}`}
-                  width={135}
-                  height={40}
-                  className="w-[120px] md:w-[135px]"
-                />
-              </div>
+                <div
+                  className="p-[1px] rounded-lg"
+                  style={{
+                    background: "linear-gradient(90deg, #6DDCFF, #7F60F9)",
+                  }}
+                >
+                  <Image
+                    src={app.appUrl}
+                    alt=""
+                    width={135}
+                    height={40}
+                    className="w-[120px] md:w-[135px]"
+                  />
+                </div>
+              </a>
             </section>
           ))}
         </nav>
