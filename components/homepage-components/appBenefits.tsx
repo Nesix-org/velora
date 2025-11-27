@@ -34,7 +34,7 @@ export default function AppBenefits() {
     <section className="flex flex-col gap-16 md:flex-row justify-center items-center">
       {appBenefits.map((benefit, index) => (
         <article
-          key={index}
+          key={benefit.title}
           className="flex flex-col items-center justify-center p-4"
         >
           <Image
