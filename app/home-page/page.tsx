@@ -3,10 +3,8 @@
 import Head from "next/head";
 import CustomerSupportCard from "@/components/homepage-components/customerService";
 import Cartegories from "@/components/homepage-components/cartegories";
-import MobileDesignSection from "@/components/homepage-components/mobileDesignSection";
 import FlashSaleSection from "@/components/homepage-components/flashSale";
-import Navbar from "@/components/navbar";
-import NewArrival from "@/components/homepage-components/newArrival";
+import AppStoreExperience from "@/components/homepage-components/appStoreExperience";
 
 function DynamicHead() {
   return (
@@ -28,8 +26,7 @@ export default function HomePage() {
         <CustomerSupportCard />
         <FlashSaleSection />
         <Cartegories />
-        <NewArrival />
-        <MobileDesignSection />
+        <AppStoreExperience />
       </div>
     </>
   );
