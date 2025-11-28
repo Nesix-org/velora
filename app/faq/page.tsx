@@ -3,6 +3,8 @@ FAQ: will display frequently asked questions and answers about creating an accou
 , managing deliveries, payment methods and orders.
 */
 
+"use client";
+
 import {
   Accordion,
   AccordionContent,
@@ -12,9 +14,11 @@ import {
 
 export default function FAQPage() {
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen py-8 bg-bgLemon text-bgWhite px-4 dark:bg-gray-900 dark:text-bgLemon rounded-lg">
+    <div className="ml-[2rem] min-w-[500px] max-w-7xl md:mx-auto flex flex-col items-center justify-center min-h-screen py-8 bg-bgLemon text-bgWhite px-4 dark:bg-gray-900 dark:text-bgLemon rounded-lg">
       <Accordion type="single" collapsible className="w-full max-w-3xl">
-        <h2 className="text-2xl font-bold mb-4">Frequently Asked Question Page</h2>
+        <h2 className="text-2xl font-bold mb-4">
+          Frequently Asked Question Page
+        </h2>
         <p className="text-xl text-left max-w-4xl md:text-2xl">
           Welcome to the Velora FAQ Page. Here you can find answers to the most
           frequently asked questions about our platform, services, and policies.

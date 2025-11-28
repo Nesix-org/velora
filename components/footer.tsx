@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
 import { Input } from "@/components/ui/input";
@@ -6,17 +8,17 @@ import { Mail } from "lucide-react";
 
 export default function Footer() {
   return (
-    <footer className="w-full bg-gray-50 min-w-[550px] mt-12 dark:bg-gray-900">
+    <footer className="w-full px-5 md:px-0 max-w-7xl mx-auto bg-gray-50 min-w-[550px] mt-12 dark:bg-gray-900">
       {/* Newsletter Section */}
-      <div className="bg-bgLemon px-4 py-8 rounded-lg md:px-8 lg:px-16">
-        <div className="mx-auto max-w-2xl">
-          <div className="flex flex-col items-center gap-6 md:flex-row md:justify-between">
-            <h2 className="text-center text-xl font-black uppercase leading-tight text-gray-900 md:text-left md:text-2xl lg:text-3xl">
+      <div className="bg-bgLemon py-8 rounded-lg">
+        <div className="mx-auto max-w-4xl">
+          <div className="flex flex-col items-center gap-6 md:flex-row md:justify-between md:gap-8 lg:gap-12">
+            <h2 className="lg:ml-[-7.5rem] font-extrabold text-center text-xl font-black uppercase leading-tight text-gray-900 md:text-left md:text-2xl lg:text-4xl">
               Stay up to date about
               <br />
               our latest offers
             </h2>
-            <div className="flex w-full max-w-md flex-col gap-3 md:w-auto">
+            <div className="flex w-full max-w-md flex-col gap-3 md:w-[350px] lg:mr-[-2.5rem]">
               <div className="relative">
                 <Mail className="absolute left-28 top-1/2 h-5 w-5 -translate-y-1/2 text-gray-400 md:left-4" />
                 <Input
@@ -39,7 +41,7 @@ export default function Footer() {
           {/* Footer Grid */}
           <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-5 lg:gap-14">
             {/* Brand Section */}
-            <div className="lg:col-span-1 text-center mx-auto w-[60%] md:text-left md:mx-0 md:w-full lg:ml-[-1.5rem]">
+            <div className="lg:col-span-1 text-center mx-auto w-[60%] md:text-left md:mx-0 md:w-full lg:ml-[-.1rem]">
               <div className="mb-4 flex items-center justify-center gap-2 md:justify-start">
                 <div className="flex h-18 w-18 items-center justify-center rounded-md bg-bgLemon md:h-16 md:w-16">
                   <Image
@@ -63,7 +65,7 @@ export default function Footer() {
               <div className="flex items-center justify-center gap-3 md:justify-start">
                 <Link
                   href="#"
-                  className="flex h-5 w-6 items-center justify-center rounded-full border border-gray-200 bg-white transition-colors hover:bg-gray-100"
+                  className="flex h-5 w-6 items-center justify-center transition-colors hover:bg-gray-100"
                   aria-label="Twitter"
                 >
                   <Image
