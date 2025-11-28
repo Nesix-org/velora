@@ -1,3 +1,5 @@
+"use client";
+
 import { Carousel, CarouselContent, CarouselItem } from "../ui/carousel";
 import ProductCard from "../productCard";
 import { cards } from "@/constants/products";
