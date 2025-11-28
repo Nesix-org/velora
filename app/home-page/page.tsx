@@ -27,6 +27,8 @@ export default function HomePage() {
         <CustomerSupportCard />
         <FlashSaleSection />
         <Cartegories />
+        <NewArrival />
+        <AppStoreExperience />
       </div>
     </>
   );
