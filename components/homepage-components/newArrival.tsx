@@ -54,12 +54,14 @@ export default function NewArrival() {
           <button
             onClick={handlePrev}
             className="p-2 rounded-full bg-white shadow hover:bg-gray-100 z-10"
+            aria-label="Previous products"
           >
             <ChevronLeft className="w-5 h-5" />
           </button>
           <button
             onClick={handleNext}
             className="p-2 rounded-full bg-white shadow hover:bg-gray-100"
+            aria-label="Next products"
           >
             <ChevronRight className="w-5 h-5" />
           </button>
