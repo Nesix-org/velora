@@ -1,3 +1,5 @@
+"use client";
+
 import { Carousel, CarouselContent, CarouselItem } from "../ui/carousel";
 import ProductCard from "../productCard";
 import { cards } from "@/constants/products";
@@ -6,17 +8,17 @@ import { useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
 export default function NewArrival() {
-  const [api1, setApi1] = useState<CarouselApi>();
-  const [api2, setApi2] = useState<CarouselApi>();
+  const [firstRowApi, setFirstRowApi] = useState<CarouselApi>();
+  const [secondRowApi, setSecondRowApi] = useState<CarouselApi>();
 
   const handlePrev = () => {
-    api1?.scrollPrev();
-    api2?.scrollPrev();
+    firstRowApi?.scrollPrev();
+    secondRowApi?.scrollPrev();
   };
 
   const handleNext = () => {
-    api1?.scrollNext();
-    api2?.scrollNext();
+    firstRowApi?.scrollNext();
+    secondRowApi?.scrollNext();
   };
 
   // Split cards into two rows
@@ -54,22 +56,21 @@ export default function NewArrival() {
           <button
             onClick={handlePrev}
             className="p-2 rounded-full bg-white shadow hover:bg-gray-100 z-10"
+           aria-label="Previous products"
           >
             <ChevronLeft className="w-5 h-5" />
           </button>
           <button
             onClick={handleNext}
-            className="p-2 rounded-full bg-white shadow hover:bg-gray-100"
+           className="p-2 rounded-full bg-white shadow hover:bg-gray-100 z-10"
+           aria-label="Next products"
           >
             <ChevronRight className="w-5 h-5" />
           </button>
         </div>
 
         {/* First Row Carousel */}
-        <Carousel
-          setApi={setApi1}
-          className="w-full mb-4"
-        >
+        <Carousel setApi={setFirstRowApi} className="w-full mb-4">
           <CarouselContent className="md:flex gap-3">
             {row1Cards.map((card) => (
               <CarouselItem key={card.id} className="basis-1/2 md:basis-1/4">
@@ -87,11 +88,11 @@ export default function NewArrival() {
         </Carousel>
 
         {/* Second Row Carousel */}
-        <Carousel setApi={setApi2} className="w-full">
+        <Carousel setApi={setSecondRowApi} className="w-full">
           <CarouselContent className="md:flex gap-3">
             {row2Cards.map((card) => (
               <CarouselItem
-                key={`row2-${card.id}`}
+                key={card.id}
                 className="basis-1/2 md:basis-1/4"
               >
                 <ProductCard
