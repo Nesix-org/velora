@@ -47,8 +47,6 @@ export default function ProductCard({
           <span className="text-[11px] text-[#A1A1A1]"> {reviews} </span>
         </div>
         <p className="md:text-xl font-medium"> ${price} </p>
-        <div className="">
-        </div>
       </section>
   );
 }
