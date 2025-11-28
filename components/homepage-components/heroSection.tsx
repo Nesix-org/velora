@@ -20,7 +20,7 @@ const labels: loopProps[]= [
   {label: "Beauty", icon: Star},
   {label: "Lifestyle", icon: Star}
 ];
-export default function heroSection() {
+export default function HeroSection() {
   return (
     <main
       style={{
