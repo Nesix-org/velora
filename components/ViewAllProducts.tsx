@@ -34,6 +34,7 @@ function ViewAllProducts({ products }: ViewAllProductsProps) {
             type="button"
             onClick={handleViewAll}
             className="bg-[#A1C249] hover:bg-[#8FAF3A] text-black font-semibold py-3 px-19 rounded-3xl transition duration-200 shadow-md hover:shadow-lg"
+            aria-label="Toggle product visibility"
           >
             {showAllProducts ? 'Hide Products' : 'View All Products'}
           </button>
