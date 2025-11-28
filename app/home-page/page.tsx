@@ -5,6 +5,8 @@ import CustomerSupportCard from "@/components/homepage-components/customerServic
 import Cartegories from "@/components/homepage-components/cartegories";
 import FlashSaleSection from "@/components/homepage-components/flashSale";
 import AppStoreExperience from "@/components/homepage-components/appStoreExperience";
+import ViewAllProducts from "@/components/ViewAllProducts";
+import { cards } from "@/constants/products";
 
 function DynamicHead() {
   return (
@@ -25,6 +27,7 @@ export default function HomePage() {
       <div className="flex flex-col  items-center  gap-8 ">
         <CustomerSupportCard />
         <FlashSaleSection />
+        <ViewAllProducts products={cards} />
         <Cartegories />
         <AppStoreExperience />
       </div>
