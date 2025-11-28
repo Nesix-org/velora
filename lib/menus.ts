@@ -1,0 +1,1 @@
+  export const menus: string[] = ["Home", "Shop", "Blog", "Contact", "Sign In"];

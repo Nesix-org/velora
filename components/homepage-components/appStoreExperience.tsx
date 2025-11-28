@@ -19,7 +19,7 @@ const appProps: AppProps[] = [
 
 export default function AppStoreExperience() {
   return (
-    <section className="bg-[#A1C249] w-full pt-10 pb-5 md:px-16 md:py-0 flex flex-col md:flex-row gap-4 md:gap-8 items-center justify-between">
+    <section className="bg-[#A1C249]  pt-10 pb-5 md:px-16 md:py-0 flex flex-col md:flex-row gap-4 md:gap-8 items-center justify-between">
       <div className="flex flex-col px-6 gap-6 md:gap-12 items-center md:items-start">
         <h2 className="text-2xl md:text-4xl font-medium md:text-left text-center">
           Enjoy a better Experience with our App
