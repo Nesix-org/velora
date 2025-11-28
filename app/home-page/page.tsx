@@ -4,6 +4,7 @@ import Head from "next/head";
 import Cartegories from "@/components/homepage-components/cartegories";
 import FlashSaleSection from "@/components/homepage-components/flashSale";
 import AppStoreExperience from "@/components/homepage-components/appStoreExperience";
+import AppBenefits from "@/components/homepage-components/appBenefits";
 
 function DynamicHead() {
   return (
@@ -25,6 +26,7 @@ export default function HomePage() {
         <FlashSaleSection />
         <Cartegories />
         <AppStoreExperience />
+        <AppBenefits />
       </div>
     </>
   );
