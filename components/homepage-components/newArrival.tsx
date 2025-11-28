@@ -1,5 +1,7 @@
 "use client";
 
+"use client";
+
 import { Carousel, CarouselContent, CarouselItem } from "../ui/carousel";
 import ProductCard from "../productCard";
 import { cards } from "@/constants/products";
@@ -32,7 +34,7 @@ export default function NewArrival() {
           This month
         </h3>
         <h2 className="text-2xl md:text-5xl font-medium mb-2 text-gray-900 dark:text-gray-100">
-          new Arrivals
+          New Arrivals
         </h2>
       </header>
 
@@ -56,14 +58,14 @@ export default function NewArrival() {
           <button
             onClick={handlePrev}
             className="p-2 rounded-full bg-white shadow hover:bg-gray-100 z-10"
-           aria-label="Previous products"
+            aria-label="Previous products"
           >
             <ChevronLeft className="w-5 h-5" />
           </button>
           <button
             onClick={handleNext}
-           className="p-2 rounded-full bg-white shadow hover:bg-gray-100 z-10"
-           aria-label="Next products"
+            className="p-2 rounded-full bg-white shadow hover:bg-gray-100"
+            aria-label="Next products"
           >
             <ChevronRight className="w-5 h-5" />
           </button>
