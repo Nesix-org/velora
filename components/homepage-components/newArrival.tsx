@@ -30,7 +30,7 @@ export default function NewArrival() {
           This month
         </h3>
         <h2 className="text-2xl md:text-5xl font-medium mb-2 text-gray-900 dark:text-gray-100">
-          new Arrivals
+          New Arrivals
         </h2>
       </header>
 
