@@ -3,7 +3,7 @@
 import dynamic from "next/dynamic";
 const Marquee = dynamic(() => import("react-fast-marquee"), { ssr: false });
 // Images & Icons
-import Image, { StaticImageData }from "next/image";
+import Image, { StaticImageData } from "next/image";
 import HeroBg from "@/public/assets/heroSection/heroImage.svg";
 import { ArrowUpRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
