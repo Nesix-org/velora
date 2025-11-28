@@ -11,9 +11,9 @@ import Star from "@/public/assets/heroSection/star.svg";
 
 // Background Image
 const imageUrl = "/assets/icons/bgImage.svg";
-interface loopProps{ label: string; icon: string | StaticImageData};
+interface LoopProps{ label: string; icon: string | StaticImageData};
 
-const labels: loopProps[]= [
+const labels: LoopProps[]= [
   { label: "Fashion", icon: Star },
   { label: "Style", icon: Star },
   { label: "Elegance", icon: Star },
