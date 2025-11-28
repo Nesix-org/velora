@@ -31,6 +31,7 @@ function ViewAllProducts({ products }: ViewAllProductsProps) {
       <div className="max-w-6xl mx-auto">
         <div className="flex justify-between items-center mb-1">
           <button
+            type="button"
             onClick={handleViewAll}
             className="bg-[#A1C249] hover:bg-[#8FAF3A] text-black font-semibold py-3 px-19 rounded-3xl transition duration-200 shadow-md hover:shadow-lg"
           >
