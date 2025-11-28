@@ -8,7 +8,9 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme {
-  --color-bgWhite: hsla(0, 0%, 97%, 1)
+  --color-bgWhite: hsla(0, 0%, 97%, 1);
+  --color-bgLemon: hsla(76, 50%, 52%, 1);
+  --color-bgGray: hsla(0, 0%, 0%, 0.6)
 }
 
 @theme inline {
