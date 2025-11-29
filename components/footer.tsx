@@ -5,8 +5,45 @@ import Image from "next/image";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Mail } from "lucide-react";
+import { toast } from "sonner";
+import { useState } from "react";
 
 export default function Footer() {
+  const [email, setEmail] = useState<string>("");
+  const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
+
+  const handleNewsletterSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    // Basic email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!email || !emailRegex.test(email)) {
+      toast.error("Please enter a valid email address.");
+      return;
+    }
+    setIsSubmitting(true);
+
+    try {
+      // TODO: Replace this with actual API call when backend is ready
+      // const response = await fetch('/api/newsletter', {
+      //   method: 'POST',
+      //   headers: { 'Content-Type': 'application/json' },
+      //   body: JSON.stringify({ email })
+      // });
+
+      // Simulate an API call to subscribe the user to the newsletter
+      await new Promise((resolve) => setTimeout(resolve, 2000));
+
+      // for now, just show a success toast
+      toast.success("Subscribed to newsletter successfully!");
+      setEmail(""); // Clear the input field
+    } catch {
+      toast.error("Something went wrong. Please try again later.");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <footer className="w-full px-5 md:px-0 max-w-7xl mx-auto bg-gray-50 min-w-[550px] mt-12 dark:bg-gray-900">
       {/* Newsletter Section */}
@@ -18,19 +55,29 @@ export default function Footer() {
               <br />
               our latest offers
             </h2>
-            <div className="flex w-full max-w-md flex-col gap-3 md:w-[350px] lg:mr-[-2.5rem]">
+            <form
+              onSubmit={handleNewsletterSubmit}
+              className="flex w-full max-w-md flex-col gap-3 md:w-[350px] lg:mr-[-2.5rem]"
+            >
               <div className="relative">
-                <Mail className="absolute left-28 top-1/2 h-5 w-5 -translate-y-1/2 text-gray-400 md:left-4" />
+                <Mail className="absolute left-28 top-1/2 h-5 w-5 -translate-y-1/2 text-gray-400 md:left-15" />
                 <Input
                   type="email"
                   placeholder="Enter your email address"
-                  className="h-12 w-full rounded-full border-0 bg-white pl-12 pr-4 text-center text-gray-900 placeholder:text-gray-400 md:pl-12 md:text-left"
+                  className="h-12 w-full rounded-full border-0 bg-white pl-12 pr-4 text-center text-gray-900 placeholder:text-gray-400 md:pl-10 "
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  disabled={isSubmitting}
                 />
               </div>
-              <Button className="h-12 w-full rounded-full bg-white text-[#a4c05c] hover:bg-gray-100 hover:text-gray-900 md:w-auto px-6 font-semibold cursor-pointer">
-                Subscribe to Newsletter
+              <Button
+                type="submit"
+                disabled={isSubmitting}
+                className="h-12 w-full rounded-full bg-white text-[#a4c05c] hover:bg-gray-100 hover:text-gray-900 md:w-auto px-6 font-semibold cursor-pointer"
+              >
+                {isSubmitting ? "Subscribing..." : "Subscribe to Newsletter"}
               </Button>
-            </div>
+            </form>
           </div>
         </div>
       </div>
@@ -65,7 +112,7 @@ export default function Footer() {
               <div className="flex items-center justify-center gap-3 md:justify-start">
                 <Link
                   href="#"
-                  className="flex h-5 w-6 items-center justify-center transition-colors hover:bg-gray-100"
+                  className="flex h-5 w-6 items-center justify-center transition-colors hover:bg-bgLemon "
                   aria-label="Twitter"
                 >
                   <Image
@@ -77,7 +124,7 @@ export default function Footer() {
                 </Link>
                 <Link
                   href="#"
-                  className="flex h-5 w-6 items-center justify-center rounded-full border border-gray-200 text-white transition-colors hover:bg-gray-800"
+                  className="flex h-5 w-6 items-center justify-center rounded-full border border-gray-200 text-white transition-colors hover:bg-bgLemon "
                   aria-label="Facebook"
                 >
                   <Image
@@ -120,7 +167,7 @@ export default function Footer() {
                 {/* Company Links */}
                 <div className="lg:ml-12">
                   <Link href="/company">
-                    <h3 className="mb-4 text-[1.4rem] font-bold uppercase tracking-wider text-gray-900 md:text-sm">
+                    <h3 className="mb-4 text-[1.4rem] font-bold uppercase tracking-wider text-gray-900 md:text-sm hover:text-bgLemon transition-colors hover:text-[.95rem]">
                       Company
                     </h3>
                   </Link>
@@ -128,7 +175,7 @@ export default function Footer() {
                     <li>
                       <Link
                         href="/company"
-                        className="text-[1.2rem] text-gray-600 hover:text-gray-900 md:text-sm"
+                        className="text-[1.2rem] text-gray-600 md:text-sm hover:text-bgLemon transition-colors"
                       >
                         About
                       </Link>
@@ -136,7 +183,7 @@ export default function Footer() {
                     <li>
                       <Link
                         href="/company"
-                        className="text-[1.2rem] text-gray-600 hover:text-gray-900 md:text-sm"
+                        className="text-[1.2rem] text-gray-600 md:text-sm hover:text-bgLemon transition-colors"
                       >
                         Features
                       </Link>
@@ -144,7 +191,7 @@ export default function Footer() {
                     <li>
                       <Link
                         href="/company"
-                        className="text-[1.2rem] text-gray-600 hover:text-gray-900 md:text-sm"
+                        className="text-[1.2rem] text-gray-600 md:text-sm hover:text-bgLemon transition-colors"
                       >
                         Works
                       </Link>
@@ -152,7 +199,7 @@ export default function Footer() {
                     <li>
                       <Link
                         href="/company"
-                        className="text-[1.2rem] text-gray-600 hover:text-gray-900 md:text-sm"
+                        className="text-[1.2rem] text-gray-600 md:text-sm hover:text-bgLemon transition-colors"
                       >
                         Career
                       </Link>
@@ -163,7 +210,7 @@ export default function Footer() {
                 {/* Help Links */}
                 <div>
                   <Link href="/help">
-                    <h3 className="mb-4 text-[1.4rem] font-bold uppercase tracking-wider text-gray-900 md:text-sm">
+                    <h3 className="mb-4 text-[1.4rem] font-bold uppercase tracking-wider text-gray-900 md:text-sm hover:text-bgLemon transition-colors hover:text-[.95rem] ">
                       Help
                     </h3>
                   </Link>
@@ -171,7 +218,7 @@ export default function Footer() {
                     <li>
                       <Link
                         href="/help"
-                        className="text-[1.2rem] text-gray-600 hover:text-gray-900 md:text-sm"
+                        className="text-[1.2rem] text-gray-600 md:text-sm hover:text-bgLemon transition-colors"
                       >
                         Customer Support
                       </Link>
@@ -179,7 +226,7 @@ export default function Footer() {
                     <li>
                       <Link
                         href="/help"
-                        className="text-[1.2rem] text-gray-600 hover:text-gray-900 md:text-sm"
+                        className="text-[1.2rem] text-gray-600 md:text-sm hover:text-bgLemon transition-colors"
                       >
                         Delivery Details
                       </Link>
@@ -187,7 +234,7 @@ export default function Footer() {
                     <li>
                       <Link
                         href="/help"
-                        className="text-[1.2rem] text-gray-600 hover:text-gray-900 md:text-sm"
+                        className="text-[1.2rem] text-gray-600 md:text-sm hover:text-bgLemon transition-colors"
                       >
                         Terms & Conditions
                       </Link>
@@ -195,7 +242,7 @@ export default function Footer() {
                     <li>
                       <Link
                         href="/help"
-                        className="text-[1.2rem] text-gray-600 hover:text-gray-900 md:text-sm"
+                        className="text-[1.2rem] text-gray-600 md:text-sm hover:text-bgLemon transition-colors"
                       >
                         Privacy Policy
                       </Link>
@@ -206,7 +253,7 @@ export default function Footer() {
                 {/* FAQ Links */}
                 <div>
                   <Link href="/faq">
-                    <h3 className="mb-4 text-[1.4rem] font-bold uppercase tracking-wider text-gray-900 md:text-sm">
+                    <h3 className="mb-4 text-[1.4rem] font-bold uppercase tracking-wider text-gray-900 md:text-sm hover:text-bgLemon transition-colors hover:text-[.95rem]">
                       FAQ
                     </h3>
                   </Link>
@@ -214,7 +261,7 @@ export default function Footer() {
                     <li>
                       <Link
                         href="/faq"
-                        className="text-[1.2rem] text-gray-600 hover:text-gray-900 md:text-sm"
+                        className="text-[1.2rem] text-gray-600 md:text-sm hover:text-bgLemon transition-colors"
                       >
                         Account
                       </Link>
@@ -222,7 +269,7 @@ export default function Footer() {
                     <li>
                       <Link
                         href="/faq"
-                        className="text-[1.2rem] text-gray-600 hover:text-gray-900 md:text-sm"
+                        className="text-[1.2rem] text-gray-600 md:text-sm hover:text-bgLemon transition-colors"
                       >
                         Manage Deliveries
                       </Link>
@@ -230,7 +277,7 @@ export default function Footer() {
                     <li>
                       <Link
                         href="/faq"
-                        className="text-[1.2rem] text-gray-600 hover:text-gray-900 md:text-sm"
+                        className="text-[1.2rem] text-gray-600 md:text-sm hover:text-bgLemon transition-colors"
                       >
                         Orders
                       </Link>
@@ -238,7 +285,7 @@ export default function Footer() {
                     <li>
                       <Link
                         href="/faq"
-                        className="text-[1.2rem] text-gray-600 hover:text-gray-900 md:text-sm"
+                        className="text-[1.2rem] text-gray-600 md:text-sm hover:text-bgLemon transition-colors"
                       >
                         Payments
                       </Link>
@@ -249,7 +296,7 @@ export default function Footer() {
                 {/* Resources Links */}
                 <div>
                   <Link href="/resources">
-                    <h3 className="mb-4 text-[1.4rem] font-bold uppercase tracking-wider text-gray-900 md:text-sm">
+                    <h3 className="mb-4 text-[1.4rem] font-bold uppercase tracking-wider text-gray-900 md:text-sm hover:text-bgLemon transition-colors hover:text-[.95rem]">
                       Resources
                     </h3>
                   </Link>
@@ -257,7 +304,7 @@ export default function Footer() {
                     <li>
                       <Link
                         href="/resources"
-                        className="text-[1.2rem] text-gray-600 hover:text-gray-900 md:text-sm"
+                        className="text-[1.2rem] text-gray-600 md:text-sm hover:text-bgLemon transition-colors"
                       >
                         Free eBooks
                       </Link>
@@ -265,7 +312,7 @@ export default function Footer() {
                     <li>
                       <Link
                         href="/resources"
-                        className="text-[1.2rem] text-gray-600 hover:text-gray-900 md:text-sm"
+                        className="text-[1.2rem] text-gray-600 md:text-sm hover:text-bgLemon transition-colors"
                       >
                         Development Tutorial
                       </Link>
@@ -273,7 +320,7 @@ export default function Footer() {
                     <li>
                       <Link
                         href="/resources"
-                        className="text-[1.2rem] text-gray-600 hover:text-gray-900 md:text-sm"
+                        className="text-[1.2rem] text-gray-600 md:text-sm hover:text-bgLemon transition-colors"
                       >
                         How to - Blog
                       </Link>
@@ -281,7 +328,7 @@ export default function Footer() {
                     <li>
                       <Link
                         href="/resources"
-                        className="text-[1.2rem] text-gray-600 hover:text-gray-900 md:text-sm"
+                        className="text-[1.2rem] text-gray-600 md:text-sm hover:text-bgLemon transition-colors"
                       >
                         Youtube Playlist
                       </Link>
@@ -295,7 +342,7 @@ export default function Footer() {
           {/* Footer Bottom */}
           <div className="mt-8 border-t border-gray-200 pt-6">
             <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
-              <p className="text-sm text-bgGray">
+              <p className="text-sm text-bgGray hover:text-bgLemon transition-colors">
                 Velora © 2000-2023, All Rights Reserved
               </p>
               <div className="flex items-center gap-3">
