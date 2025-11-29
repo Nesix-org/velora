@@ -9,7 +9,7 @@ import Icon from "../public/assets/icons/Logo.svg";
 import cartIcon from "../public/assets/icons/cart.svg";
 import heartIcon from "../public/assets/icons/heart.svg";
 import Search from "../public/assets/icons/search.svg";
-import { Button } from "@/components/ui/button";
+import { buttonVariants, Button } from "@/components/ui/button";
 import { X, Menu, ChevronDown, ChevronUp, User } from "lucide-react";
 // States
 import { useState } from "react";
@@ -21,7 +21,8 @@ import { menus } from "../lib/menus";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
-  const [signIn, setSignIn] = useState(false);
+  const [showSignInDropdown, setShowSignInDropdown] = useState(false);
+
 
   const toggleMenu = () => setOpen((prev) => !prev);
 
@@ -65,14 +66,14 @@ export default function Navbar() {
         </Link>
 
         <div className="flex justify-between items-center gap-4">
-          <div className=" md:block border border-[#A1C249] rounded-full px-4 py-2 text-sm font-medium text-[#A1C249] hover:bg-[#A1C249] hover:text-white transition-colors duration-300">
+          <Link href="/signup" className="md:block border border-[#A1C249] rounded-full px-4 py-2 text-sm font-medium text-[#A1C249] hover:bg-[#A1C249] hover:text-white transition-colors duration-300">
             <p>Sign Up</p>
-          </div>
+          </Link>
 
           <Button
             variant={"outline"}
             size={"icon"}
-            aria-label="close"
+            aria-label="open menu"
             className="rounded-full p-5"
             onClick={toggleMenu}
           >
@@ -84,7 +85,7 @@ export default function Navbar() {
       <AnimatePresence>
         {open && (
           <motion.nav
-            className="bg-black/50 h-full w-full  flex justify-left gap-8 fixed inset-0 left-0 z-40 top-0  "
+            className="bg-black/50 h-full w-full  flex justify-start gap-8 fixed inset-0  z-50   "
             onClick={toggleMenu}
             initial="hidden"
             animate="visible"
@@ -123,13 +124,13 @@ export default function Navbar() {
                 variants={listVariants}
                 className="flex flex-col gap-6 mt-10 pl-5"
               >
-                {menus.map((menu, idx) => {
+                {menus.map((menu) => {
                   const href = menu === "Home" ? "/" : `/${menu.toLowerCase()}`;
                   const isActive = pathName === href;
 
                   return (
                     <MenuItem
-                      key={idx}
+                      key={menu}
                       label={menu}
                       href={href}
                       isActive={isActive}
@@ -170,13 +171,14 @@ export default function Navbar() {
           </ul>
         </div>
 
-        {/* search bar, wishlist icon and cart, signup button */}
+        {/* search bar, wishlist icon and cart, signup & signin btn */}
         <div className="ml-4 flex items-center gap-9">
           <div className="bg-[#ECECEC] px-7 py-2 relative rounded-3xl">
             <input
               type="text"
               placeholder="What are you looking for ?"
               className="pr-3 placeholder:text-sm focus:outline-none"
+              aria-label="Search"
             />
             <Image
               src={Search}
@@ -185,53 +187,54 @@ export default function Navbar() {
             ></Image>
           </div>
 
-          <Button
-            variant={"outline"}
-            size={"icon"}
-            aria-label="close"
-            className="rounded-full"
-          >
-            <Link href="/wishlist">
-              <Image
-                src={heartIcon}
-                alt="wishlist"
-                className="w-7 h-7 "
-              ></Image>
-            </Link>
-          </Button>
 
-          <Button
-            variant={"outline"}
-            size={"icon"}
-            aria-label="close"
-            className="rounded-full"
+          <Link href="/wishlist"
+            className={buttonVariants({
+              variant: "outline",
+              size: "icon",
+              className: "!rounded-full"
+            })}
+            aria-label="wishlist"
           >
-            <Link href="/cart">
-              <Image src={cartIcon} alt="cart" className="w-6 h-6 "></Image>
-            </Link>
-          </Button>
+            <Image
+              src={heartIcon}
+              alt="wishlist"
+              className="w-7 h-7"></Image>
+          </Link>
+
+          <Link
+            href="/cart"
+            className={buttonVariants({
+              variant: "outline",
+              size: "icon",
+              className: "!rounded-full"
+            })}
+            aria-label="cart"
+          >
+            <Image src={cartIcon} alt="cart" className="w-6 h-6" />
+          </Link>
           <div className="flex items-center gap-3 border border-[#A1C249] rounded-full px-6 py-3 text-sm font-medium text-[#A1C249] ">
             <Link href="/signup" className=" text-sm font-medium">
               Sign Up
             </Link>
-            {signIn ? (
+            {showSignInDropdown ? (
               <ChevronUp
                 className=" w-5 h-5 cursor-pointer"
-                onClick={() => setSignIn(false)}
+                onClick={() => setShowSignInDropdown(false)}
               />
             ) : (
               <ChevronDown
                 className=" w-5 h-5 cursor-pointer"
-                onClick={() => setSignIn(true)}
+                onClick={() => setShowSignInDropdown(true)}
               />
             )}
             {/* Hidden Sign In */}
-            {signIn && (
+            {showSignInDropdown && (
               <motion.div
                 initial="hidden"
                 animate="visible"
                 variants={itemVariants}
-                className="absolute top-19 right-0 -translate-x-26 bg-[#A1C249]/50 px-6 py-3 text-black flex item-center gap-3 rounded-md"
+                className="absolute top-[76px] right-0 -translate-x-[124px] bg-[#A1C249]/50 px-6 py-3 text-black flex items-center gap-3 rounded-md"
               >
                 <User className="" />
                 <Link href="/signin" className=" text-sm font-medium ">

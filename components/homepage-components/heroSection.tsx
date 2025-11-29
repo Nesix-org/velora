@@ -6,8 +6,9 @@ const Marquee = dynamic(() => import("react-fast-marquee"), { ssr: false });
 import Image, { StaticImageData }from "next/image";
 import HeroBg from "@/public/assets/heroSection/heroImage.svg";
 import { ArrowUpRight } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import {buttonVariants, Button } from "@/components/ui/button";
 import Star from "@/public/assets/heroSection/star.svg";
+import Link from "next/link";
 
 // Background Image
 const imageUrl = "/assets/icons/bgImage.svg";
@@ -46,14 +47,16 @@ export default function heroSection() {
             <span className="pl-2 text-primary text-xl md:text-2xl">
               Shop Now
             </span>
-            <Button
-              variant={"outline"}
-              size={"icon"}
-              aria-label="arrow"
-              className="rounded-full"
+            <Link href="/shop"
+             className={buttonVariants({
+              variant: "outline",
+              size: "icon",
+              className: "!rounded-full"
+            })}
+            aria-label="shop now"
             >
               <ArrowUpRight strokeWidth={3} />
-            </Button>
+            </Link>
           </div>
         </div>
 
@@ -80,9 +83,9 @@ export default function heroSection() {
       {/* Infinite loop */}
       <div className="w-full h-[110px] bg-[#A1C249] flex items-center overflow-hidden -mt-[35px] md:-mt-[39px]">
         <Marquee gradient={false} speed={50}>
-          {labels.map((label, idx) => (
+          {labels.map((label) => (
             <div
-              key={idx}
+              key={label.label}
               className="flex items-center space-x-15 mx-6 md:mx-10"
             >
               <p className="text-2xl md:text-5xl font-bold">{label.label}</p>

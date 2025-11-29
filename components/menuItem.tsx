@@ -18,7 +18,7 @@ export default function MenuItem({
   return (
     <motion.li
       variants={itemVariants}
-      className="relative text-lg hover:text-[#A1C249] cursor-pointer transition-colors duration-300 group w-max "
+      className="relative text-lg hover:text-[#A1C249]  transition-colors duration-300 group w-max "
     >
       <Link href={href} onClick={onClick}>
         {label}
