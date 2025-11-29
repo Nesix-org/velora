@@ -61,6 +61,7 @@ export default function Navbar() {
     <header className=" w-full px-5  md:max-w-3xl  lg:max-w-7xl mx-auto">
       {/* Mobile Menu */}
       <div className="md:hidden w-full py-3 px-1  flex items-center justify-between">
+        {/* Logo,signup & Menu */}
         <Link href="/">
           <Image src={Icon} alt="velora"></Image>
         </Link>
@@ -207,7 +208,7 @@ export default function Navbar() {
             className={buttonVariants({
               variant: "outline",
               size: "icon",
-              className: "!rounded-full"
+              className: "!rounded-full "
             })}
             aria-label="cart"
           >
