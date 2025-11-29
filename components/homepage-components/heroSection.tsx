@@ -3,7 +3,7 @@
 import dynamic from "next/dynamic";
 const Marquee = dynamic(() => import("react-fast-marquee"), { ssr: false });
 // Images & Icons
-import Image, { StaticImageData }from "next/image";
+import Image, { StaticImageData } from "next/image";
 import HeroBg from "@/public/assets/heroSection/heroImage.svg";
 import { ArrowUpRight } from "lucide-react";
 import {buttonVariants, Button } from "@/components/ui/button";
@@ -12,16 +12,16 @@ import Link from "next/link";
 
 // Background Image
 const imageUrl = "/assets/icons/bgImage.svg";
-interface loopProps{ label: string; icon: string | StaticImageData};
+interface LoopProps{ label: string; icon: string | StaticImageData};
 
-const labels: loopProps[]= [
+const labels: LoopProps[]= [
   { label: "Fashion", icon: Star },
   { label: "Style", icon: Star },
   { label: "Elegance", icon: Star },
   {label: "Beauty", icon: Star},
   {label: "Lifestyle", icon: Star}
 ];
-export default function heroSection() {
+export default function HeroSection() {
   return (
     <main
       style={{

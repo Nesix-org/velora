@@ -237,7 +237,7 @@ export default function Navbar() {
                 variants={itemVariants}
                 className="absolute top-[76px] right-0 -translate-x-[124px] bg-[#A1C249]/50 px-6 py-3 text-black flex items-center gap-3 rounded-md"
               >
-                <User className="" />
+                <User />
                 <Link href="/signin" className=" text-sm font-medium ">
                   Sign In
                 </Link>
