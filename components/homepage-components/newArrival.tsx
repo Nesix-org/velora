@@ -1,13 +1,12 @@
 "use client";
 
-"use client";
-
 import { Carousel, CarouselContent, CarouselItem } from "../ui/carousel";
 import ProductCard from "../productCard";
 import { cards } from "@/constants/products";
 import { type CarouselApi } from "@/components/ui/carousel";
 import { useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import ViewAllProducts from "@/components/ViewAllProducts";
 
 export default function NewArrival() {
   const [firstRowApi, setFirstRowApi] = useState<CarouselApi>();
@@ -93,10 +92,7 @@ export default function NewArrival() {
         <Carousel setApi={setSecondRowApi} className="w-full">
           <CarouselContent className="md:flex gap-3">
             {row2Cards.map((card) => (
-              <CarouselItem
-                key={card.id}
-                className="basis-1/2 md:basis-1/4"
-              >
+              <CarouselItem key={card.id} className="basis-1/2 md:basis-1/4">
                 <ProductCard
                   image={card.image}
                   price={card.price}
@@ -109,6 +105,9 @@ export default function NewArrival() {
             ))}
           </CarouselContent>
         </Carousel>
+      </div>
+      <div className="flex justify-center mt-6">
+        <ViewAllProducts products={cards} />
       </div>
     </section>
   );
