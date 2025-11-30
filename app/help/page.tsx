@@ -1,6 +1,6 @@
 export default function HelpPage() {
   return (
-    <div className="ml-[2rem] min-w-[500px] max-w-7xl md:mx-auto flex flex-col items-center justify-center min-h-screen py-8 bg-bgLemon text-bgWhite px-4 dark:bg-gray-900 dark:text-white rounded-lg">
+    <div className="ml-[2rem] min-w-[500px] md:w-[700px] lg:w-[1280px] max-w-7xl md:mx-auto flex flex-col items-center justify-center min-h-screen py-8 bg-bgLemon text-bgWhite px-4 dark:bg-gray-900 dark:text-white rounded-lg">
       <p className="text-xl text-center max-w-2xl md:text-2xl">
         Welcome to the Velora Help Center. Here you can find answers to common
         questions, guides on how to use our platform, and resources to assist
@@ -10,7 +10,9 @@ export default function HelpPage() {
 
       {/* Customer Support */}
       <div className="mt-10 max-w-3xl text-center">
-        <h2 className="text-2xl font-semibold mb-4 md:text-3xl">Customer Support</h2>
+        <h2 className="text-2xl font-semibold mb-4 md:text-3xl">
+          Customer Support
+        </h2>
         <div className="mb-4 border-b-4 border-white w-[180px] mx-auto rounded-lg"></div>
 
         <p className="text-xl md:text-2xl">
@@ -22,7 +24,9 @@ export default function HelpPage() {
 
       {/* Delivery details */}
       <div className="mt-10 max-w-3xl text-center">
-        <h2 className="text-2xl font-semibold mb-4 md:text-3xl">Delivery Information</h2>
+        <h2 className="text-2xl font-semibold mb-4 md:text-3xl">
+          Delivery Information
+        </h2>
         <div className="mb-4 border-b-4 border-white w-[180px] mx-auto rounded-lg"></div>
         <p className="text-xl md:text-2xl">
           Learn about our shipping options, delivery times, and tracking your
@@ -33,7 +37,9 @@ export default function HelpPage() {
 
       {/* Terms & Conditions */}
       <div className="mt-10 max-w-3xl text-center mb-20">
-        <h2 className="text-2xl font-semibold mb-4 md:text-3xl">Terms & Conditions</h2>
+        <h2 className="text-2xl font-semibold mb-4 md:text-3xl">
+          Terms & Conditions
+        </h2>
         <div className="mb-4 border-b-4 border-white w-[180px] mx-auto rounded-lg"></div>
         <p className="text-xl md:text-2xl">
           Familiarize yourself with our terms and conditions, including our
@@ -50,7 +56,9 @@ export default function HelpPage() {
 
       {/* Privacy Policies */}
       <div className="max-w-3xl text-center mb-20">
-        <h2 className="text-2xl font-semibold mb-4 md:text-3xl">Privacy Policy</h2>
+        <h2 className="text-2xl font-semibold mb-4 md:text-3xl">
+          Privacy Policy
+        </h2>
         <div className="mb-4 border-b-4 border-white w-[180px] mx-auto rounded-lg"></div>
         <p className="text-xl md:text-2xl">
           Your privacy is important to us. Read our privacy policy to understand

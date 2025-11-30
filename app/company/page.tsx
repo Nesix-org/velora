@@ -1,6 +1,6 @@
 export default function CompanyPage() {
   return (
-    <div className="ml-[2rem] min-w-[500px] max-w-7xl md:mx-auto flex flex-col items-center justify-center min-h-screen py-8 bg-bgLemon text-bgWhite px-4 dark:bg-gray-900 dark:text-white rounded-lg">
+    <div className="ml-[2rem] min-w-[500px] md:w-[700px] lg:w-[1280px] max-w-7xl md:mx-auto flex flex-col items-center justify-center min-h-screen py-8 bg-bgLemon text-bgWhite px-4 dark:bg-gray-900 dark:text-white rounded-lg">
       <p className="text-xl text-center max-w-3xl md:text-2xl">
         Welcome to the Velora. Here you can find information about our company,
         mission, values, and team. We are dedicated to providing the best
@@ -20,7 +20,9 @@ export default function CompanyPage() {
 
       {/* Features */}
       <div className="mt-10 max-w-3xl text-center">
-        <h2 className="text-2xl font-semibold mb-4 md:text-3xl">Our Features</h2>
+        <h2 className="text-2xl font-semibold mb-4 md:text-3xl">
+          Our Features
+        </h2>
         <div className="mb-4 border-b-4 border-white w-[180px] mx-auto rounded-lg"></div>
 
         <ul className="list-disc list-inside space-y-2 text-xl md:text-2xl">
@@ -46,7 +48,9 @@ export default function CompanyPage() {
 
       {/* Career */}
       <div className="mt-10 max-w-3xl text-center mb-20">
-        <h2 className="text-2xl font-semibold mb-4 md:text-3xl">Careers at Velora</h2>
+        <h2 className="text-2xl font-semibold mb-4 md:text-3xl">
+          Careers at Velora
+        </h2>
         <div className="mb-4 border-b-4 border-white w-[180px] mx-auto rounded-lg"></div>
         <p className="text-xl md:text-2xl">
           Interested in joining our team? Explore career opportunities at Velora

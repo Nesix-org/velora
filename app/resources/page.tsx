@@ -5,7 +5,7 @@ Resources: this page will talk about Free ebooks, development tutorial, how-to b
 
 export default function ResourcesPage() {
   return (
-    <div className="ml-[2rem] min-w-[500px] max-w-7xl md:mx-auto flex flex-col items-center justify-center min-h-screen py-8 bg-bgLemon text-bgWhite px-4 dark:bg-gray-900 dark:text-white rounded-lg">
+    <div className="ml-[2rem] min-w-[500px] md:w-[700px] lg:w-[1280px] max-w-7xl md:mx-auto flex flex-col items-center justify-center min-h-screen py-8 bg-bgLemon text-bgWhite px-4 dark:bg-gray-900 dark:text-white rounded-lg">
       <h1 className="text-4xl font-bold mb-6">Resources</h1>
       <div className="mb-4 border-b-4 border-white w-[180px] mx-auto rounded-lg"></div>
 
@@ -31,7 +31,9 @@ export default function ResourcesPage() {
 
       {/* Development Tutorials */}
       <div className="mt-10 max-w-3xl text-center">
-        <h2 className="text-2xl font-semibold mb-4 md:text-3xl">Development Tutorials</h2>
+        <h2 className="text-2xl font-semibold mb-4 md:text-3xl">
+          Development Tutorials
+        </h2>
         <div className="mb-4 border-b-4 border-white w-[180px] mx-auto rounded-lg"></div>
         <p className="text-xl md:text-2xl">
           Access step-by-step development tutorials to help you build and
@@ -42,7 +44,9 @@ export default function ResourcesPage() {
 
       {/* How-to Blogs */}
       <div className="mt-10 max-w-3xl text-center">
-        <h2 className="text-2xl font-semibold mb-4 md:text-3xl">How-to Blogs</h2>
+        <h2 className="text-2xl font-semibold mb-4 md:text-3xl">
+          How-to Blogs
+        </h2>
         <div className="mb-4 border-b-4 border-white w-[180px] mx-auto rounded-lg"></div>
         <p className="text-xl md:text-2xl">
           Read our how-to blogs for practical advice and insights on various
@@ -53,7 +57,9 @@ export default function ResourcesPage() {
 
       {/* YouTube Playlists */}
       <div className="mt-10 max-w-3xl text-center mb-20">
-        <h2 className="text-2xl font-semibold mb-4 md:text-3xl">YouTube Playlists</h2>
+        <h2 className="text-2xl font-semibold mb-4 md:text-3xl">
+          YouTube Playlists
+        </h2>
         <div className="mb-4 border-b-4 border-white w-[180px] mx-auto rounded-lg"></div>
         <p className="text-xl md:text-2xl">
           Watch our curated YouTube playlists featuring tutorials, webinars, and

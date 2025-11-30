@@ -14,7 +14,7 @@ import {
 
 export default function FAQPage() {
   return (
-    <div className="ml-[2rem] min-w-[500px] max-w-7xl md:mx-auto flex flex-col items-center justify-center min-h-screen py-8 bg-bgLemon text-bgWhite px-4 dark:bg-gray-900 dark:text-bgLemon rounded-lg">
+    <div className="ml-[2rem] min-w-[500px] md:w-[700px] lg:w-[1280px] max-w-7xl md:mx-auto flex flex-col items-center justify-center min-h-screen py-8 bg-bgLemon text-bgWhite px-4 dark:bg-gray-900 dark:text-bgLemon rounded-lg">
       <Accordion type="single" collapsible className="w-full max-w-3xl">
         <h2 className="text-2xl font-bold mb-4">
           Frequently Asked Question Page

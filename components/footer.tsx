@@ -46,11 +46,11 @@ export default function Footer() {
   };
 
   return (
-    <footer className="w-full px-5 md:px-0 max-w-7xl mx-auto bg-gray-50 min-w-[550px] mt-12 dark:bg-gray-900">
+    <footer className="w-full px-5 md:px-8 max-w-7xl mx-auto min-w-[550px] mt-12 dark:bg-gray-900">
       {/* Newsletter Section */}
       <div className="bg-bgLemon py-8 rounded-lg">
         <div className="mx-auto max-w-4xl">
-          <div className="flex flex-col items-center gap-6 md:flex-row md:justify-between md:gap-8 lg:gap-12">
+          <div className="flex flex-col items-center gap-6 lg:flex-row lg:justify-between md:gap-8 lg:gap-12">
             <h2 className="lg:ml-[-7.5rem] font-extrabold text-center text-xl font-black uppercase leading-tight text-gray-900 md:text-left md:text-2xl lg:text-4xl">
               Stay up to date about
               <br />
@@ -97,7 +97,7 @@ export default function Footer() {
       <div className="px-4 py-8 md:px-8 lg:px-0">
         <div className="mx-auto max-w-7xl">
           {/* Footer Grid */}
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-5 lg:gap-14">
+          <div className="grid grid-cols-1 gap-8 lg:grid-cols-5 lg:gap-14">
             {/* Brand Section */}
             <div className="lg:col-span-1 text-center mx-auto w-[60%] md:text-left md:mx-0 md:w-full lg:ml-[-.1rem]">
               <div className="mb-4 flex items-center justify-center gap-2 md:justify-start">
