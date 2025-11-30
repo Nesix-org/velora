@@ -38,7 +38,6 @@ export default function ProductCard({
             fill
             alt="product image"
             loading="eager"
-            loading="eager"
           />
         </div>
         <span className="md:text-xl font-medium"> {productName} </span>
