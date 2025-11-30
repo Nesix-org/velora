@@ -104,7 +104,7 @@ export default function Footer() {
                 <div className="flex h-18 w-18 items-center justify-center rounded-md bg-bgLemon md:h-16 md:w-16">
                   <Image
                     src="/icons/veloraLogo.png"
-                    alt=" brand logo"
+                    alt="Velora brand logo"
                     width={60}
                     height={60}
                   />
