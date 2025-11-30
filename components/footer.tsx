@@ -3,10 +3,11 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
+// import { Button } from "@/components/ui/button";
 import { Mail } from "lucide-react";
 import { toast } from "sonner";
 import { useState } from "react";
+import { motion } from "framer-motion";
 
 export default function Footer() {
   const [email, setEmail] = useState<string>("");
@@ -70,13 +71,23 @@ export default function Footer() {
                   disabled={isSubmitting}
                 />
               </div>
-              <Button
+              <motion.button
                 type="submit"
                 disabled={isSubmitting}
-                className="h-12 w-full rounded-full bg-white text-[#a4c05c] hover:bg-gray-100 hover:text-gray-900 md:w-auto px-6 font-semibold cursor-pointer"
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                className="h-12 w-full rounded-full bg-white/80 backdrop-blur-xl text-[#a4c05c] 
+  hover:bg-white/90 hover:text-gray-900 md:w-auto px-6 font-semibold cursor-pointer
+  shadow-[0_8px_32px_0_rgba(255,255,255,0.37)] border border-white/30
+  relative overflow-hidden group
+  disabled:opacity-50 disabled:cursor-not-allowed
+  transition-all duration-300"
               >
-                {isSubmitting ? "Subscribing..." : "Subscribe to Newsletter"}
-              </Button>
+                <span className="relative z-10">
+                  {isSubmitting ? "Subscribing..." : "Subscribe to Newsletter"}
+                </span>
+                <div className="absolute inset-0 bg-gradient-to-br from-white/60 via-white/30 to-transparent opacity-50 group-hover:opacity-70 transition-opacity" />
+              </motion.button>
             </form>
           </div>
         </div>
@@ -112,7 +123,7 @@ export default function Footer() {
               <div className="flex items-center justify-center gap-3 md:justify-start">
                 <Link
                   href="#"
-                  className="flex h-5 w-6 items-center justify-center transition-colors hover:bg-bgLemon "
+                  className="flex h-5 w-6 items-center justify-center transition-colors "
                   aria-label="Twitter"
                 >
                   <Image
