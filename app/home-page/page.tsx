@@ -1,7 +1,6 @@
 "use client";
 
 import Head from "next/head";
-import CustomerSupportCard from "@/components/homepage-components/customerService";
 import Cartegories from "@/components/homepage-components/cartegories";
 import FlashSaleSection from "@/components/homepage-components/flashSale";
 import AppStoreExperience from "@/components/homepage-components/appStoreExperience";
@@ -30,6 +29,7 @@ export default function HomePage() {
         <FlashSaleSection />
         <Cartegories />
         <AppStoreExperience />
+        <AppBenefits />
       </div>
     </>
   );
