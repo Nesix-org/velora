@@ -76,7 +76,7 @@ export default function Footer() {
                 disabled={isSubmitting}
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                className="h-12 w-full rounded-full bg-white/80 backdrop-blur-xl text-[#a4c05c] 
+                className="h-12 w-full rounded-full bg-white/80 backdrop-blur-xl text-bgLemon 
   hover:bg-white/90 hover:text-gray-900 md:w-auto px-6 font-semibold cursor-pointer
   shadow-[0_8px_32px_0_rgba(255,255,255,0.37)] border border-white/30
   relative overflow-hidden group
