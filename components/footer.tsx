@@ -61,7 +61,7 @@ export default function Footer() {
               className="flex w-full max-w-md flex-col gap-3 md:w-[350px] lg:mr-[-2.5rem]"
             >
               <div className="relative">
-                <Mail className="absolute left-28 top-1/2 h-5 w-5 -translate-y-1/2 text-gray-400 md:left-15" />
+                <Mail className="absolute left-28 top-1/2 h-5 w-5 -translate-y-1/2 text-gray-400 md:left-12" />
                 <Input
                   type="email"
                   placeholder="Enter your email address"
