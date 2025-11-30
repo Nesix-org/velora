@@ -87,6 +87,9 @@ importers:
         specifier: ^3.4.0
         version: 3.4.0
     devDependencies:
+      '@next/swc-win32-x64-msvc':
+        specifier: ^16.0.4
+        version: 16.0.6
       '@tailwindcss/postcss':
         specifier: ^4
         version: 4.1.17
@@ -472,6 +475,12 @@ packages:
 
   '@next/swc-win32-x64-msvc@16.0.3':
     resolution: {integrity: sha512-N7EJ6zbxgIYpI/sWNzpVKRMbfEGgsWuOIvzkML7wxAAZhPk1Msxuo/JDu1PKjWGrAoOLaZcIX5s+/pF5LIbBBg==}
+    engines: {node: '>= 10'}
+    cpu: [x64]
+    os: [win32]
+
+  '@next/swc-win32-x64-msvc@16.0.6':
+    resolution: {integrity: sha512-QGs18P4OKdK9y2F3Th42+KGnwsc2iaThOe6jxQgP62kslUU4W+g6AzI6bdIn/pslhSfxjAMU5SjakfT5Fyo/xA==}
     engines: {node: '>= 10'}
     cpu: [x64]
     os: [win32]
@@ -2946,6 +2955,8 @@ snapshots:
 
   '@next/swc-win32-x64-msvc@16.0.3':
     optional: true
+
+  '@next/swc-win32-x64-msvc@16.0.6': {}
 
   '@nodelib/fs.scandir@2.1.5':
     dependencies:

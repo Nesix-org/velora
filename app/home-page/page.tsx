@@ -8,6 +8,7 @@ import ViewAllProducts from "@/components/ViewAllProducts";
 import { cards } from "@/constants/products";
 import NewArrival from "@/components/homepage-components/newArrival";
 import HeroSection from "@/components/homepage-components/heroSection";
+import AppBenefits from "@/components/homepage-components/appBenefits";
 
 function DynamicHead() {
   return (
@@ -28,7 +29,6 @@ export default function HomePage() {
       <div className="flex flex-col  items-center  gap-8 ">
         
         <HeroSection />
-        <CustomerSupportCard />
         <FlashSaleSection />
         <ViewAllProducts products={cards} />
         <Cartegories />
