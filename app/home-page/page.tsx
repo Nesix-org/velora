@@ -4,6 +4,8 @@ import Head from "next/head";
 import Cartegories from "@/components/homepage-components/cartegories";
 import FlashSaleSection from "@/components/homepage-components/flashSale";
 import AppStoreExperience from "@/components/homepage-components/appStoreExperience";
+import ViewAllProducts from "@/components/ViewAllProducts";
+import { cards } from "@/constants/products";
 import NewArrival from "@/components/homepage-components/newArrival";
 import HeroSection from "@/components/homepage-components/heroSection";
 
@@ -28,6 +30,7 @@ export default function HomePage() {
         <HeroSection />
         <CustomerSupportCard />
         <FlashSaleSection />
+        <ViewAllProducts products={cards} />
         <Cartegories />
         <NewArrival />
         <AppStoreExperience />
