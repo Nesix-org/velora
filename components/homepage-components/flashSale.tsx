@@ -1,24 +1,37 @@
+"use client"
+
+import { useState } from "react";
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
 } from "../ui/carousel";
 import ProductCard from "../productCard";
 import { cards } from "@/constants/products";
+import { type CarouselApi } from "@/components/ui/carousel";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import CountDownTimer from "../countDownTimer";
 
 export default function FlashSaleSection() {
+  const [firstRowApi, setFirstRowApi] = useState<CarouselApi>();
   const saleDate = new Date("2025-12-31T23:59:59");
+
+   const handlePrev = () => {
+    firstRowApi?.scrollPrev();
+  };
+    const handleNext = () => {
+    firstRowApi?.scrollNext();
+  };
+
   return (
     <section className="w-full lg:max-w-7xl">
-      <section className="flex items-center gap-2">
-        <div className="w-5 h-10 bg-bgLemon"></div>
-        <h2 className="md:text-2xl font-medium"> Today&apos;s Deal </h2>
-      </section>
+      <header>
+        <h3 className="border-l-15 md:border-l-25 border-bgLemon p-2 px-2 md:text-2xl mb-2 font-medium">
+          Today&apos;s deal
+        </h3>
+      </header>
       <section className="flex flex-col md:flex-row items-start gap-5  md:gap-10 lg:gap-15 mt-5">
-        <h2 className="text-[18px] md:text-4xl lg:text-5xl font-medium text-gray-900 dark:text-gray-100">
+        <h2 className="text-2xl md:text-5xl lg:text-5xl font-medium text-gray-900 dark:text-gray-100">
           Flash Sales
         </h2>
         <div className="md:translate-y-2">
@@ -38,11 +51,26 @@ export default function FlashSaleSection() {
           />
         ))}
       </div>
-      <Carousel className="translate-y-10 lg:translate-y-3 hidden md:block">
-        <div className="flex justify-end">
-          <CarouselPrevious className="relative left-0 bg-white shadow z-10" />
-          <CarouselNext className="relative right-0" />
+      <div className="hidden md:block">
+        {/* Navigation Buttons */}
+        <div className="flex justify-end mb-4 gap-2">
+          <button
+            onClick={handlePrev}
+            className="p-2 rounded-full bg-white shadow hover:bg-gray-100 z-10"
+            aria-label="Previous products"
+          >
+            <ChevronLeft className="w-5 h-5" />
+          </button>
+          <button
+            onClick={handleNext}
+            className="p-2 rounded-full bg-white shadow hover:bg-gray-100"
+            aria-label="Next products"
+          >
+            <ChevronRight className="w-5 h-5" />
+          </button>
         </div>
+        </div>
+      <Carousel setApi={setFirstRowApi} className="translate-y-10 lg:translate-y-3 hidden md:block">
         <CarouselContent className=" md:flex gap-3">
           {cards.map((card) => (
             <CarouselItem
