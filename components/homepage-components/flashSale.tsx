@@ -1,11 +1,7 @@
-"use client"
+"use client";
 
 import { useState } from "react";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-} from "../ui/carousel";
+import { Carousel, CarouselContent, CarouselItem } from "../ui/carousel";
 import ProductCard from "../productCard";
 import { cards } from "@/constants/products";
 import { type CarouselApi } from "@/components/ui/carousel";
@@ -13,18 +9,21 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import CountDownTimer from "../countDownTimer";
 
 export default function FlashSaleSection() {
-  const [firstRowApi, setFirstRowApi] = useState<CarouselApi>();
-  const saleDate = new Date("2025-12-31T23:59:59");
+  const [carouselApi, setCarouselApi] = useState<CarouselApi>();
+  // Update the environment variable for future flash sales to avoid showing expired/incorrect times.
+  const saleDate = new Date(
+    process.env.NEXT_PUBLIC_FLASH_SALE_DATE || "2025-12-31T23:59:59"
+  );
 
-   const handlePrev = () => {
-    firstRowApi?.scrollPrev();
+  const handlePrev = () => {
+    carouselApi?.scrollPrev();
   };
-    const handleNext = () => {
-    firstRowApi?.scrollNext();
+  const handleNext = () => {
+    carouselApi?.scrollNext();
   };
 
   return (
-    <section className="w-full lg:max-w-7xl">
+    <section className="w-full lg:max-w-7xl px-10">
       <header>
         <h3 className="border-l-15 md:border-l-25 border-bgLemon p-2 px-2 md:text-2xl mb-2 font-medium">
           Today&apos;s deal
@@ -69,8 +68,11 @@ export default function FlashSaleSection() {
             <ChevronRight className="w-5 h-5" />
           </button>
         </div>
-        </div>
-      <Carousel setApi={setFirstRowApi} className="translate-y-10 lg:translate-y-3 hidden md:block">
+      </div>
+      <Carousel
+        setApi={setCarouselApi}
+        className="translate-y-10 lg:translate-y-3 hidden md:block"
+      >
         <CarouselContent className=" md:flex gap-3">
           {cards.map((card) => (
             <CarouselItem

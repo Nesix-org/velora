@@ -13,8 +13,8 @@ type TimeLeft = {
   seconds: number;
 };
 
-const calculateTimeLeft = (targetDate: string | Date): TimeLeft => {
-  const difference = new Date(targetDate).getTime() - new Date().getTime();
+const calculateTimeLeft = (targetTimeStamp: number): TimeLeft => {
+  const difference = targetTimeStamp - new Date().getTime();
 
   let durationLeft: TimeLeft = { days: 0, hours: 0, minutes: 0, seconds: 0 };
 
@@ -29,48 +29,90 @@ const calculateTimeLeft = (targetDate: string | Date): TimeLeft => {
   return durationLeft;
 };
 export default function CountDownTimer({ targetDate }: CountDownProps) {
-  const [timeLeft, setTimeLeft] = useState<TimeLeft>({
-    days: 0,
-    hours: 0,
-    minutes: 0,
-    seconds: 0,
-  });
+  const targetTimeStamp = new Date(targetDate).getTime();
+  const [timeLeft, setTimeLeft] = useState<TimeLeft>(() =>
+    calculateTimeLeft(targetTimeStamp)
+  );
+  const [saleEnded, setSaleEnded] = useState(false);
   useEffect(() => {
     const timer = setInterval(() => {
-      setTimeLeft(calculateTimeLeft(targetDate));
+      const remaining = calculateTimeLeft(targetTimeStamp);
+      setTimeLeft(remaining);
+
+      // Clear interval when countdown reaches zero
+      if (
+        remaining.days === 0 &&
+        remaining.hours === 0 &&
+        remaining.minutes === 0 &&
+        remaining.seconds === 0
+      ) {
+        clearInterval(timer);
+        setSaleEnded(true);
+      }
     }, 1000);
 
     return () => clearInterval(timer);
-  }, [targetDate]);
+  }, [targetTimeStamp]);
   return (
-    <div className="md:w-md flex md:gap-5 gap-2 items-center justify-center">
-      <div className="flex flex-col gap-1 md:gap-2">
-        <span className="md:text-xl"> Days </span>
-        {timeLeft.days > 0 && (
-          <span className="text-xl md:text-4xl font-bold"> {timeLeft.days}</span>
-        )}
-      </div>
-       <span className="text-3xl md:text-4xl font-bold text-bgLemon translate-y-1 md:translate-y-2">:</span>
-     <div className="flex flex-col gap-1 md:gap-2">
-       <span className="md:text-xl"> Hours </span>
-        <span className="text-xl md:text-4xl font-bold">
-          {timeLeft.hours.toString().padStart(2, "0")}
-        </span>
-      </div>
-  <span className="text-3xl md:text-4xl font-bold text-bgLemon translate-y-1 md:translate-y-2">:</span>
-  <div className="flex flex-col gap-1 md:gap-2">
-       <span className="md:text-xl"> Minutes </span>
-        <span className="text-xl md:text-4xl font-bold">
-          {timeLeft.minutes.toString().padStart(2, "0")}
-        </span>
-      </div>
-  <span className="text-3xl md:text-4xl font-bold text-bgLemon translate-y-1 md:translate-y-2">:</span>
-      <div className="flex flex-col gap-1 md:gap-2">
-        <span className="md:text-xl"> Seconds </span>
-        <span className="text-xl md:text-4xl font-bold">
-          {timeLeft.seconds.toString().padStart(2, "0")}
-        </span>
-      </div>
+    <div
+      role="timer"
+      aria-live="polite"
+      aria-label="Flash sale countdown timer"
+      className="md:w-md flex md:gap-5 gap-2 items-center justify-center"
+    >
+      {saleEnded ? (
+        <p> Flash Sale is over </p>
+      ) : (
+        <>
+          {timeLeft.days > 0 && (
+            <>
+              <div className="flex flex-col gap-1 md:gap-2">
+                <span className="md:text-xl"> Days </span>
+                <span className="text-xl md:text-4xl font-bold">
+                  {timeLeft.days.toString().padStart(2, "0")}
+                </span>
+              </div>
+              <span
+                aria-hidden="true"
+                className="text-3xl md:text-4xl font-bold text-bgLemon translate-y-1 md:translate-y-2"
+              >
+                :
+              </span>
+            </>
+          )}
+
+          <div className="flex flex-col gap-1 md:gap-2">
+            <span className="md:text-xl"> Hours </span>
+            <span className="text-xl md:text-4xl font-bold">
+              {timeLeft.hours.toString().padStart(2, "0")}
+            </span>
+          </div>
+          <span
+            aria-hidden="true"
+            className="text-3xl md:text-4xl font-bold text-bgLemon translate-y-1 md:translate-y-2"
+          >
+            :
+          </span>
+          <div className="flex flex-col gap-1 md:gap-2">
+            <span className="md:text-xl"> Minutes </span>
+            <span className="text-xl md:text-4xl font-bold">
+              {timeLeft.minutes.toString().padStart(2, "0")}
+            </span>
+          </div>
+          <span
+            aria-hidden="true"
+            className="text-3xl md:text-4xl font-bold text-bgLemon translate-y-1 md:translate-y-2"
+          >
+            :
+          </span>
+          <div className="flex flex-col gap-1 md:gap-2">
+            <span className="md:text-xl"> Seconds </span>
+            <span className="text-xl md:text-4xl font-bold">
+              {timeLeft.seconds.toString().padStart(2, "0")}
+            </span>
+          </div>
+        </>
+      )}
     </div>
   );
 }

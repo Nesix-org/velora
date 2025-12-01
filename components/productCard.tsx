@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import { StaticImageData } from "next/image";
 import HeartIcon from "@/public/assets/icons/Frame 2147225110.svg";
@@ -42,8 +44,8 @@ export default function ProductCard({
         <button
           onClick={handleClick}
           type="button"
-          aria-label="Add to Wishlist"
-          className={`absolute top-1.5 right-1.5 w-7 h-7 md:w-11 md:h-11 z-50 $`}
+          aria-label={liked ? " Remove from wishlist" : " Add to wishlist"}
+          className="absolute top-1.5 right-1.5 w-7 h-7 md:w-11 md:h-11 z-50"
         >
           <Image
             src={liked ? likedHeart : HeartIcon}
