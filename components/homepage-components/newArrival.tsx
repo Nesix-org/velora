@@ -27,17 +27,17 @@ export default function NewArrival() {
   const row2Cards = cards.slice(Math.ceil(cards.length / 2));
 
   return (
-    <section className="max-w-7xl w-full px-10 md:px-0">
+    <section className="lg:max-w-7xl w-full px-10 ">
       <header>
         <h3 className="border-l-15 md:border-l-25 border-bgLemon p-2 px-2 md:text-2xl mb-2 font-medium">
           This month
         </h3>
-        <h2 className="text-2xl md:text-5xl font-medium mb-2 text-gray-900 dark:text-gray-100">
+        <h2 className="text-2xl md:text-5xl font-medium mt-5 mb-2 text-gray-900 dark:text-gray-100">
           New Arrivals
         </h2>
       </header>
 
-      <div className="grid grid-cols-2 gap-5 md:hidden">
+      <div className="grid grid-cols-2 gap-5 md:hidden translate-y-10">
         {cards.map((card) => (
           <ProductCard
             key={card.id}
@@ -74,7 +74,10 @@ export default function NewArrival() {
         <Carousel setApi={setFirstRowApi} className="w-full mb-4">
           <CarouselContent className="md:flex gap-3">
             {row1Cards.map((card) => (
-              <CarouselItem key={card.id} className="basis-1/2 md:basis-1/4">
+              <CarouselItem
+                key={card.id}
+                className="basis-1/2 md:basis-1/3 lg:1/4 sm:1/3"
+              >
                 <ProductCard
                   image={card.image}
                   price={card.price}
@@ -92,7 +95,10 @@ export default function NewArrival() {
         <Carousel setApi={setSecondRowApi} className="w-full">
           <CarouselContent className="md:flex gap-3">
             {row2Cards.map((card) => (
-              <CarouselItem key={card.id} className="basis-1/2 md:basis-1/4">
+              <CarouselItem
+                key={card.id}
+                className="basis-1/2 md:basis-1/3 lg:1/4 sm:1/3"
+              >
                 <ProductCard
                   image={card.image}
                   price={card.price}
