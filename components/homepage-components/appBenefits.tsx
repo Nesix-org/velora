@@ -31,7 +31,7 @@ const appBenefits: AppBenefits[] = [
 
 export default function AppBenefits() {
   return (
-    <section className="max-w-7xl w-full md:px-0 flex flex-col gap-5 md:gap-20 md:flex-row justify-center items-center">
+    <section className="max-w-7xl md:px-10 w-full  flex flex-col gap-5 md:gap-20 md:flex-row justify-center items-center">
       {appBenefits.map((benefit) => (
         <article
           key={benefit.title}
