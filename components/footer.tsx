@@ -46,7 +46,7 @@ export default function Footer() {
   };
 
   return (
-    <footer className="w-full px-5 md:px-8 max-w-7xl mx-auto min-w-[550px] mt-12 dark:bg-gray-900">
+    <footer className="w-full px-5 md:px-8 max-w-7xl mx-auto mt-12 dark:bg-gray-900">
       {/* Newsletter Section */}
       <div className="bg-bgLemon py-8 rounded-lg">
         <div className="mx-auto max-w-4xl">
@@ -61,11 +61,11 @@ export default function Footer() {
               className="flex w-full max-w-md flex-col gap-3 md:w-[350px] lg:mr-[-2.5rem]"
             >
               <div className="relative">
-                <Mail className="absolute left-28 top-1/2 h-5 w-5 -translate-y-1/2 text-gray-400 md:left-12" />
+                <Mail className="absolute left-15  top-1/2 h-5 w-5 -translate-y-1/2 text-gray-400 md:left-12" />
                 <Input
                   type="email"
                   placeholder="Enter your email address"
-                  className="h-12 w-full rounded-full border-0 bg-white pl-12 pr-4 text-center text-gray-900 placeholder:text-gray-400 md:pl-10 "
+                  className="h-10 md:h-12 w-[85%] md:w-full mx-6 md:mx-0 text-sm md:text-md rounded-full border-0 bg-white pl-12 pr-4 text-center text-gray-900 placeholder:text-gray-400 md:pl-10 "
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   disabled={isSubmitting}
@@ -76,7 +76,7 @@ export default function Footer() {
                 disabled={isSubmitting}
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                className="h-12 w-full rounded-full bg-white/80 backdrop-blur-xl text-bgLemon 
+                className="h-10 md:h-12 w-[85%] md:w-full mx-auto md:mx-0 text-sm md:text-md rounded-full bg-white/80 backdrop-blur-xl text-bgLemon 
   hover:bg-white/90 hover:text-gray-900 md:w-auto px-6 font-semibold cursor-pointer
   shadow-[0_8px_32px_0_rgba(255,255,255,0.37)] border border-white/30
   relative overflow-hidden group
@@ -101,7 +101,7 @@ export default function Footer() {
             {/* Brand Section */}
             <div className="lg:col-span-1 text-center mx-auto w-[60%] md:text-left md:mx-0 md:w-full lg:ml-[-.1rem]">
               <div className="mb-4 flex items-center justify-center gap-2 md:justify-start">
-                <div className="flex h-18 w-18 items-center justify-center rounded-md bg-bgLemon md:h-16 md:w-16">
+                <div className="flex h-10 w-10 items-center justify-center rounded-md bg-bgLemon md:h-16 md:w-16">
                   <Image
                     src="/icons/veloraLogo.png"
                     alt="Velora brand logo"
@@ -109,14 +109,14 @@ export default function Footer() {
                     height={60}
                   />
                 </div>
-                <span className="text-5xl font-bold text-gray-900 md:text-2xl lg:text-3xl">
+                <span className="text-2xl font-bold text-gray-900 md:text-2xl lg:text-3xl">
                   Velora.
-                  <p className="font-normal text-[.7rem] md:text-sm lg:text-[.4rem]">
+                  <p className="font-normal text-[.4rem] md:text-sm lg:text-[.4rem]">
                     Think forward, Spend Smarter
                   </p>
                 </span>
               </div>
-              <p className="mb-6 text-[1.5rem] text-gray-600 leading-relaxed md:text-sm lg:w-[30ch]">
+              <p className="mb-6 text-[1.1rem] text-gray-600 leading-relaxed md:text-sm lg:w-[30ch]">
                 We have clothes that suits your style and which you&apos;re
                 proud to wear. From women to men.
               </p>
@@ -178,7 +178,7 @@ export default function Footer() {
                 {/* Company Links */}
                 <div className="lg:ml-12">
                   <Link href="/company">
-                    <h3 className="mb-4 text-[1.4rem] font-bold uppercase tracking-wider text-gray-900 md:text-sm hover:text-bgLemon transition-colors hover:text-[.95rem]">
+                    <h3 className="mb-4 text-[1.2rem] font-bold uppercase tracking-wider text-gray-900 md:text-sm hover:text-bgLemon transition-colors hover:text-[.95rem]">
                       Company
                     </h3>
                   </Link>
@@ -186,7 +186,7 @@ export default function Footer() {
                     <li>
                       <Link
                         href="/company"
-                        className="text-[1.2rem] text-gray-600 md:text-sm hover:text-bgLemon transition-colors"
+                        className="text-[1rem] text-gray-600 md:text-sm hover:text-bgLemon transition-colors"
                       >
                         About
                       </Link>
@@ -194,7 +194,7 @@ export default function Footer() {
                     <li>
                       <Link
                         href="/company"
-                        className="text-[1.2rem] text-gray-600 md:text-sm hover:text-bgLemon transition-colors"
+                        className="text-[1rem] text-gray-600 md:text-sm hover:text-bgLemon transition-colors"
                       >
                         Features
                       </Link>
@@ -202,7 +202,7 @@ export default function Footer() {
                     <li>
                       <Link
                         href="/company"
-                        className="text-[1.2rem] text-gray-600 md:text-sm hover:text-bgLemon transition-colors"
+                        className="text-[1rem] text-gray-600 md:text-sm hover:text-bgLemon transition-colors"
                       >
                         Works
                       </Link>
@@ -210,7 +210,7 @@ export default function Footer() {
                     <li>
                       <Link
                         href="/company"
-                        className="text-[1.2rem] text-gray-600 md:text-sm hover:text-bgLemon transition-colors"
+                        className="text-[1rem] text-gray-600 md:text-sm hover:text-bgLemon transition-colors"
                       >
                         Career
                       </Link>
@@ -221,7 +221,7 @@ export default function Footer() {
                 {/* Help Links */}
                 <div>
                   <Link href="/help">
-                    <h3 className="mb-4 text-[1.4rem] font-bold uppercase tracking-wider text-gray-900 md:text-sm hover:text-bgLemon transition-colors hover:text-[.95rem] ">
+                    <h3 className="mb-4 text-[1.2rem] font-bold uppercase tracking-wider text-gray-900 md:text-sm hover:text-bgLemon transition-colors hover:text-[.95rem] ">
                       Help
                     </h3>
                   </Link>
@@ -229,7 +229,7 @@ export default function Footer() {
                     <li>
                       <Link
                         href="/help"
-                        className="text-[1.2rem] text-gray-600 md:text-sm hover:text-bgLemon transition-colors"
+                        className="text-[1rem] text-gray-600 md:text-sm hover:text-bgLemon transition-colors"
                       >
                         Customer Support
                       </Link>
@@ -237,7 +237,7 @@ export default function Footer() {
                     <li>
                       <Link
                         href="/help"
-                        className="text-[1.2rem] text-gray-600 md:text-sm hover:text-bgLemon transition-colors"
+                        className="text-[1rem] text-gray-600 md:text-sm hover:text-bgLemon transition-colors"
                       >
                         Delivery Details
                       </Link>
@@ -245,7 +245,7 @@ export default function Footer() {
                     <li>
                       <Link
                         href="/help"
-                        className="text-[1.2rem] text-gray-600 md:text-sm hover:text-bgLemon transition-colors"
+                        className="text-[1rem] text-gray-600 md:text-sm hover:text-bgLemon transition-colors"
                       >
                         Terms & Conditions
                       </Link>
@@ -253,7 +253,7 @@ export default function Footer() {
                     <li>
                       <Link
                         href="/help"
-                        className="text-[1.2rem] text-gray-600 md:text-sm hover:text-bgLemon transition-colors"
+                        className="text-[1rem] text-gray-600 md:text-sm hover:text-bgLemon transition-colors"
                       >
                         Privacy Policy
                       </Link>
@@ -264,7 +264,7 @@ export default function Footer() {
                 {/* FAQ Links */}
                 <div>
                   <Link href="/faq">
-                    <h3 className="mb-4 text-[1.4rem] font-bold uppercase tracking-wider text-gray-900 md:text-sm hover:text-bgLemon transition-colors hover:text-[.95rem]">
+                    <h3 className="mb-4 text-[1.2rem] font-bold uppercase tracking-wider text-gray-900 md:text-sm hover:text-bgLemon transition-colors hover:text-[.95rem]">
                       FAQ
                     </h3>
                   </Link>
@@ -272,7 +272,7 @@ export default function Footer() {
                     <li>
                       <Link
                         href="/faq"
-                        className="text-[1.2rem] text-gray-600 md:text-sm hover:text-bgLemon transition-colors"
+                        className="text-[1rem] text-gray-600 md:text-sm hover:text-bgLemon transition-colors"
                       >
                         Account
                       </Link>
@@ -280,7 +280,7 @@ export default function Footer() {
                     <li>
                       <Link
                         href="/faq"
-                        className="text-[1.2rem] text-gray-600 md:text-sm hover:text-bgLemon transition-colors"
+                        className="text-[1rem] text-gray-600 md:text-sm hover:text-bgLemon transition-colors"
                       >
                         Manage Deliveries
                       </Link>
@@ -288,7 +288,7 @@ export default function Footer() {
                     <li>
                       <Link
                         href="/faq"
-                        className="text-[1.2rem] text-gray-600 md:text-sm hover:text-bgLemon transition-colors"
+                        className="text-[1rem] text-gray-600 md:text-sm hover:text-bgLemon transition-colors"
                       >
                         Orders
                       </Link>
@@ -296,7 +296,7 @@ export default function Footer() {
                     <li>
                       <Link
                         href="/faq"
-                        className="text-[1.2rem] text-gray-600 md:text-sm hover:text-bgLemon transition-colors"
+                        className="text-[1rem] text-gray-600 md:text-sm hover:text-bgLemon transition-colors"
                       >
                         Payments
                       </Link>
@@ -307,7 +307,7 @@ export default function Footer() {
                 {/* Resources Links */}
                 <div>
                   <Link href="/resources">
-                    <h3 className="mb-4 text-[1.4rem] font-bold uppercase tracking-wider text-gray-900 md:text-sm hover:text-bgLemon transition-colors hover:text-[.95rem]">
+                    <h3 className="mb-4 text-[1.2rem] font-bold uppercase tracking-wider text-gray-900 md:text-sm hover:text-bgLemon transition-colors hover:text-[.95rem]">
                       Resources
                     </h3>
                   </Link>
@@ -315,7 +315,7 @@ export default function Footer() {
                     <li>
                       <Link
                         href="/resources"
-                        className="text-[1.2rem] text-gray-600 md:text-sm hover:text-bgLemon transition-colors"
+                        className="text-[1rem] text-gray-600 md:text-sm hover:text-bgLemon transition-colors"
                       >
                         Free eBooks
                       </Link>
@@ -323,7 +323,7 @@ export default function Footer() {
                     <li>
                       <Link
                         href="/resources"
-                        className="text-[1.2rem] text-gray-600 md:text-sm hover:text-bgLemon transition-colors"
+                        className="text-[1rem] text-gray-600 md:text-sm hover:text-bgLemon transition-colors"
                       >
                         Development Tutorial
                       </Link>
@@ -331,7 +331,7 @@ export default function Footer() {
                     <li>
                       <Link
                         href="/resources"
-                        className="text-[1.2rem] text-gray-600 md:text-sm hover:text-bgLemon transition-colors"
+                        className="text-[1rem] text-gray-600 md:text-sm hover:text-bgLemon transition-colors"
                       >
                         How to - Blog
                       </Link>
@@ -339,7 +339,7 @@ export default function Footer() {
                     <li>
                       <Link
                         href="/resources"
-                        className="text-[1.2rem] text-gray-600 md:text-sm hover:text-bgLemon transition-colors"
+                        className="text-[1rem] text-gray-600 md:text-sm hover:text-bgLemon transition-colors"
                       >
                         Youtube Playlist
                       </Link>
