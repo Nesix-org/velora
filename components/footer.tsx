@@ -51,7 +51,7 @@ export default function Footer() {
       <div className="bg-bgLemon py-8 rounded-lg">
         <div className="mx-auto max-w-4xl">
           <div className="flex flex-col items-center gap-6 lg:flex-row lg:justify-between md:gap-8 lg:gap-12">
-            <h2 className="lg:ml-[-7.5rem] font-extrabold text-center text-xl font-black uppercase leading-tight text-gray-900 md:text-left md:text-2xl lg:text-4xl">
+            <h2 className="font-monts lg:ml-[-7.5rem] font-extrabold text-center text-xl uppercase leading-tight text-gray-900 md:text-left md:text-2xl lg:text-4xl">
               Stay up to date about
               <br />
               our latest offers

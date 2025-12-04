@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 @import "tailwindcss";
 @import "tw-animate-css";
 
@@ -11,6 +12,7 @@
   --color-bgWhite: hsla(0, 0%, 97%, 1);
   --color-bgLemon: hsla(76, 50%, 52%, 1);
   --color-bgGray: hsla(0, 0%, 0%, 0.6)
+  --font-monts: 'Montserrat', sans-serif;
 }
 
 @theme inline {
