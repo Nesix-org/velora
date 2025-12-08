@@ -5,9 +5,9 @@ Resources: this page will talk about Free ebooks, development tutorial, how-to b
 
 export default function ResourcesPage() {
   return (
-    <div className="ml-[2rem] min-w-[500px] md:w-[700px] lg:w-[1280px] max-w-7xl md:mx-auto flex flex-col items-center justify-center min-h-screen py-8 bg-bgLemon text-bgWhite px-4 dark:bg-gray-900 dark:text-white rounded-lg">
+    <div className="border-t-24 border-bgLemon ml-[2rem] min-w-[500px] md:w-[700px] lg:w-[1280px] max-w-7xl md:mx-auto flex flex-col items-center justify-center min-h-screen py-8 text-bgGray px-4 dark:bg-gray-900 dark:text-white rounded-lg">
       <h1 className="text-4xl font-bold mb-6">Resources</h1>
-      <div className="mb-4 border-b-4 border-white w-[180px] mx-auto rounded-lg"></div>
+      <div className="mb-4 border-b-4 border-bgLemon w-[180px] mx-auto rounded-lg"></div>
 
       <p className="text-xl text-center max-w-2xl md:text-2xl">
         Welcome to the Velora Resources Center. Here you can find a variety of
@@ -20,7 +20,7 @@ export default function ResourcesPage() {
       {/* Free Ebooks */}
       <div className="mt-10 max-w-3xl text-center">
         <h2 className="text-2xl font-semibold mb-4 md:text-3xl">Free Ebooks</h2>
-        <div className="mb-4 border-b-4 border-white w-[180px] mx-auto rounded-lg"></div>
+        <div className="mb-4 border-b-4 border-bgLemon w-[180px] mx-auto rounded-lg"></div>
 
         <p className="text-xl md:text-2xl">
           Explore our collection of free ebooks covering a wide range of topics
@@ -34,7 +34,7 @@ export default function ResourcesPage() {
         <h2 className="text-2xl font-semibold mb-4 md:text-3xl">
           Development Tutorials
         </h2>
-        <div className="mb-4 border-b-4 border-white w-[180px] mx-auto rounded-lg"></div>
+        <div className="mb-4 border-b-4 border-bgLemon w-[180px] mx-auto rounded-lg"></div>
         <p className="text-xl md:text-2xl">
           Access step-by-step development tutorials to help you build and
           enhance your online store using Velora. Learn best practices and tips
@@ -47,7 +47,7 @@ export default function ResourcesPage() {
         <h2 className="text-2xl font-semibold mb-4 md:text-3xl">
           How-to Blogs
         </h2>
-        <div className="mb-4 border-b-4 border-white w-[180px] mx-auto rounded-lg"></div>
+        <div className="mb-4 border-b-4 border-bgLemon w-[180px] mx-auto rounded-lg"></div>
         <p className="text-xl md:text-2xl">
           Read our how-to blogs for practical advice and insights on various
           aspects of e-commerce, from setting up your store to optimizing sales
@@ -60,7 +60,7 @@ export default function ResourcesPage() {
         <h2 className="text-2xl font-semibold mb-4 md:text-3xl">
           YouTube Playlists
         </h2>
-        <div className="mb-4 border-b-4 border-white w-[180px] mx-auto rounded-lg"></div>
+        <div className="mb-4 border-b-4 border-bgLemon w-[180px] mx-auto rounded-lg"></div>
         <p className="text-xl md:text-2xl">
           Watch our curated YouTube playlists featuring tutorials, webinars, and
           success stories to help you get the most out of Velora and grow your

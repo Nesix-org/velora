@@ -14,9 +14,13 @@ import {
 
 export default function FAQPage() {
   return (
-    <div className="ml-[2rem] min-w-[500px] md:w-[700px] lg:w-[1280px] max-w-7xl md:mx-auto flex flex-col items-center justify-center min-h-screen py-8 bg-bgLemon text-bgWhite px-4 dark:bg-gray-900 dark:text-bgLemon rounded-lg">
-      <Accordion type="single" collapsible className="w-full max-w-3xl">
-        <h2 className="text-2xl font-bold mb-4">
+    <div className="border-t-24 border-bgLemon ml-[2rem] min-w-[500px] md:w-[700px] lg:w-[1280px] max-w-7xl md:mx-auto flex flex-col items-center justify-center min-h-screen py-8 text-bgGray px-4 dark:bg-gray-900 dark:text-bgLemon rounded-lg">
+      <Accordion
+        type="single"
+        collapsible
+        className="w-full max-w-3xl"
+      >
+        <h2 className="text-2xl font-bold mb-4 text-bgLemon">
           Frequently Asked Question Page
         </h2>
         <p className="text-xl text-left max-w-4xl md:text-2xl">
@@ -29,7 +33,7 @@ export default function FAQPage() {
         {/* Account Management */}
         <div className="mt-10 max-w-3xl text-left mb-10 border-b-2 pb-5">
           <AccordionItem value="account-management">
-            <AccordionTrigger className="text-3xl font-bold mb-6">
+            <AccordionTrigger className="text-3xl font-bold mb-6 text-bgLemon">
               Account Management
             </AccordionTrigger>{" "}
             <AccordionContent>
@@ -45,8 +49,8 @@ export default function FAQPage() {
         {/* Orders & Payments */}
         <div className="mt-10 max-w-3xl text-left mb-10 border-b-2 pb-5">
           <AccordionItem value="orders-payments">
-            <AccordionTrigger className="text-3xl font-bold mb-6">
-              Orders & Payments
+            <AccordionTrigger className="text-3xl font-bold mb-6 text-bgLemon">
+              Orders & Payments 
             </AccordionTrigger>{" "}
             <AccordionContent>
               <p className="text-xl md:text-2xl">
@@ -61,7 +65,7 @@ export default function FAQPage() {
         {/* Shipping & Deliveries */}
         <div className="mt-10 max-w-3xl text-left mb-10 border-b-2 pb-5">
           <AccordionItem value="shipping-deliveries">
-            <AccordionTrigger className="text-3xl font-bold mb-6">
+            <AccordionTrigger className="text-3xl font-bold mb-6 text-bgLemon">
               Shipping & Deliveries
             </AccordionTrigger>{" "}
             <AccordionContent>
