@@ -76,7 +76,7 @@ export default function NewArrival() {
             {row1Cards.map((card) => (
               <CarouselItem
                 key={card.id}
-                className="basis-1/2 md:basis-1/3 lg:1/4 sm:1/3"
+                className="basis-1/2 md:basis-1/3 lg:basis-1/4 sm:basis-1/3"
               >
                 <ProductCard
                   image={card.image}
@@ -97,7 +97,7 @@ export default function NewArrival() {
             {row2Cards.map((card) => (
               <CarouselItem
                 key={card.id}
-                className="basis-1/2 md:basis-1/3 lg:1/4 sm:1/3"
+                className="basis-1/2 md:basis-1/3 lg:basis-1/4 sm:basis-1/3"
               >
                 <ProductCard
                   image={card.image}
