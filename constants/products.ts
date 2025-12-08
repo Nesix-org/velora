@@ -2,7 +2,19 @@ import menClothe from "@/public/assets/menClothes/image 16.svg";
 import menShoe1 from "@/public/assets/menFootwear/image 21.svg";
 import menShoe2 from "@/public/assets/menFootwear/image 20.svg";
 
-export const cards = [
+// Define the Product interface
+export interface Product {
+  id: number;
+  image: string;
+  price: number;
+  name: string;
+  discount: string;
+  rating: number;
+  reviews: string;
+  category: string;
+}
+
+export const cards: Product[] = [
   {
     id: 1,
     image: menClothe,
@@ -11,24 +23,27 @@ export const cards = [
     discount: "-30%",
     rating: 4.5,
     reviews: "(3212 reviews)",
+    category: "men-clothes" // Add this
   },
   {
     id: 2,
     image: menShoe1,
     price: 210,
-    name: "Men's Jacket",
+    name: "Men's Shoes",
     discount: "-30%",
     rating: 4.5,
     reviews: "(3212 reviews)",
+    category: "men-footwear" // Add this
   },
   {
     id: 3,
     image: menShoe2,
     price: 210,
-    name: "Men's Jacket",
+    name: "Men casual shoe",
     discount: "-30%",
     rating: 4.5,
     reviews: "(3212 reviews)",
+    category: "men-footwear" // Add this
   },
   {
     id: 4,
@@ -38,6 +53,7 @@ export const cards = [
     discount: "-30%",
     rating: 4.5,
     reviews: "(3212 reviews)",
+    category: "men-clothes" // Add this
   },
   {
     id: 5,
@@ -47,6 +63,7 @@ export const cards = [
     discount: "-30%",
     rating: 4.5,
     reviews: "(3212 reviews)",
+    category: "men-footwear" // Add this
   },
   {
     id: 6,
@@ -56,6 +73,7 @@ export const cards = [
     discount: "-30%",
     rating: 4.5,
     reviews: "(3212 reviews)",
+    category: "men-clothes" // Add this
   },
   {
     id: 7,
@@ -65,6 +83,7 @@ export const cards = [
     discount: "-30%",
     rating: 4.5,
     reviews: "(3212 reviews)",
+    category: "men-footwear" // Add this
   },
   {
     id: 8,
@@ -74,6 +93,7 @@ export const cards = [
     discount: "-30%",
     rating: 4.5,
     reviews: "(3212 reviews)",
+    category: "men-footwear" // Add this
   },
   {
     id: 9,
@@ -83,6 +103,7 @@ export const cards = [
     discount: "-30%",
     rating: 4.5,
     reviews: "(3212 reviews)",
+    category: "men-clothes" // Add this
   },
   {
     id: 10,
@@ -92,6 +113,7 @@ export const cards = [
     discount: "-30%",
     rating: 4.5,
     reviews: "(3212 reviews)",
+    category: "men-footwear" // Add this
   },
   {
     id: 11,
@@ -101,6 +123,7 @@ export const cards = [
     discount: "-30%",
     rating: 4.5,
     reviews: "(3212 reviews)",
+    category: "men-footwear" // Add this
   },
   {
     id: 12,
@@ -110,6 +133,7 @@ export const cards = [
     discount: "-30%",
     rating: 4.5,
     reviews: "(3212 reviews)",
+    category: "men-clothes" // Add this
   },
   {
     id: 13,
@@ -119,6 +143,7 @@ export const cards = [
     discount: "-30%",
     rating: 4.5,
     reviews: "(3212 reviews)",
+    category: "men-footwear" // Add this
   },
   {
     id: 14,
@@ -128,6 +153,7 @@ export const cards = [
     discount: "-30%",
     rating: 4.5,
     reviews: "(3212 reviews)",
+    category: "men-footwear" // Add this
   },
   {
     id: 15,
@@ -137,6 +163,7 @@ export const cards = [
     discount: "-30%",
     rating: 4.5,
     reviews: "(3212 reviews)",
+    category: "men-clothes" // Add this
   },
   {
     id: 16,
@@ -146,5 +173,16 @@ export const cards = [
     discount: "-30%",
     rating: 4.5,
     reviews: "(3212 reviews)",
+    category: "men-footwear" // Add this
   },
 ];
+
+// Group products by category
+export const productsByCategory = cards.reduce((acc, product) => {
+  const category = product.category || 'uncategorized';
+  if (!acc[category]) {
+    acc[category] = [];
+  }
+  acc[category].push(product);
+  return acc;
+}, {} as Record<string, Product[]>);

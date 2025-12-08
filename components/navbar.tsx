@@ -193,7 +193,7 @@ export default function Navbar() {
             className={buttonVariants({
               variant: "outline",
               size: "icon",
-              className: "!rounded-full"
+              className: "rounded-full!"
             })}
             aria-label="wishlist"
           >
@@ -208,7 +208,7 @@ export default function Navbar() {
             className={buttonVariants({
               variant: "outline",
               size: "icon",
-              className: "!rounded-full "
+              className: "rounded-full! "
             })}
             aria-label="cart"
           >

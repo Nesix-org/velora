@@ -10,6 +10,7 @@ import { cards } from "@/constants/products";
 import NewArrival from "@/components/homepage-components/newArrival";
 import HeroSection from "@/components/homepage-components/heroSection";
 import AppBenefits from "@/components/homepage-components/appBenefits";
+import ShopCategory from "@/components/homepage-components/shopCategory";
 
 function DynamicHead() {
   return (
@@ -32,6 +33,7 @@ export default function HomePage() {
         <HeroSection />
         <FlashSaleSection />
         <ViewAllProducts products={cards} />
+        <ShopCategory />
         <Cartegories />
         <NewArrival />
         <AppStoreExperience />

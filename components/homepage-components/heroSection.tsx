@@ -51,7 +51,7 @@ export default function HeroSection() {
              className={buttonVariants({
               variant: "outline",
               size: "icon",
-              className: "!rounded-full"
+              className: "rounded-full!"
             })}
             aria-label="shop now"
             >
