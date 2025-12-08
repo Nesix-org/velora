@@ -1,7 +1,6 @@
 "use client";
 
 import Head from "next/head";
-import Cartegories from "@/components/homepage-components/cartegories";
 import FlashSaleSection from "@/components/homepage-components/flashSale";
 
 import AppStoreExperience from "@/components/homepage-components/appStoreExperience";
@@ -34,7 +33,6 @@ export default function HomePage() {
         <FlashSaleSection />
         <ViewAllProducts products={cards} />
         <ShopCategory />
-        <Cartegories />
         <NewArrival />
         <AppStoreExperience />
         <AppBenefits />
