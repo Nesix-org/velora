@@ -58,9 +58,9 @@ export default function Navbar() {
   };
 
   return (
-    <header className=" w-full px-5  md:max-w-3xl  lg:max-w-7xl mx-auto">
+    <header className=" w-full px-3 md:px-5 md:max-w-3xl  lg:max-w-7xl mx-auto overflow-x-hidden">
       {/* Mobile Menu */}
-      <div className="md:hidden w-full py-3 px-1  flex items-center justify-between">
+      <div className="lg:hidden w-full py-3 px-1  flex items-center justify-between">
         {/* Logo,signup & Menu */}
         <Link href="/">
           <Image src={Icon} alt="velora"></Image>
@@ -147,13 +147,13 @@ export default function Navbar() {
       </AnimatePresence>
 
       {/* Desktop Menu */}
-      <nav className=" dark:bg-gray-800 w-full  py-4 md:flex items-center justify-between px-2 hidden ">
+      <nav className=" dark:bg-gray-800 w-full  py-4  lg:max-w-7xl mx-auto lg:flex items-center justify-between px-2 hidden md:hidden overflow-x-hidden">
         {/* logo & Menu */}
-        <div className="flex gap-12">
-          <Link href="/">
+        <div className="flex items-center gap-6 lg:gap-12 min-w-0 shrink">
+          <Link href="/" className="shrink-0 ">
             <Image src={Icon} alt="velora"></Image>
           </Link>
-          <ul className="flex items-center gap-12">
+          <ul className="flex items-center gap-4  lg:gap-8 min-w-0 ">
             {menus
               .filter((menu) => menu !== "Sign In")
               .map((menu, idx) => {
@@ -173,12 +173,12 @@ export default function Navbar() {
         </div>
 
         {/* search bar, wishlist icon and cart, signup & signin btn */}
-        <div className="ml-4 flex items-center gap-9">
-          <div className="bg-[#ECECEC] px-7 py-2 relative rounded-3xl">
+        <div className="ml-2 lg:ml-4 flex items-center gap-3 lg:gap-6 xl:gap-9 shrink-0">
+          <div className="bg-[#ECECEC] px-4 lg:px-7 py-2 relative rounded-3xl min-w-[200px] max-w-[280px] lg:max-w-xs">
             <input
               type="text"
               placeholder="What are you looking for ?"
-              className="pr-3 placeholder:text-sm focus:outline-none"
+              className="pr-3 placeholder:text-sm focus:outline-none w-full min-w-0 bg-transparent"
               aria-label="Search"
             />
             <Image
@@ -208,13 +208,14 @@ export default function Navbar() {
             className={buttonVariants({
               variant: "outline",
               size: "icon",
-              className: "rounded-full! "
+            
+              className: "rounded-full!"
             })}
             aria-label="cart"
           >
             <Image src={cartIcon} alt="cart" className="w-6 h-6" />
           </Link>
-          <div className="flex items-center gap-3 border border-[#A1C249] rounded-full px-6 py-3 text-sm font-medium text-[#A1C249] ">
+          <div className="flex items-center gap-2 lg:gap-3 border border-[#A1C249] rounded-full px-4 lg:px-6 py-2 lg:py-3 text-sm font-medium text-[#A1C249] whitespace-nowrap">
             <Link href="/signup" className=" text-sm font-medium">
               Sign Up
             </Link>
@@ -238,7 +239,7 @@ export default function Navbar() {
                 className="absolute top-[76px] right-0 -translate-x-[124px] bg-[#A1C249]/50 px-6 py-3 text-black flex items-center gap-3 rounded-md"
               >
                 <User />
-                <Link href="/signin" className=" text-sm font-medium ">
+                <Link href="/login" className=" text-sm font-medium ">
                   Sign In
                 </Link>
               </motion.div>
