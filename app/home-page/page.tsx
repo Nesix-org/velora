@@ -27,7 +27,7 @@ export default function HomePage() {
   return (
     <>
       <DynamicHead />
-      <div className="flex flex-col  items-center  gap-8 ">
+      <div className="flex flex-col  items-center  gap-4 md:gap-8 ">
         
         <HeroSection />
         <FlashSaleSection />
