@@ -24,11 +24,11 @@ export default function FlashSaleSection() {
 
   return (
     <section className="w-full lg:max-w-7xl px-10">
-      <header>
+      <div>
         <h3 className="border-l-15 md:border-l-25 border-bgLemon p-2 px-2 md:text-2xl mb-2 font-medium">
           Today&apos;s deal
         </h3>
-      </header>
+      </div>
       <section className="flex flex-col md:flex-row items-start gap-5  md:gap-10 lg:gap-15 mt-5">
         <h2 className="text-2xl md:text-5xl lg:text-5xl font-medium text-gray-900 dark:text-gray-100">
           Flash Sales

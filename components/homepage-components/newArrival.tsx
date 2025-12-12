@@ -113,7 +113,7 @@ export default function NewArrival() {
         </Carousel>
       </div>
       <div className="flex justify-center mt-6">
-        <ViewAllProducts products={cards} />
+        <ViewAllProducts />
       </div>
     </section>
   );
