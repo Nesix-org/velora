@@ -33,6 +33,7 @@ export default function  JustForYou() {
         {cards.map((card) => (
           <ProductCard
             key={card.id}
+            id={card.id}
             image={card.image}
             price={card.price}
             productName={card.name}
@@ -72,6 +73,7 @@ export default function  JustForYou() {
               className="basis-1/2 md:basis-1/3 lg:basis-1/4 sm:basis-1/3"
             >
               <ProductCard
+                id={card.id}
                 image={card.image}
                 price={card.price}
                 productName={card.name}

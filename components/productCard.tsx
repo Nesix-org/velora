@@ -9,6 +9,7 @@ import { useState } from "react";
 import { useCart } from "@/app/cart/context";
 
 type CardProps = {
+  id: number;
   image: string | StaticImageData;
   productName: string;
   price: number;
@@ -18,6 +19,7 @@ type CardProps = {
 };
 
 export default function ProductCard({
+  id,
   image,
   productName,
   price,
@@ -34,7 +36,7 @@ export default function ProductCard({
 
   const handleAddToCart = () => {
     addToCart({ 
-      id: Math.random(), 
+      id, 
       name: productName, 
       price, 
       image: typeof image === 'string' ? image : image.src });
