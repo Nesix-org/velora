@@ -177,9 +177,13 @@ export const cards: Product[] = [
   },
 ];
 
+type Category = 'men-footwear' | 'men-clothes' | "women-clothes" | 'women-footwear' | 'scarf' | 'necklace';
+
+type ProductCategory = NonNullable<Category> | 'uncategorized';
+
 // Group products by category
 export const productsByCategory = cards.reduce((acc, product) => {
-  const category = product.category || 'uncategorized';
+  const category = (product.category ?? 'uncategorized') as ProductCategory;
   if (!acc[category]) {
     acc[category] = [];
   }

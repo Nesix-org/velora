@@ -1,26 +1,14 @@
-"use client";
-// Marquee
-import dynamic from "next/dynamic";
-const Marquee = dynamic(() => import("react-fast-marquee"), { ssr: false });
 // Images & Icons
 import Image, { StaticImageData } from "next/image";
 import HeroBg from "@/public/assets/heroSection/heroImage.svg";
 import { ArrowUpRight } from "lucide-react";
 import {buttonVariants} from "@/components/ui/button";
-import Star from "@/public/assets/heroSection/star.svg";
 import Link from "next/link";
+import HomePageLabel from "./homepagelabel";
 
 // Background Image
 const imageUrl = "/assets/icons/bgImage.svg";
-interface LoopProps{ label: string; icon: string | StaticImageData};
 
-const labels: LoopProps[]= [
-  { label: "Fashion", icon: Star },
-  { label: "Style", icon: Star },
-  { label: "Elegance", icon: Star },
-  {label: "Beauty", icon: Star},
-  {label: "Lifestyle", icon: Star}
-];
 export default function HeroSection() {
   return (
     <main
@@ -79,25 +67,11 @@ export default function HeroSection() {
             src={HeroBg}
             alt="hero" 
             className="w-[465px] md:w-[700px] lg:w-1/2  absolute bottom-27.5 md:left-[27%] lg:left-1/2 "
-          ></Image>
+          />
       </div>
       {/* Infinite loop */}
       <div className="w-full h-[110px] bg-[#A1C249] flex items-center overflow-hidden mt-0">
-        <Marquee gradient={false} speed={50}>
-          {labels.map((label) => (
-            <div
-              key={label.label}
-              className="flex items-center space-x-4 md:space-x-15 mx-3 md:mx-10"
-            >
-              <p className="text-2xl md:text-5xl font-bold">{label.label}</p>
-              <Image
-                src={label.icon}
-                alt={label.label}
-                className="w-8 h-8 md:w-10 md:h-10"
-              />
-            </div>
-          ))}
-        </Marquee>
+       <HomePageLabel />
       </div>
     </main>
   );

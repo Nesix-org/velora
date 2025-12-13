@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import ProductCard from './productCard';
 import { StaticImageData } from 'next/image';
+import { cards as products } from '@/constants/products';
 
 // Define the Product type to match the data structure(products.ts)
 interface Product {
@@ -15,11 +16,7 @@ interface Product {
   reviews: string;
 }
 
-interface ViewAllProductsProps {
-  products: Product[];
-}
-
-function ViewAllProducts({ products }: ViewAllProductsProps) {
+function ViewAllProducts() {
   const [showAllProducts, setShowAllProducts] = useState<boolean>(false);
 
   const handleViewAll = (): void => {
@@ -35,6 +32,7 @@ function ViewAllProducts({ products }: ViewAllProductsProps) {
             onClick={handleViewAll}
             className="bg-[#A1C249] hover:bg-[#8FAF3A] text-black font-semibold py-3 px-19 rounded-3xl transition duration-200 shadow-md hover:shadow-lg"
             aria-label="Toggle product visibility"
+            title='Click to view all Products'
           >
             {showAllProducts ? 'Hide Products' : 'View All Products'}
           </button>
