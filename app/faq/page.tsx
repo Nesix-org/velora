@@ -3,7 +3,7 @@ FAQ: will display frequently asked questions and answers about creating an accou
 , managing deliveries, payment methods and orders.
 */
 
-"use client";
+// "use client";
 
 import {
   Accordion,
