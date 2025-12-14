@@ -105,7 +105,18 @@ export default function CartPage() {
                           >
                             -
                           </button>
-                          <span className="px-2">{item.quantity}</span>
+                          <input
+                            type="number"
+                            value={item.quantity}
+                            min="1"
+                            className="w-12 text-center py-1  focus:outline-none [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
+                            onChange={(e) => {
+                              const newQuantity = parseInt(e.target.value);
+                              if (newQuantity > 0 && !isNaN(newQuantity)) {
+                                updateQuantity(item.id, newQuantity);
+                              }
+                            }}
+                          />
                           <button
                             onClick={() =>
                               handleIncrement(item.id, item.quantity)
@@ -171,7 +182,18 @@ export default function CartPage() {
                       >
                         -
                       </button>
-                      <span className="px-3 font-medium">{item.quantity}</span>
+                      <input
+                        type="number"
+                        value={item.quantity}
+                        min="1"
+                        className="w-12 text-center py-1  focus:outline-none [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
+                        onChange={(e) => {
+                          const newQuantity = parseInt(e.target.value);
+                          if (newQuantity > 0 && !isNaN(newQuantity)) {
+                            updateQuantity(item.id, newQuantity);
+                          }
+                        }}
+                      />
                       <button
                         onClick={() => handleIncrement(item.id, item.quantity)}
                         className="px-3 py-1 bg-white rounded-sm hover:bg-gray-100"
@@ -228,7 +250,7 @@ export default function CartPage() {
                   <span>Free</span>
                 </div>
 
-                <div className="flex justify-between py-3 font-semibold">
+                <div className="flex justify-between py-3">
                   <span>Total</span>
                   <span>${totalPrice.toFixed(2)}</span>
                 </div>
