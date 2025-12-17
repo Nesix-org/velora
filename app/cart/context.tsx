@@ -27,23 +27,20 @@ type CartContextType = {
 const CartContext = createContext<CartContextType | undefined>(undefined);
 
 export function CartProvider({ children }: { children: ReactNode }) {
-  const [mounted, setMounted] = useState(false);
-  const [cart, setCart] = useState<CartItem[]>([]);
-
-  // Only run on client side
-  useEffect(() => {
-    setMounted(true);
-    const savedCart = localStorage.getItem("cart");
-    if (savedCart) {
-      setCart(JSON.parse(savedCart));
+  const [cart, setCart] = useState<CartItem[]>(() => {
+    if (typeof window !== "undefined") {
+      const savedCart = localStorage.getItem("cart");
+      return savedCart ? JSON.parse(savedCart) : [];
     }
-  }, []);
+    return [];
+  });
 
+  // Save to localStorage whenever cart changes
   useEffect(() => {
-    if (mounted) {
+    if (typeof window !== "undefined") {
       localStorage.setItem("cart", JSON.stringify(cart));
     }
-  }, [cart, mounted]);
+  }, [cart]);
 
   const addToCart = (item: Omit<CartItem, "quantity">) => {
     setCart((prev) => {
