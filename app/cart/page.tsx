@@ -7,22 +7,7 @@ import CartSummary from "@/components/cartComponents/cartSummary";
 import EmptyCart from "@/components/cartComponents/emptyCart";
 
 export default function CartPage() {
-  const { cart, removeFromCart, clearCart, updateQuantity } = useCart();
-
-  const totalPrice = cart.reduce(
-    (sum, item) => sum + item.price * item.quantity,
-    0
-  );
-
-  const handleIncrement = (id: number, currentQuantity: number) => {
-    updateQuantity(id, currentQuantity + 1);
-  };
-
-  const handleDecrement = (id: number, currentQuantity: number) => {
-    if (currentQuantity > 1) {
-      updateQuantity(id, currentQuantity - 1);
-    }
-  };
+  const { cart, clearCart } = useCart();
 
   return (
     <section className="lg:max-w-7xl w-full px-10 flex flex-col mt-10 mx-auto">
@@ -37,24 +22,11 @@ export default function CartPage() {
       ) : (
         <>
           <div className="w-full mt-5">
-            <CartTable
-              cart={cart}
-              removeFromCart={removeFromCart}
-              updateQuantity={updateQuantity}
-              handleIncrement={handleIncrement}
-              handleDecrement={handleDecrement}
-            />
-
-            <CartMobileView
-              cart={cart}
-              removeFromCart={removeFromCart}
-              updateQuantity={updateQuantity}
-              handleIncrement={handleIncrement}
-              handleDecrement={handleDecrement}
-            />
+            <CartTable />
+            <CartMobileView />
           </div>
 
-          <CartSummary totalPrice={totalPrice} />
+          <CartSummary />
 
           <button
             onClick={clearCart}

@@ -1,8 +1,15 @@
-type CartSummaryProps = {
-  totalPrice: number;
-};
+"use client";
 
-export default function CartSummary({ totalPrice }: CartSummaryProps) {
+import { useCart } from "@/app/cart/context";
+
+export default function CartSummary() {
+  const { cart } = useCart();
+
+  const totalPrice = cart.reduce(
+    (sum, item) => sum + item.price * item.quantity,
+    0
+  );
+
   return (
     <section className="flex flex-col md:flex-row mt-4 gap-4 justify-between items-start">
       {/* Coupon Form */}

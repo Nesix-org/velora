@@ -1,29 +1,22 @@
+"use client";
+
+import { useCart } from "@/app/cart/context";
 import Image from "next/image";
 import { X } from "lucide-react";
 
-type CartItem = {
-  id: number;
-  name: string;
-  price: number;
-  image: string;
-  quantity: number;
-};
+export default function CartMobileView() {
+  const { cart, removeFromCart, updateQuantity } = useCart();
 
-type CartMobileViewProps = {
-  cart: CartItem[];
-  removeFromCart: (id: number) => void;
-  updateQuantity: (id: number, quantity: number) => void;
-  handleIncrement: (id: number, quantity: number) => void;
-  handleDecrement: (id: number, quantity: number) => void;
-};
+  const handleIncrement = (id: number, currentQuantity: number) => {
+    updateQuantity(id, currentQuantity + 1);
+  };
 
-export default function CartMobileView({
-  cart,
-  removeFromCart,
-  updateQuantity,
-  handleIncrement,
-  handleDecrement,
-}: CartMobileViewProps) {
+  const handleDecrement = (id: number, currentQuantity: number) => {
+    if (currentQuantity > 1) {
+      updateQuantity(id, currentQuantity - 1);
+    }
+  };
+
   return (
     <div className="md:hidden space-y-4">
       {cart.map((item) => (
