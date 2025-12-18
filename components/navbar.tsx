@@ -18,11 +18,14 @@ import { motion, AnimatePresence } from "framer-motion";
 // lib
 import MenuItem from "./menuItem";
 import { menus } from "../lib/menus";
+// Auth Context
+import { useAuth } from "@/components/context/AuthContext";
+import ProfileMenu from "./auth/ProfileMenu";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [showSignInDropdown, setShowSignInDropdown] = useState(false);
-
+  const { user } = useAuth();
 
   const toggleMenu = () => setOpen((prev) => !prev);
 
@@ -67,7 +70,10 @@ export default function Navbar() {
         </Link>
 
         <div className="flex justify-between items-center gap-4">
-          <Link href="/signup" className="md:block border border-[#A1C249] rounded-full px-4 py-2 text-sm font-medium text-[#A1C249] hover:bg-[#A1C249] hover:text-white transition-colors duration-300">
+          <Link
+            href="/signup"
+            className="md:block border border-[#A1C249] rounded-full px-4 py-2 text-sm font-medium text-[#A1C249] hover:bg-[#A1C249] hover:text-white transition-colors duration-300"
+          >
             <p>Sign Up</p>
           </Link>
 
@@ -188,19 +194,16 @@ export default function Navbar() {
             ></Image>
           </div>
 
-
-          <Link href="/wishlist"
+          <Link
+            href="/wishlist"
             className={buttonVariants({
               variant: "outline",
               size: "icon",
-              className: "rounded-full!"
+              className: "rounded-full!",
             })}
             aria-label="wishlist"
           >
-            <Image
-              src={heartIcon}
-              alt="wishlist"
-              className="w-7 h-7"></Image>
+            <Image src={heartIcon} alt="wishlist" className="w-7 h-7"></Image>
           </Link>
 
           <Link
@@ -208,43 +211,52 @@ export default function Navbar() {
             className={buttonVariants({
               variant: "outline",
               size: "icon",
-            
-              className: "rounded-full!"
+
+              className: "rounded-full!",
             })}
             aria-label="cart"
           >
             <Image src={cartIcon} alt="cart" className="w-6 h-6" />
           </Link>
-          <div className="flex items-center gap-2 lg:gap-3 border border-[#A1C249] rounded-full px-4 lg:px-6 py-2 lg:py-3 text-sm font-medium text-[#A1C249] whitespace-nowrap">
-            <Link href="/signup" className=" text-sm font-medium">
-              Sign Up
-            </Link>
-            {showSignInDropdown ? (
-              <ChevronUp
-                className=" w-5 h-5 cursor-pointer"
-                onClick={() => setShowSignInDropdown(false)}
-              />
-            ) : (
-              <ChevronDown
-                className=" w-5 h-5 cursor-pointer"
-                onClick={() => setShowSignInDropdown(true)}
-              />
-            )}
-            {/* Hidden Sign In */}
-            {showSignInDropdown && (
-              <motion.div
-                initial="hidden"
-                animate="visible"
-                variants={itemVariants}
-                className="absolute top-[76px] right-0 -translate-x-[124px] bg-[#A1C249]/50 px-6 py-3 text-black flex items-center gap-3 rounded-md"
-              >
-                <User />
-                <Link href="/login" className=" text-sm font-medium ">
-                  Sign In
-                </Link>
-              </motion.div>
-            )}
-          </div>
+          {/* signup btn */}
+          {!user ? (
+            <div className="flex items-center gap-2 lg:gap-3 border border-[#A1C249] rounded-full px-4 lg:px-6 py-2 lg:py-3 text-sm font-medium text-[#A1C249] whitespace-nowrap">
+              <Link href="/signup" className=" text-sm font-medium">
+                Sign Up
+              </Link>
+              {showSignInDropdown ? (
+                <ChevronUp
+                  className=" w-5 h-5 cursor-pointer"
+                  onClick={() => setShowSignInDropdown(false)}
+                />
+              ) : (
+                <ChevronDown
+                  className=" w-5 h-5 cursor-pointer"
+                  onClick={() => setShowSignInDropdown(true)}
+                />
+              )}
+              {/* Hidden Sign In */}
+              {showSignInDropdown && (
+                <motion.div
+                  initial="hidden"
+                  animate="visible"
+                  variants={itemVariants}
+                  className="absolute top-[76px] right-0 -translate-x-[124px] bg-[#A1C249]/50 px-6 py-3 text-black flex items-center gap-3 rounded-md z-50"
+                >
+                  <User />
+                  <Link
+                    href="/login"
+                    className=" text-sm font-medium cursor-pointer"
+                    onClick={() => setShowSignInDropdown(false)}
+                  >
+                    Sign In
+                  </Link>
+                </motion.div>
+              )}
+            </div>
+          ) : (
+            <ProfileMenu />
+          )}
         </div>
       </nav>
     </header>
