@@ -6,11 +6,10 @@ import { usePathname } from "next/navigation";
 // Images & Icon
 import logo from "../public/assets/icons/mobile-logo.svg";
 import Icon from "../public/assets/icons/Logo.svg";
-import cartIcon from "../public/assets/icons/cart.svg";
 import heartIcon from "../public/assets/icons/heart.svg";
 import Search from "../public/assets/icons/search.svg";
 import { buttonVariants, Button } from "@/components/ui/button";
-import { X, Menu, ChevronDown, ChevronUp, User } from "lucide-react";
+import { X, Menu, ChevronDown, ChevronUp, User, Car } from "lucide-react";
 // States
 import { useState } from "react";
 // Animation
@@ -18,6 +17,7 @@ import { motion, AnimatePresence } from "framer-motion";
 // lib
 import MenuItem from "./menuItem";
 import { menus } from "../lib/menus";
+import { CartButton } from "./navbarComponents/cartButton";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
@@ -203,18 +203,8 @@ export default function Navbar() {
               className="w-7 h-7"></Image>
           </Link>
 
-          <Link
-            href="/cart"
-            className={buttonVariants({
-              variant: "outline",
-              size: "icon",
-            
-              className: "rounded-full!"
-            })}
-            aria-label="cart"
-          >
-            <Image src={cartIcon} alt="cart" className="w-6 h-6" />
-          </Link>
+          <CartButton />
+          
           <div className="flex items-center gap-2 lg:gap-3 border border-[#A1C249] rounded-full px-4 lg:px-6 py-2 lg:py-3 text-sm font-medium text-[#A1C249] whitespace-nowrap">
             <Link href="/signup" className=" text-sm font-medium">
               Sign Up

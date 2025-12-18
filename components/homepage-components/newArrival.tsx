@@ -40,6 +40,7 @@ export default function NewArrival() {
       <div className="grid grid-cols-2 gap-5 md:hidden translate-y-10">
         {cards.map((card) => (
           <ProductCard
+            id={card.id}
             key={card.id}
             image={card.image}
             price={card.price}
@@ -79,6 +80,7 @@ export default function NewArrival() {
                 className="basis-1/2 md:basis-1/3 lg:basis-1/4 sm:basis-1/3"
               >
                 <ProductCard
+                  id={card.id}
                   image={card.image}
                   price={card.price}
                   productName={card.name}
@@ -100,6 +102,7 @@ export default function NewArrival() {
                 className="basis-1/2 md:basis-1/3 lg:basis-1/4 sm:basis-1/3"
               >
                 <ProductCard
+                  id={card.id}
                   image={card.image}
                   price={card.price}
                   productName={card.name}
