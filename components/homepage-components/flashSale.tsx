@@ -41,6 +41,7 @@ export default function FlashSaleSection() {
         {cards.map((card) => (
           <ProductCard
             key={card.id}
+            id={card.id}
             image={card.image}
             price={card.price}
             productName={card.name}
@@ -81,6 +82,7 @@ export default function FlashSaleSection() {
             >
               <ProductCard
                 image={card.image}
+                id={card.id}
                 price={card.price}
                 productName={card.name}
                 discount={card.discount}
