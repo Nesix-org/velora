@@ -25,6 +25,8 @@ const LoginSchema = z.object({
   password: z.string().min(6),
 });
 
+type LoginForm = z.infer<typeof LoginSchema>
+
 export default function LoginPage() {
   const [showPassword, setShowPassword] = useState(false);
   const router = useRouter();
@@ -34,11 +36,11 @@ export default function LoginPage() {
     handleSubmit,
     reset,
     formState: { errors, isSubmitting },
-  } = useForm<z.infer<typeof LoginSchema>>({
+  } = useForm<LoginForm>({
     resolver: zodResolver(LoginSchema), //checks validation against schema
   });
 
-  const onSubmit: SubmitHandler<z.infer<typeof LoginSchema>> = async (data) => {
+  const onSubmit: SubmitHandler<LoginForm> = async (data) => {
     await new Promise((resolve) => setTimeout(resolve, 1000)); // Check localStorage for a previous user
     const storedUser =
       user || JSON.parse(localStorage.getItem("user") || "null");
@@ -73,7 +75,8 @@ export default function LoginPage() {
         />
       </div>
       {/* signup Form */}
-      <div className=" w-full lg:max-w-md  px-6 lg:px-10 py-5 ring-1 ring-black/10 lg:ring-0 rounded-lg shadow-lg lg:rounded-none">
+      <div className="flex flex-col">
+      <div className=" w-full lg:max-w-md px-6 lg:px-10 py-5 ring-1 ring-black/10 lg:ring-0 rounded-lg shadow-lg lg:rounded-none">
         <div className="mb-6 lg:mb-8">
           <h2 className="text-xl font-bold text-center py-2">Login</h2>
           <p className="text-sm text-[#a1a1a1] text-center">
@@ -141,13 +144,13 @@ export default function LoginPage() {
             </Link>
           </p>
         </div>
-      </div>
-      {/* divider */}
-      <div className="flex items-center justify-center mt-3 gap-3 text-[#A1C249]">
-        <p className="border-b border-[#A1C249] w-35 "></p>
-        <span>Or</span>
-        <p className="border-b border-[#A1C249] w-35 "></p>
-      </div>
+
+        {/* divider */}
+        <div className="flex items-center justify-center mt-3 gap-3 text-[#A1C249]">
+            <p className="border-b border-[#A1C249] w-35 "></p>
+            <span>Or</span>
+            <p className="border-b border-[#A1C249] w-35 "></p>
+        </div>
       {/* signup with google and apple */}
       <div>
         <button className="w-full mt-4 px-4 py-2 border border-[#A1C249]  rounded-md hover:bg-gray-100 flex items-center justify-center gap-2">
@@ -158,6 +161,8 @@ export default function LoginPage() {
           <Image src={google} alt="Google Icon" width={20} height={20} />
           <span>Sign up with Google</span>
         </button>
+      </div>
+      </div>
       </div>
     </div>
   );

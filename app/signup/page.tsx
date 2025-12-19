@@ -34,10 +34,12 @@ const formSchema =z.object({
   message:"Passwords do not match",
   path:["confirmPassword"],
 })
+
+type FormState = z.infer<typeof formSchema>
  
 export default function SignupPage() {
-  const [showPassword, setShowPassword] = useState(false);
-  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const [showPassword, setShowPassword] = useState<boolean>(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState<boolean>(false);
   const {login} = useAuth();
   const router = useRouter();
   
@@ -46,11 +48,11 @@ export default function SignupPage() {
     handleSubmit,
     reset,
     formState: { errors, isSubmitting },
-  } = useForm<z.infer<typeof formSchema>>({
+  } = useForm<FormState>({
     resolver: zodResolver(formSchema), //checks validation against schema
   });
 
-  const onSubmit: SubmitHandler<z.infer<typeof formSchema>> = async (data) => {
+  const onSubmit: SubmitHandler<FormState> = async (data) => {
     await new Promise((resolve) => setTimeout(resolve, 1000));
     // replace with Api 
     const newUser ={name: data.name, email: data.email, password: data.password};
