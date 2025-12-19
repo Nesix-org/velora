@@ -7,7 +7,7 @@ import NewsLetterForm from "./homepage-components/newsletterform";
 export default function Footer() {
 
   return (
-    <footer className="w-full px-5 md:px-8 max-w-7xl mx-auto mt-12 dark:bg-gray-900">
+    <footer className="w-full px-5 md:px-8 max-w-7xl mx-auto  dark:bg-gray-900">
       {/* Newsletter Section */}
       <div className="bg-bgLemon py-8 rounded-lg">
         <div className="mx-auto max-w-4xl">
