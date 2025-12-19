@@ -3,7 +3,7 @@ import Image from "next/image";
 import signupImage from "@/public/assets/signup/signup.svg";
 // form component
 import SignUpForm from "./SignUpForm";
-
+ 
 export default function SignupPage() {
   return (
     <div className="container mx-auto px-4 lg:px-0 py-5 h-full flex justify-around items-center mt-10">
