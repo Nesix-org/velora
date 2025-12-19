@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { Poppins, Inter } from "next/font/google";
-import { blogCard } from "@/constants/blogCard";
+import { icons, veloraTeam, blogCard } from "@/constants/blogCard";
 import shoppingImg from "@/public/assets/blogPage/storyImg.svg";
 
 const poppins = Poppins({
@@ -13,43 +13,9 @@ const inter = Inter({
   subsets: ["latin"],
 });
 
-const icons = [
-  { url: "/assets/blogPage/Icon-twitter.svg", id: 1 },
-  { url: "/assets/blogPage/icon-instagram.svg", id: 2 },
-  { url: "/assets/blogPage/Icon-linkedin.svg", id: 3 },
-];
-
-type VeloraTeam = {
-  id: number;
-  imageUrl: string;
-  name: string;
-  title: string;
-};
-
-const veloraTeam: VeloraTeam[] = [
-  {
-    id: 1,
-    imageUrl: "/assets/blogPage/Team-member-1.svg",
-    name: "Darlene Robertson",
-    title: "Founder & Chairman",
-  },
-  {
-    id: 2,
-    imageUrl: "/assets/blogPage/Team-member-2.svg",
-    name: " Brooklyn Simmons",
-    title: "Managing Director",
-  },
-  {
-    id: 3,
-    imageUrl: "/assets/blogPage/Team-member-3.svg",
-    name: "Jacob Jones",
-    title: "Product Designer",
-  },
-];
-
 export default function BlogPage() {
   return (
-    <main className="w-full lg:max-w-7xl px-10 flex flex-col gap-15 md:gap-20 py-10">
+    <main className="w-full md:max-w-3xl lg:max-w-7xl px-5 lg:px-10 flex flex-col gap-14 md:gap-20 py-10 mx-auto">
       <section className="flex flex-col-reverse md:flex-row md:items-end md:justify-between">
         <div className="w-full md:max-w-[520px]">
           <header>
@@ -79,15 +45,15 @@ export default function BlogPage() {
           <Image src={shoppingImg} alt="Shopping image" priority />
         </div>
       </section>
-      <section>
+      <section aria-labelledby="statistics">
         <div className="w-full flex flex-col gap-5 md:flex-row items-center">
           {blogCard.map((card) => (
             <div
-              className="w-2xs md:max-w-[300px] h-62 border border-[#0000004D] rounded-md flex flex-col items-center justify-center gap-6 group hover:bg-bgLemon hover:transition-colors hover:duration-400 hover:shadow-lg hover:border-0"
+              className="w-2xs md:max-w-[300px] h-64 border border-[#0000004D] rounded-md flex flex-col items-center justify-center gap-6 group hover:bg-bgLemon transition-colors duration-300 hover:shadow-lg hover:border-0"
               key={card.id}
             >
               <div className="w-20 h-20 flex items-center justify-center rounded-full group-hover:bg-[#bcd47e]">
-                <div className="bg-bgLemon w-15 h-15 lg:w-15 lg:h-15 md:w-10 md:h-10 flex items-center justify-center rounded-full group-hover:bg-white">
+                <div className="bg-bgLemon w-15 h-15 lg:w-15 lg:h-15 flex items-center justify-center rounded-full group-hover:bg-white">
                   {card.icon}
                 </div>
               </div>
