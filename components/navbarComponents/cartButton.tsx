@@ -1,4 +1,4 @@
-"use client";
+// "use client";
 
 import { useCart } from "@/app/cart/context";
 import cartIcon from "@/public/assets/icons/cart.svg";

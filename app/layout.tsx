@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 import { Toaster } from "sonner";
+import { AuthProvider } from "@/components/context/AuthContext";
 import { Providers } from "@/components/providers";
 
 
@@ -33,15 +34,22 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen bg-bgWhite font-sans dark:bg-black overflow-x-hidden`}
       >
+        <AuthProvider>
+        {/* <Navbar />
+        {children}
+        <Toaster position="top-right" richColors />   */}
         <Providers>
           <Navbar />
           <main className="">
             {children}
           </main>
-        </Providers>
+        
 
         <Toaster position="top-right" richColors />
         <Footer />
+        </Providers>
+        </AuthProvider>
+        
       </body>
     </html>
   );
