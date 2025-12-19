@@ -5,6 +5,7 @@ import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 import { Toaster } from "sonner";
 import { AuthProvider } from "@/components/context/AuthContext";
+import { Providers } from "@/components/providers";
 
 
 const geistSans = Space_Grotesk({
@@ -34,10 +35,19 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen bg-bgWhite font-sans dark:bg-black overflow-x-hidden`}
       >
         <AuthProvider>
-        <Navbar />
+        {/* <Navbar />
         {children}
-        <Toaster position="top-right" richColors />  
+        <Toaster position="top-right" richColors />   */}
+        <Providers>
+          <Navbar />
+          <main className="">
+            {children}
+          </main>
+        
+
+        <Toaster position="top-right" richColors />
         <Footer />
+        </Providers>
         </AuthProvider>
         
       </body>

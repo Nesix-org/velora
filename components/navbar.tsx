@@ -6,11 +6,10 @@ import { usePathname } from "next/navigation";
 // Images & Icon
 import logo from "../public/assets/icons/mobile-logo.svg";
 import Icon from "../public/assets/icons/Logo.svg";
-import cartIcon from "../public/assets/icons/cart.svg";
 import heartIcon from "../public/assets/icons/heart.svg";
 import Search from "../public/assets/icons/search.svg";
 import { buttonVariants, Button } from "@/components/ui/button";
-import { X, Menu, ChevronDown, ChevronUp, User } from "lucide-react";
+import { X, Menu, ChevronDown, ChevronUp, User,  } from "lucide-react";
 // States
 import { useState } from "react";
 // Animation
@@ -21,6 +20,7 @@ import { menus } from "../lib/menus";
 // Auth Context
 import { useAuth } from "@/components/context/AuthContext";
 import ProfileMenu from "./auth/ProfileMenu";
+import { CartButton } from "./navbarComponents/cartButton";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
@@ -205,19 +205,8 @@ export default function Navbar() {
           >
             <Image src={heartIcon} alt="wishlist" className="w-7 h-7"></Image>
           </Link>
+            <CartButton />
 
-          <Link
-            href="/cart"
-            className={buttonVariants({
-              variant: "outline",
-              size: "icon",
-
-              className: "rounded-full!",
-            })}
-            aria-label="cart"
-          >
-            <Image src={cartIcon} alt="cart" className="w-6 h-6" />
-          </Link>
           {/* signup btn */}
           {!user ? (
             <div className="flex items-center gap-2 lg:gap-3 border border-[#A1C249] rounded-full px-4 lg:px-6 py-2 lg:py-3 text-sm font-medium text-[#A1C249] whitespace-nowrap">

@@ -43,6 +43,7 @@ function ViewAllProducts() {
             {products && products.length > 0 ? (
               products.map((product: Product) => (
                 <ProductCard
+                  id={product.id}
                   key={product.id}
                   image={product.image}
                   productName={product.name} 
