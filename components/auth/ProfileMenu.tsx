@@ -17,7 +17,7 @@ import {
   LogOut,
 } from "lucide-react";
 // State
-import { useState } from "react";
+import React, { useState } from "react";
 // Animation
 import { motion } from "framer-motion";
 
@@ -25,7 +25,11 @@ const itemVariants = {
   hidden: { opacity: 0, y: -10 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.3 } },
 };
-const Profile = [
+interface ProfileItem {
+  label: string;
+  icon: React.ElementType;
+}
+const Profile: ProfileItem[] = [
   { label: "My Profile", icon: User },
   { label: "Notifications", icon: Bell },
   { label: "Settings", icon: Settings },
@@ -104,19 +108,19 @@ export default function ProfileMenu() {
           className="absolute top-[76px] right-0 -translate-x-[110px] bg-[#A1C249] px-5 py-2 text-black flex items-center gap-3 rounded-md z-50"
         >
           <div>
-            {Profile.map((user) => {
-              const Icon = user.icon;
+            {Profile.map((menu) => {
+              const Icon = menu.icon;
               return (
                 <div
-                  key={user.label}
+                  key={menu.label}
                   className="flex items-center gap-2 px-1 py-2 rounded-md cursor-pointer"
-                  onClick={() => handleClick(user.label)}
+                  onClick={() => handleClick(menu.label)}
                 >
                   <span>
                     <Icon />
                   </span>
                   <p className="text-sm font-medium text-primary">
-                    {user.label}
+                    {menu.label}
                   </p>
                 </div>
               );
