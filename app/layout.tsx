@@ -7,7 +7,6 @@ import { Toaster } from "sonner";
 import { AuthProvider } from "@/components/context/AuthContext";
 import { Providers } from "@/components/providers";
 
-
 const geistSans = Space_Grotesk({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -28,28 +27,19 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-
   return (
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen bg-bgWhite font-sans dark:bg-black overflow-x-hidden`}
       >
         <AuthProvider>
-        {/* <Navbar />
-        {children}
-        <Toaster position="top-right" richColors />   */}
-        <Providers>
-          <Navbar />
-          <main className="">
-            {children}
-          </main>
-        
-
-        <Toaster position="top-right" richColors />
-        <Footer />
-        </Providers>
+          <Providers>
+            <Navbar />
+            <main className="">{children}</main>
+            <Toaster position="top-right" richColors />
+            <Footer />
+          </Providers>
         </AuthProvider>
-        
       </body>
     </html>
   );
