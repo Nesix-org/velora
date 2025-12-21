@@ -28,7 +28,7 @@ const CartContext = createContext<CartContextType | undefined>(undefined);
 
 export function CartProvider({ children }: { children: ReactNode }) {
   const [cart, setCart] = useState<CartItem[]>(() => {
-    if (typeof window === "undefined") return [];
+    if (typeof window === "undefined") return []; // try eliminate typeof window for hydration reason
 
     const savedCart = localStorage.getItem("cart");
     return savedCart ? JSON.parse(savedCart) : [];

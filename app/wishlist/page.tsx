@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Product, cards as products } from '@/constants/products';
-import ProductCard from "@/components/productCard";
 import WishlistProducts from "@/components/wishlists/wishlistproducts";
+import JustForYou from "@/components/cartComponents/justForYou";
 
 
 function Wishlists () {
@@ -33,6 +33,9 @@ function Wishlists () {
                 )) ) : (
                     <p className="col-span-full text-center text-gray-500">No products available</p>
                 )}
+            </div>
+            <div>
+                <JustForYou />
             </div>
         </main>
     )

@@ -217,7 +217,7 @@ export const wishlistProduct: WishlistProduct[] = [
     id: 1,
     macroImage: macroShoe,
     miniImage: miniShoe,
-    name: "Grey Casual shoe",
+    name: "Grey Casual Shoe",
     rating: 5,
     review: 150,
     price: 190,
