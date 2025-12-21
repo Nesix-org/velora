@@ -11,9 +11,7 @@ import CountDownTimer from "../countDownTimer";
 export default function FlashSaleSection() {
   const [carouselApi, setCarouselApi] = useState<CarouselApi>();
   // Update the environment variable for future flash sales to avoid showing expired/incorrect times.
-  const saleDate = new Date(
-    process.env.NEXT_PUBLIC_FLASH_SALE_DATE || "2025-12-31T23:59:59"
-  );
+
 
   const handlePrev = () => {
     carouselApi?.scrollPrev();
@@ -34,7 +32,7 @@ export default function FlashSaleSection() {
           Flash Sales
         </h2>
         <div className="md:translate-y-2">
-          <CountDownTimer targetDate={saleDate} />
+          <CountDownTimer />
         </div>
       </section>
       <div className="grid grid-cols-2 gap-5 md:hidden translate-y-10">
