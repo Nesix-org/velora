@@ -1,4 +1,4 @@
-"use client";
+// "use client";
 
 import { useCart } from "@/app/cart/context";
 import cartIcon from "@/public/assets/icons/cart.svg";
@@ -14,7 +14,7 @@ export function CartButton() {
   const isActive = pathname === "/cart";
 
   // Calculate total items in cart
-  const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+  const totalItems = cart?.reduce((sum, item) => sum + item.quantity, 0);
 
   return (
     <Link

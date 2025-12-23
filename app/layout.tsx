@@ -4,8 +4,8 @@ import "./globals.css";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 import { Toaster } from "sonner";
+import { AuthProvider } from "@/components/context/AuthContext";
 import { Providers } from "@/components/providers";
-
 
 const geistSans = Space_Grotesk({
   variable: "--font-geist-sans",
@@ -27,21 +27,19 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-
   return (
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen bg-bgWhite font-sans dark:bg-black overflow-x-hidden`}
       >
-        <Providers>
-          <Navbar />
-          <main className="">
-            {children}
-          </main>
-        </Providers>
-
-        <Toaster position="top-right" richColors />
-        <Footer />
+        <AuthProvider>
+          <Providers>
+            <Navbar />
+            <main className="">{children}</main>
+            <Toaster position="top-right" richColors />
+            <Footer />
+          </Providers>
+        </AuthProvider>
       </body>
     </html>
   );
