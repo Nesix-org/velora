@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { ChevronRight, ShoppingCart, Star } from "lucide-react";
+import { ChevronRight, Star } from "lucide-react";
 import { cards, productsByCategory } from "../../constants/products"; // Adjust path as needed
 import Image from "next/image";
 import ViewAllProducts from "../ViewAllProducts";
@@ -38,7 +38,7 @@ const ShopCategory: React.FC = () => {
       </section>
       <div className="flex gap-6">
         {/* Left Sidebar - Categories */}
-        <div className="w-80 bg-white rounded-xl shadow-lg p-6">
+        <div className="w-80">
           <div className="space-y-2">
             {categories.map((category) => (
               <button
@@ -51,16 +51,6 @@ const ShopCategory: React.FC = () => {
                 }`}
               >
                 <span className="font-medium">{category.name}</span>
-                <div className="flex items-center gap-2">
-                  <span
-                    className={`text-sm ${
-                      selectedCategory === category.id
-                        ? "text-blue-100"
-                        : "text-slate-500"
-                    }`}
-                  ></span>
-                  <ChevronRight size={18} />
-                </div>
               </button>
             ))}
           </div>
@@ -68,7 +58,7 @@ const ShopCategory: React.FC = () => {
 
         {/* Right Side - Products */}
         <div className="flex-1">
-          <div className="bg-white rounded-xl shadow-lg p-6">
+          <div className="p-3">
             {productsByCategory[selectedCategory] &&
             productsByCategory[selectedCategory].length > 0 ? (
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
