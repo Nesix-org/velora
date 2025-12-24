@@ -5,10 +5,11 @@ import {
   useContext,
   useState,
   useEffect,
+  useRef,
   ReactNode,
 } from "react";
 
-type CartItem = {
+export type CartItem = {
   id: number;
   name: string;
   price: number;
@@ -27,16 +28,37 @@ type CartContextType = {
 const CartContext = createContext<CartContextType | undefined>(undefined);
 
 export function CartProvider({ children }: { children: ReactNode }) {
-  const [cart, setCart] = useState<CartItem[]>(() => {
-    if (typeof window === "undefined") return []; // try eliminate typeof window for hydration reason
+  // Always initialize with empty array to avoid hydration mismatch
+  const [cart, setCart] = useState<CartItem[]>([]);
+  const isInitialMount = useRef(true);
 
-    const savedCart = localStorage.getItem("cart");
-    return savedCart ? JSON.parse(savedCart) : [];
-  });
-
-  // Save to localStorage whenever cart changes
+  // Load cart from localStorage on mount
   useEffect(() => {
-    if (typeof window !== "undefined") {
+    const loadCart = () => {
+      const savedCart = localStorage.getItem("cart");
+      if (savedCart) {
+        try {
+          return JSON.parse(savedCart);
+        } catch {
+          return [];
+        }
+      }
+      return [];
+    };
+
+    if (isInitialMount.current) {
+      const loadedCart = loadCart();
+      if (loadedCart.length > 0) {
+        // eslint-disable-next-line react-hooks/set-state-in-effect
+        setCart(loadedCart);
+      }
+      isInitialMount.current = false;
+    }
+  }, []);
+
+  // Save to localStorage whenever cart changes (but skip initial mount)
+  useEffect(() => {
+    if (!isInitialMount.current) {
       localStorage.setItem("cart", JSON.stringify(cart));
     }
   }, [cart]);
