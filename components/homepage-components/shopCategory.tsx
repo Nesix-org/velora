@@ -1,8 +1,8 @@
 "use client";
 
 import React, { useState } from "react";
-import { ChevronRight, ShoppingCart, Star } from "lucide-react";
-import { cards, productsByCategory } from "../../constants/products"; // Adjust path as needed
+import { ChevronRight, Star } from "lucide-react";
+import { productsByCategory } from "../../constants/products"; // Adjust path as needed
 import Image from "next/image";
 import ViewAllProducts from "../ViewAllProducts";
 
