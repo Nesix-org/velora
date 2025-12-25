@@ -31,7 +31,7 @@ const appBenefits: AppBenefits[] = [
 
 export default function AppBenefits() {
   return (
-    <section className="max-w-7xl md:px-10 w-full  flex flex-col gap-5 md:gap-20 md:flex-row justify-center items-center">
+    <section className="max-w-7xl md:px-10 w-full  flex flex-col gap-5 md:gap-20 md:flex-row justify-center items-center mb-12">
       {appBenefits.map((benefit) => (
         <article
           key={benefit.title}
@@ -45,14 +45,14 @@ export default function AppBenefits() {
             className="mb-4 p-1 bg-black rounded-full border-8 border-gray-300"
           />
 
-        <header className={`${poppins.className} text-center`}>
+        <div className={`${poppins.className} text-center`}>
           <h3 className="text-sm mb-1 font-semibold uppercase">
             {benefit.title}
           </h3>
           <p className="text-xs text-gray-600 dark:text-gray-300 max-w-xs">
             {benefit.description}
           </p>
-          </header>
+          </div>
         </article>
       ))}
     </section>

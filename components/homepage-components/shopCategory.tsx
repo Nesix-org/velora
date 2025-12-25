@@ -58,7 +58,7 @@ const ShopCategory: React.FC = () => {
 
         {/* Right Side - Products */}
         <div className="flex-1">
-          <div className="p-3">
+          <div className="p-6">
             {productsByCategory[selectedCategory] &&
             productsByCategory[selectedCategory].length > 0 ? (
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -133,7 +133,7 @@ const ShopCategory: React.FC = () => {
         </div>
       </div>
       <div className="flex justify-center items-center mt-10">
-        <ViewAllProducts products={cards} />
+        <ViewAllProducts/>
       </div>
     </section>
   );

@@ -1,46 +1,22 @@
-"use client";
-
-import Link from "next/link";
-
-
+// images
+import Image from "next/image";
+import signupImage from "@/public/assets/signup/signup.svg";
+// form component
+import SignUpForm from "./SignUpForm";
+ 
 export default function SignupPage() {
   return (
-      <div className="container p-8">
-      <div className="max-w-md ">
-        <h1 className="text-2xl font-bold text-center mb-8">Sign up</h1>
-        <form className="mt-8">
-          <div className="mb-4">
-            <label className="block mb-2">Email</label>
-            <input
-              type="email"
-              className="w-full px-3 py-2 border rounded-md"
-              placeholder="Enter your email"
-            />
-          </div>
-          <div className="mb-4">
-            <label className="block mb-2">Password</label>
-            <input
-              type="password"
-              className="w-full px-3 py-2 border rounded-md"
-              placeholder="Enter your password"
-            />
-          </div>
-          <button
-            type="submit"
-            className="w-full px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700"
-          >
-            Log In
-          </button>
-        </form>
-        <div className="text-center mt-4">
-          <p className="text-gray-600 dark:text-gray-400">
-            Already have an account?
-            <Link href="/login" className="text-blue-600 hover:underline ml-1">
-              Log in
-            </Link>
-          </p>
-        </div>
+    <div className="container mx-auto px-4 lg:px-0 py-5 h-full flex justify-around items-center mt-10">
+      {/* image */}
+      <div className="-ml-20 -mb-21 hidden lg:block">
+        <Image
+          src={signupImage}
+          alt="Signup Image"
+          className="object-cover w-[700px] h-[700px]"
+        />
       </div>
+      {/* signup form */}
+      <SignUpForm />
     </div>
   );
 }

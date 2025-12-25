@@ -6,11 +6,10 @@ import { usePathname } from "next/navigation";
 // Images & Icon
 import logo from "../public/assets/icons/mobile-logo.svg";
 import Icon from "../public/assets/icons/Logo.svg";
-import cartIcon from "../public/assets/icons/cart.svg";
 import heartIcon from "../public/assets/icons/heart.svg";
 import Search from "../public/assets/icons/search.svg";
 import { buttonVariants, Button } from "@/components/ui/button";
-import { X, Menu, ChevronDown, ChevronUp, User } from "lucide-react";
+import { X, Menu, ChevronDown, ChevronUp, User,  } from "lucide-react";
 // States
 import { useState } from "react";
 // Animation
@@ -18,11 +17,15 @@ import { motion, AnimatePresence } from "framer-motion";
 // lib
 import MenuItem from "./menuItem";
 import { menus } from "../lib/menus";
+// Auth Context
+import { useAuth } from "@/components/context/AuthContext";
+import ProfileMenu from "./auth/ProfileMenu";
+import { CartButton } from "./navbarComponents/cartButton";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [showSignInDropdown, setShowSignInDropdown] = useState(false);
-
+  const { user } = useAuth();
 
   const toggleMenu = () => setOpen((prev) => !prev);
 
@@ -58,16 +61,19 @@ export default function Navbar() {
   };
 
   return (
-    <header className=" w-full px-5  md:max-w-3xl  lg:max-w-7xl mx-auto">
+    <header className=" w-full px-3 md:px-5 md:max-w-3xl  lg:max-w-7xl mx-auto overflow-x-hidden">
       {/* Mobile Menu */}
-      <div className="md:hidden w-full py-3 px-1  flex items-center justify-between">
+      <div className="lg:hidden w-full py-3 px-1  flex items-center justify-between">
         {/* Logo,signup & Menu */}
         <Link href="/">
           <Image src={Icon} alt="velora"></Image>
         </Link>
 
         <div className="flex justify-between items-center gap-4">
-          <Link href="/signup" className="md:block border border-[#A1C249] rounded-full px-4 py-2 text-sm font-medium text-[#A1C249] hover:bg-[#A1C249] hover:text-white transition-colors duration-300">
+          <Link
+            href="/signup"
+            className="md:block border border-[#A1C249] rounded-full px-4 py-2 text-sm font-medium text-[#A1C249] hover:bg-[#A1C249] hover:text-white transition-colors duration-300"
+          >
             <p>Sign Up</p>
           </Link>
 
@@ -147,13 +153,13 @@ export default function Navbar() {
       </AnimatePresence>
 
       {/* Desktop Menu */}
-      <nav className=" dark:bg-gray-800 w-full  py-4 md:flex items-center justify-between px-2 hidden ">
+      <nav className=" dark:bg-gray-800 w-full  py-4  lg:max-w-7xl mx-auto lg:flex items-center justify-between px-2 hidden md:hidden overflow-x-hidden">
         {/* logo & Menu */}
-        <div className="flex gap-12">
-          <Link href="/">
+        <div className="flex items-center gap-6 lg:gap-12 min-w-0 shrink">
+          <Link href="/" className="shrink-0 ">
             <Image src={Icon} alt="velora"></Image>
           </Link>
-          <ul className="flex items-center gap-12">
+          <ul className="flex items-center gap-4  lg:gap-8 min-w-0 ">
             {menus
               .filter((menu) => menu !== "Sign In")
               .map((menu, idx) => {
@@ -173,12 +179,12 @@ export default function Navbar() {
         </div>
 
         {/* search bar, wishlist icon and cart, signup & signin btn */}
-        <div className="ml-4 flex items-center gap-9">
-          <div className="bg-[#ECECEC] px-7 py-2 relative rounded-3xl">
+        <div className="ml-2 lg:ml-4 flex items-center gap-3 lg:gap-6 xl:gap-9 shrink-0">
+          <div className="bg-[#ECECEC] px-4 lg:px-7 py-2 relative rounded-3xl min-w-[200px] max-w-[280px] lg:max-w-xs">
             <input
               type="text"
               placeholder="What are you looking for ?"
-              className="pr-3 placeholder:text-sm focus:outline-none"
+              className="pr-3 placeholder:text-sm focus:outline-none w-full min-w-0 bg-transparent"
               aria-label="Search"
             />
             <Image
@@ -188,62 +194,58 @@ export default function Navbar() {
             ></Image>
           </div>
 
-
-          <Link href="/wishlist"
+          <Link
+            href="/wishlist"
             className={buttonVariants({
               variant: "outline",
               size: "icon",
-              className: "rounded-full!"
+              className: "rounded-full!",
             })}
             aria-label="wishlist"
           >
-            <Image
-              src={heartIcon}
-              alt="wishlist"
-              className="w-7 h-7"></Image>
+            <Image src={heartIcon} alt="wishlist" className="w-7 h-7"></Image>
           </Link>
+            <CartButton />
 
-          <Link
-            href="/cart"
-            className={buttonVariants({
-              variant: "outline",
-              size: "icon",
-              className: "rounded-full! "
-            })}
-            aria-label="cart"
-          >
-            <Image src={cartIcon} alt="cart" className="w-6 h-6" />
-          </Link>
-          <div className="flex items-center gap-3 border border-[#A1C249] rounded-full px-6 py-3 text-sm font-medium text-[#A1C249] ">
-            <Link href="/signup" className=" text-sm font-medium">
-              Sign Up
-            </Link>
-            {showSignInDropdown ? (
-              <ChevronUp
-                className=" w-5 h-5 cursor-pointer"
-                onClick={() => setShowSignInDropdown(false)}
-              />
-            ) : (
-              <ChevronDown
-                className=" w-5 h-5 cursor-pointer"
-                onClick={() => setShowSignInDropdown(true)}
-              />
-            )}
-            {/* Hidden Sign In */}
-            {showSignInDropdown && (
-              <motion.div
-                initial="hidden"
-                animate="visible"
-                variants={itemVariants}
-                className="absolute top-[76px] right-0 -translate-x-[124px] bg-[#A1C249]/50 px-6 py-3 text-black flex items-center gap-3 rounded-md"
-              >
-                <User />
-                <Link href="/signin" className=" text-sm font-medium ">
-                  Sign In
-                </Link>
-              </motion.div>
-            )}
-          </div>
+          {/* signup btn */}
+          {!user ? (
+            <div className="flex items-center gap-2 lg:gap-3 border border-[#A1C249] rounded-full px-4 lg:px-6 py-2 lg:py-3 text-sm font-medium text-[#A1C249] whitespace-nowrap">
+              <Link href="/signup" className=" text-sm font-medium">
+                Sign Up
+              </Link>
+              {showSignInDropdown ? (
+                <ChevronUp
+                  className=" w-5 h-5 cursor-pointer"
+                  onClick={() => setShowSignInDropdown(false)}
+                />
+              ) : (
+                <ChevronDown
+                  className=" w-5 h-5 cursor-pointer"
+                  onClick={() => setShowSignInDropdown(true)}
+                />
+              )}
+              {/* Hidden Sign In */}
+              {showSignInDropdown && (
+                <motion.div
+                  initial="hidden"
+                  animate="visible"
+                  variants={itemVariants}
+                  className="absolute top-[76px] right-0 -translate-x-[124px] bg-[#A1C249]/50 px-6 py-3 text-black flex items-center gap-3 rounded-md z-50"
+                >
+                  <User />
+                  <Link
+                    href="/login"
+                    className=" text-sm font-medium cursor-pointer"
+                    onClick={() => setShowSignInDropdown(false)}
+                  >
+                    Sign In
+                  </Link>
+                </motion.div>
+              )}
+            </div>
+          ) : (
+            <ProfileMenu />
+          )}
         </div>
       </nav>
     </header>

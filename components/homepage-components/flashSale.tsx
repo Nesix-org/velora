@@ -11,9 +11,7 @@ import CountDownTimer from "../countDownTimer";
 export default function FlashSaleSection() {
   const [carouselApi, setCarouselApi] = useState<CarouselApi>();
   // Update the environment variable for future flash sales to avoid showing expired/incorrect times.
-  const saleDate = new Date(
-    process.env.NEXT_PUBLIC_FLASH_SALE_DATE || "2025-12-31T23:59:59"
-  );
+
 
   const handlePrev = () => {
     carouselApi?.scrollPrev();
@@ -24,23 +22,24 @@ export default function FlashSaleSection() {
 
   return (
     <section className="w-full lg:max-w-7xl px-10">
-      <header>
+      <div>
         <h3 className="border-l-15 md:border-l-25 border-bgLemon p-2 px-2 md:text-2xl mb-2 font-medium">
           Today&apos;s deal
         </h3>
-      </header>
+      </div>
       <section className="flex flex-col md:flex-row items-start gap-5  md:gap-10 lg:gap-15 mt-5">
         <h2 className="text-2xl md:text-5xl lg:text-5xl font-medium text-gray-900 dark:text-gray-100">
           Flash Sales
         </h2>
         <div className="md:translate-y-2">
-          <CountDownTimer targetDate={saleDate} />
+          <CountDownTimer />
         </div>
       </section>
       <div className="grid grid-cols-2 gap-5 md:hidden translate-y-10">
         {cards.map((card) => (
           <ProductCard
             key={card.id}
+            id={card.id}
             image={card.image}
             price={card.price}
             productName={card.name}
@@ -81,6 +80,7 @@ export default function FlashSaleSection() {
             >
               <ProductCard
                 image={card.image}
+                id={card.id}
                 price={card.price}
                 productName={card.name}
                 discount={card.discount}
