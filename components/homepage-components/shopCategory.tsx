@@ -133,7 +133,7 @@ const ShopCategory: React.FC = () => {
         </div>
       </div>
       <div className="flex justify-center items-center mt-10">
-        <ViewAllProducts/>
+        <ViewAllProducts />
       </div>
     </section>
   );
