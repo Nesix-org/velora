@@ -11,6 +11,7 @@
 @theme {
   --color-bgWhite: hsla(0, 0%, 97%, 1);
   --color-bgLemon: hsla(76, 50%, 52%, 1);
+  --color-checkoutGray: #8E9AAF;
   --color-bgGray: hsla(0, 0%, 0%, 0.6)
   --font-monts: 'Montserrat', sans-serif;
   --tracking-tighetest: 3%;
