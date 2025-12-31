@@ -1,31 +1,50 @@
 "use client";
 
-import { useCart } from "@/app/cart/context";
+import { useCart } from "@/components/context/context";
+import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 export default function CartSummary() {
   const { cart } = useCart();
+  const router = useRouter();
+  const [couponCode, setCouponCode] = useState("");
 
   const totalPrice = cart.reduce(
     (sum, item) => sum + item.price * item.quantity,
     0
   );
 
+  const handleCouponSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    // TODO: Implement coupon validation logic
+    console.log("Applying coupon:", couponCode);
+    // For now, just show an alert
+    alert(`Coupon "${couponCode}" feature coming soon!`);
+  };
+
+  const handleCheckout = () => {
+    // TODO: Navigate to checkout page when implemented
+    router.push("/checkout");
+  };
+
   return (
     <section className="flex flex-col md:flex-row mt-4 gap-4 justify-between items-start">
       {/* Coupon Form */}
-      <form className="flex flex-col md:flex-row gap-4 items-center w-full">
+      <form onSubmit={handleCouponSubmit} className="flex flex-col md:flex-row gap-4 items-center w-full">
         <label htmlFor="coupon" className="sr-only">
           Coupon code
         </label>
         <input
           id="coupon"
           type="text"
+          value={couponCode}
+          onChange={(e) => setCouponCode(e.target.value)}
           placeholder="Coupon code"
           className="border border-gray-900 rounded-md px-4 py-2 w-full md:w-64"
         />
         <button
           type="submit"
-          className="bg-bgLemon text-black px-4 py-3 text-xs font-bold rounded-full"
+          className="bg-bgLemon text-black px-4 py-3 text-xs font-bold rounded-full cursor-pointer"
         >
           Apply Coupon
         </button>
@@ -52,7 +71,11 @@ export default function CartSummary() {
           </div>
         </div>
 
-        <button className="block mx-auto mt-4 bg-bgLemon text-black px-6 py-3 text-xs font-bold rounded-full">
+        <button
+          type="button"
+          onClick={handleCheckout}
+          className="block mx-auto mt-4 bg-bgLemon text-black px-6 py-3 text-xs font-bold rounded-full cursor-pointer"
+        >
           Proceed to Checkout
         </button>
       </aside>
