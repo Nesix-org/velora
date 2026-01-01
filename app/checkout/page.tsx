@@ -1,4 +1,5 @@
 import CheckoutForm from "@/components/checkout/checkout-form"
+import ProceedToPayment from "@/components/checkout/proceed-to-payment"
 
 function Checkout () {
     return (
@@ -7,16 +8,16 @@ function Checkout () {
                 <h3 className="border-l-15 md:border-l-25 border-bgLemon p-2 px-2 md:text-2xl mb-2 font-medium">
                     Checkout
                 </h3>
-                <h2 className="text-5xl font-medium leading-[39px]">
+                <h2 className="text-2xl md:text-5xl font-medium leading-[39px]">
                     Billing Details
                 </h2>
             </div>
-            <div className="flex">
+            <div className="flex flex-col-reverse md:flex-row">
                 <div className="flex-1">
                     <CheckoutForm />
                 </div>
                 <div className="flex-1">
-                    
+                    <ProceedToPayment />
                 </div>
             </div>
         </main>

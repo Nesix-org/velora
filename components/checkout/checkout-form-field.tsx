@@ -1,22 +1,23 @@
 import React from "react";
 
 type CheckoutFormFieldProps = {
-    htmlFor: string;
-    label: string;
-    type: string;
+    htmlFor: string,
+    label: string,
+    type: string,
+    placeholder?: string | number,
 } & React.InputHTMLAttributes<HTMLInputElement>;
 
-function CheckoutFormField({ htmlFor, label, type, ...inputProps }: CheckoutFormFieldProps) {
+function CheckoutFormField({ htmlFor, label, type, placeholder, ...inputProps }: CheckoutFormFieldProps) {
     return (
         <>
-            <label htmlFor={htmlFor} className="relative">
+            <label htmlFor={htmlFor} className="space-x-0.5">
                 <span className="text-sm text-checkoutGray">{label}</span>
-                <span className="absolute text-red-500 text-sm top-0 right-0">*</span>
+                <span className="text-red-500 text-sm">*</span>
             </label>
             <input
                 type={type}
                 className="border px-4 py-2.5 rounded-sm text-sm text-checkoutGray"
-                placeholder={label}
+                placeholder={placeholder ? placeholder : label}
                 autoComplete="true"
                 required
                 {...inputProps}

@@ -5,6 +5,8 @@ import { CheckoutFormField } from "./checkout-form-field"
 import z from "zod"
 // import { PhoneNumber } from "libphonenumber-js"
 import { zodResolver } from "@hookform/resolvers/zod"
+import { useState } from "react"
+import { CheckIcon } from "lucide-react"
 
 const CheckoutFormSchema = z.object({
     fullName: z.string(),
@@ -18,6 +20,7 @@ const CheckoutFormSchema = z.object({
 type CheckoutFormResolver = z.infer<typeof CheckoutFormSchema>
 
 function CheckoutForm () {
+    const [isChecked, setIsChecked] = useState(false)
     const {register, handleSubmit} = useForm({
         resolver: zodResolver(CheckoutFormSchema)
     })
@@ -27,7 +30,7 @@ function CheckoutForm () {
     }
 
     return (
-        <form className="w-2/3 flex flex-col gap-2" onSubmit={handleSubmit(onSubmit)}>
+        <form className="w-full p-2 md:w-2/3 md:p-0 flex flex-col gap-2" onSubmit={handleSubmit(onSubmit)}>
             <div className="flex flex-col gap-2">
                 <CheckoutFormField
                     htmlFor="fullName"
@@ -76,9 +79,27 @@ function CheckoutForm () {
                     {...register('email')}
                 />
             </div>
-            <button type="submit">
+
+            <div className="flex items-center gap-2">
+                <div className="relative">
+                    <input
+                        type='checkbox'
+                        checked={isChecked}
+                        onChange={() => setIsChecked(prev => !prev)}
+                        className={`appearance-none border p-2 rounded text-sm text-checkoutGray ${isChecked ? 'bg-checkbox' : ''}`}
+                        // {...register('checkbox')}
+                    />
+                    {isChecked && (
+                        <CheckIcon className="absolute top-0.5 right-0.5  m-auto size-4 text-white pointer-events-none" />
+                    )}
+                </div>
+                <label htmlFor='checkbox' className="">
+                    <span className="text-sm text-black">Save this information for faster check-out next time</span>
+                </label>
+            </div>
+            {/* <button type="submit">
                 submit
-            </button>
+            </button> */}
         </form>
     )
 }
