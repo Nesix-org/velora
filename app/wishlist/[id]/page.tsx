@@ -1,8 +1,31 @@
 import JustForYou from "@/components/cartComponents/justForYou";
 import { wishlistProduct } from "@/constants/products";
+import type {WishlistProduct} from "@/constants/products"
 import Image from "next/image";
 import storeLogo from '@/public/assets/wishlistproduct/store logo.png'
 import heartIcon from "../../../public/assets/icons/heart.svg";
+import { Metadata } from "next";
+
+
+
+type Props = {
+    params: { id: string }
+}
+
+export async function generateMetadata ({ params }: Props): Promise<Metadata> {
+    const id = (await params).id
+    const product = wishlistProduct.find((product) => product.id === Number(id)) as WishlistProduct;
+
+    return {
+        title: `${product.name} - Velora Store`,
+        description: product.description,
+        openGraph: {
+            title: product.name,
+            description: product.description,
+        }   
+    }
+}
+
 
 const sizes: string[] = ["xs", "s", "m", "l", "x" ]
 

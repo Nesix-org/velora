@@ -1,7 +1,13 @@
+import { Metadata } from "next";
 import ContactDetails from "./contactDetails";
 import ContactForm from "./contactForm";
 import FAQ from "./faq";
 
+
+export const metadata: Metadata = {
+    title: "Velora || Contact Page",
+    description: "The Contact Page of Velora Website",
+};
 
 export default function Contact() {
   return (

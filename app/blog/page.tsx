@@ -2,6 +2,7 @@ import Image from "next/image";
 import { Poppins, Inter } from "next/font/google";
 import { icons, veloraTeam, blogCard } from "@/constants/blogCard";
 import shoppingImg from "@/public/assets/blogPage/storyImg.svg";
+import { Metadata } from "next";
 
 const poppins = Poppins({
   weight: ["400", "500", "600", "700"],
@@ -12,6 +13,11 @@ const inter = Inter({
   weight: ["400", "500", "600", "700"],
   subsets: ["latin"],
 });
+
+export const metadata: Metadata = {
+    title: "Velora || Blog",
+    description: "The Blog Page of Velora Website",
+};
 
 export default function BlogPage() {
   return (

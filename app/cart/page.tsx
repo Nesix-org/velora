@@ -1,6 +1,6 @@
 "use client";
 
-import { useCart } from "../../components/context/context";
+import { useCart } from "../../context/CartContext";
 import CartTable from "@/components/cartComponents/cartTable";
 import CartMobileView from "@/components/cartComponents/cartMobileView";
 import CartSummary from "@/components/cartComponents/cartSummary";
@@ -52,7 +52,8 @@ export default function CartPage() {
               Clear Cart?
             </h3>
             <p className="text-gray-600 dark:text-gray-300 mb-6">
-              Are you sure you want to remove all items from your cart? This action cannot be undone.
+              Are you sure you want to remove all items from your cart? This
+              action cannot be undone.
             </p>
             <div className="flex gap-4 justify-end">
               <button

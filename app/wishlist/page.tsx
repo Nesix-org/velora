@@ -2,6 +2,13 @@ import Link from "next/link";
 import { Product, cards as products } from '@/constants/products';
 import WishlistProducts from "@/components/wishlists/wishlistproducts";
 import JustForYou from "@/components/cartComponents/justForYou";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "Velora || Wishlist Page",
+    description: "The Wishlist Page of Velora Website",
+};
+
 
 
 function Wishlists () {

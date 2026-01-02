@@ -1,5 +1,13 @@
 import CheckoutForm from "@/components/checkout/checkout-form"
 import ProceedToPayment from "@/components/checkout/proceed-to-payment"
+import { Metadata } from "next";
+
+
+export const metadata: Metadata = {
+    title: "Velora || Checkout",
+    description: "The Checkout Page of Velora Website",
+};
+
 
 function Checkout () {
     return (

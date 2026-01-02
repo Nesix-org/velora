@@ -1,6 +1,6 @@
 "use client";
 
-import { useCart } from "@/components/context/context";
+import { useCart } from "@/context/CartContext";
 import cartIcon from "@/public/assets/icons/cart.svg";
 import { buttonVariants } from "@/components/ui/button";
 import Image from "next/image";

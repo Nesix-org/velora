@@ -1,6 +1,6 @@
 "use client";
 
-import { useCart } from "@/components/context/context";
+import { useCart } from "@/context/CartContext";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 
@@ -8,7 +8,6 @@ export default function CartSummary() {
   const { cart, totalPrice } = useCart();
   const router = useRouter();
   const [couponCode, setCouponCode] = useState("");
-
 
   const handleCouponSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -26,7 +25,10 @@ export default function CartSummary() {
   return (
     <section className="flex flex-col md:flex-row mt-4 gap-4 justify-between items-start">
       {/* Coupon Form */}
-      <form onSubmit={handleCouponSubmit} className="flex flex-col md:flex-row gap-4 items-center w-full">
+      <form
+        onSubmit={handleCouponSubmit}
+        className="flex flex-col md:flex-row gap-4 items-center w-full"
+      >
         <label htmlFor="coupon" className="sr-only">
           Coupon code
         </label>

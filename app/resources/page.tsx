@@ -1,9 +1,18 @@
 /*
 Resources: this page will talk about Free ebooks, development tutorial, how-to blog, and youtube playlist.
-*/ 
+*/
+import { Metadata } from "next";
+
+ 
+
+export const metadata: Metadata = {
+    title: "Velora || Resources Page",
+    description: "The Resources Page of Velora Website",
+};
 
 
-export default function ResourcesPage() {
+
+function ResourcesPage() {
   return (
     <div className="border-t-24 border-bgLemon ml-[2rem] min-w-[500px] md:w-[700px] lg:w-[1280px] max-w-7xl md:mx-auto flex flex-col items-center justify-center min-h-screen py-8 text-bgGray px-4 dark:bg-gray-900 dark:text-white rounded-lg">
       <h1 className="text-4xl font-bold mb-6">Resources</h1>
@@ -70,3 +79,5 @@ export default function ResourcesPage() {
     </div>
   );
 }   
+
+export default ResourcesPage

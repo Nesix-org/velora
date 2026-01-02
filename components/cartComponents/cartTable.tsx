@@ -1,6 +1,6 @@
 "use client";
 
-import { useCart } from "@/components/context/context";
+import { useCart } from "@/context/CartContext";
 import Image from "next/image";
 import { X } from "lucide-react";
 
@@ -75,7 +75,11 @@ export default function CartTable() {
                   className="w-12 text-center py-1 focus:outline-none [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
                   onChange={(e) => {
                     const newQuantity = parseInt(e.target.value);
-                    if (newQuantity > 0 && newQuantity <= 99 && !isNaN(newQuantity)) {
+                    if (
+                      newQuantity > 0 &&
+                      newQuantity <= 99 &&
+                      !isNaN(newQuantity)
+                    ) {
                       updateQuantity(item.id, newQuantity);
                     }
                   }}

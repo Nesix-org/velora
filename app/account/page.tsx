@@ -1,8 +1,15 @@
 "use client";
 
+import { Metadata } from "next";
 import React, { useState } from "react";
 import { PhoneInput } from "react-international-phone";
 import "react-international-phone/style.css";
+
+
+export const metadata: Metadata = {
+    title: "Velora || My Account",
+    description: "The user account page of Velora Website",
+};
 
 const AccountPage = () => {
   const [activeSection, setActiveSection] = useState("profile");

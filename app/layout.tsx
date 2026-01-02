@@ -4,8 +4,8 @@ import "./globals.css";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 import { Toaster } from "sonner";
-import { AuthProvider } from "@/components/context/AuthContext";
-import { Providers } from "@/components/providers";
+import { AuthProvider } from "@/context/AuthContext";
+import { Providers } from "@/context/providers";
 
 const geistSans = Space_Grotesk({
   variable: "--font-geist-sans",
