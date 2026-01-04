@@ -6,7 +6,7 @@ import HeartIcon from "@/public/assets/icons/Frame 2147225110.svg";
 import likedHeart from "@/public/assets/icons/love.png";
 import starIcon from "@/public/assets/icons/ic_round-star.svg";
 import { useState } from "react";
-import { useCart } from "@/app/cart/context";
+import { useCart } from "@/context/CartContext";
 
 type CardProps = {
   id: number;
@@ -35,11 +35,12 @@ export default function ProductCard({
   const { addToCart } = useCart();
 
   const handleAddToCart = () => {
-    addToCart({ 
-      id, 
-      name: productName, 
-      price, 
-      image: typeof image === 'string' ? image : image.src });
+    addToCart({
+      id,
+      name: productName,
+      price,
+      image: typeof image === "string" ? image : image.src,
+    });
   };
 
   return (

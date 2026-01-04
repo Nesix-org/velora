@@ -16,7 +16,7 @@ import google from "@/public/assets/signup/google.svg";
 // hooks
 import { useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
-import { useAuth } from "@/components/context/AuthContext";
+import { useAuth } from "@/context/AuthContext";
 
 const formSchema = z
   .object({
@@ -34,7 +34,8 @@ type FormState = z.infer<typeof formSchema>;
 
 export default function SignupForm() {
   const [showPassword, setShowPassword] = useState<boolean>(false);
-  const [showConfirmPassword, setShowConfirmPassword] = useState<boolean>(false);
+  const [showConfirmPassword, setShowConfirmPassword] =
+    useState<boolean>(false);
   const { login } = useAuth();
   const router = useRouter();
 

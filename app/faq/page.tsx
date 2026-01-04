@@ -11,6 +11,14 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { Metadata } from "next";
+
+
+export const metadata: Metadata = {
+    title: "Velora || FAQ Page",
+    description: "The Frequenctly Asked Questions (FAQs) Page of Velora Website",
+};
+
 
 export default function FAQPage() {
   return (

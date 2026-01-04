@@ -1,6 +1,6 @@
 "use client";
 
-import { useCart } from "@/app/cart/context";
+import { useCart } from "@/context/CartContext";
 import Image from "next/image";
 import { X } from "lucide-react";
 
@@ -8,7 +8,9 @@ export default function CartTable() {
   const { cart, removeFromCart, updateQuantity } = useCart();
 
   const handleIncrement = (id: number, currentQuantity: number) => {
-    updateQuantity(id, currentQuantity + 1);
+    if (currentQuantity < 99) {
+      updateQuantity(id, currentQuantity + 1);
+    }
   };
 
   const handleDecrement = (id: number, currentQuantity: number) => {
@@ -44,7 +46,8 @@ export default function CartTable() {
                   />
                   <button
                     onClick={() => removeFromCart(item.id)}
-                    className="absolute -top-1 left-1 bg-red-500 text-white text-xs font-bold rounded-full h-4 w-4 flex items-center justify-center"
+                    aria-label={`Remove ${item.name} from cart`}
+                    className="absolute -top-1 left-1 bg-red-500 text-white text-xs font-bold rounded-full h-4 w-4 flex items-center justify-center cursor-pointer"
                   >
                     <X className="w-3 h-3" />
                   </button>
@@ -58,7 +61,8 @@ export default function CartTable() {
                 <button
                   onClick={() => handleDecrement(item.id, item.quantity)}
                   disabled={item.quantity === 1}
-                  className="px-2 py-1 bg-white rounded-sm hover:bg-gray-100 disabled:opacity-50"
+                  aria-label="Decrease quantity"
+                  className="px-2 py-1 bg-white rounded-sm hover:bg-gray-100 disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
                 >
                   -
                 </button>
@@ -66,17 +70,25 @@ export default function CartTable() {
                   type="number"
                   value={item.quantity}
                   min="1"
+                  max="99"
+                  aria-label="Quantity"
                   className="w-12 text-center py-1 focus:outline-none [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
                   onChange={(e) => {
                     const newQuantity = parseInt(e.target.value);
-                    if (newQuantity > 0 && !isNaN(newQuantity)) {
+                    if (
+                      newQuantity > 0 &&
+                      newQuantity <= 99 &&
+                      !isNaN(newQuantity)
+                    ) {
                       updateQuantity(item.id, newQuantity);
                     }
                   }}
                 />
                 <button
                   onClick={() => handleIncrement(item.id, item.quantity)}
-                  className="px-2 py-1 bg-white rounded-sm hover:bg-gray-100"
+                  disabled={item.quantity >= 99}
+                  aria-label="Increase quantity"
+                  className="px-2 py-1 bg-white rounded-sm hover:bg-gray-100 disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
                 >
                   +
                 </button>

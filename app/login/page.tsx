@@ -3,7 +3,8 @@ import Image from "next/image";
 import signupImage from "@/public/assets/signup/signup.svg";
 import SignInForm from "./SignInForm";
 
-export default function LoginPage() {
+
+function LoginPage() {
 
   return (
     <div className="container mx-auto px-4 lg:px-0 py-5 h-full flex justify-around items-center mt-10">
@@ -20,3 +21,5 @@ export default function LoginPage() {
     </div>
   );
 }
+
+export default LoginPage

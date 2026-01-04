@@ -2,10 +2,6 @@
 
 import { useEffect, useState } from "react";
 
-type CountDownProps = {
-  targetDate: string | Date;
-};
-
 type TimeLeft = {
   days: number;
   hours: number;
@@ -13,10 +9,10 @@ type TimeLeft = {
   seconds: number;
 };
 
+let durationLeft: TimeLeft = { days: 0, hours: 0, minutes: 0, seconds: 0 };
+
 const calculateTimeLeft = (targetTimeStamp: number): TimeLeft => {
   const difference = targetTimeStamp - new Date().getTime();
-
-  let durationLeft: TimeLeft = { days: 0, hours: 0, minutes: 0, seconds: 0 };
 
   if (difference > 0) {
     durationLeft = {
@@ -28,15 +24,18 @@ const calculateTimeLeft = (targetTimeStamp: number): TimeLeft => {
   }
   return durationLeft;
 };
-export default function CountDownTimer({ targetDate }: CountDownProps) {
-  const targetTimeStamp = new Date(targetDate).getTime();
-  const [timeLeft, setTimeLeft] = useState<TimeLeft>(() =>
-    calculateTimeLeft(targetTimeStamp)
-  );
+
+const saleDate = new Date(
+  process.env.NEXT_PUBLIC_FLASH_SALE_DATE || "2026-03-31T23:59:59"
+).getTime();
+
+export default function CountDownTimer() {
+  const [timeLeft, setTimeLeft] = useState<TimeLeft>(durationLeft);
   const [saleEnded, setSaleEnded] = useState(false);
+
   useEffect(() => {
     const timer = setInterval(() => {
-      const remaining = calculateTimeLeft(targetTimeStamp);
+      const remaining = calculateTimeLeft(saleDate);
       setTimeLeft(remaining);
 
       // Clear interval when countdown reaches zero
@@ -52,7 +51,8 @@ export default function CountDownTimer({ targetDate }: CountDownProps) {
     }, 1000);
 
     return () => clearInterval(timer);
-  }, [targetTimeStamp]);
+  }, []);
+
   return (
     <div
       role="timer"
@@ -64,23 +64,23 @@ export default function CountDownTimer({ targetDate }: CountDownProps) {
         <p> Flash Sale is over </p>
       ) : (
         <>
-          {timeLeft.days > 0 && (
-            <>
-              <div className="flex flex-col gap-1 md:gap-2">
-                <span className="md:text-xl"> Days </span>
-                <span className="text-xl md:text-4xl font-bold">
-                  {timeLeft.days.toString().padStart(2, "0")}
-                </span>
-              </div>
-              <span
-                aria-hidden="true"
-                className="text-3xl md:text-4xl font-bold text-bgLemon translate-y-1 md:translate-y-2"
-              >
-                :
+          {/* days */}
+          <>
+            <div className="flex flex-col gap-1 md:gap-2">
+              <span className="md:text-xl"> Days </span>
+              <span className="text-xl md:text-4xl font-bold">
+                {timeLeft.days.toString().padStart(2, "0")}
               </span>
-            </>
-          )}
+            </div>
+            <span
+              aria-hidden="true"
+              className="text-3xl md:text-4xl font-bold text-bgLemon translate-y-1 md:translate-y-2"
+            >
+              :
+            </span>
+          </>
 
+          {/* hour */}
           <div className="flex flex-col gap-1 md:gap-2">
             <span className="md:text-xl"> Hours </span>
             <span className="text-xl md:text-4xl font-bold">
@@ -93,6 +93,8 @@ export default function CountDownTimer({ targetDate }: CountDownProps) {
           >
             :
           </span>
+
+          {/* minute */}
           <div className="flex flex-col gap-1 md:gap-2">
             <span className="md:text-xl"> Minutes </span>
             <span className="text-xl md:text-4xl font-bold">
@@ -105,6 +107,8 @@ export default function CountDownTimer({ targetDate }: CountDownProps) {
           >
             :
           </span>
+
+          {/* second */}
           <div className="flex flex-col gap-1 md:gap-2">
             <span className="md:text-xl"> Seconds </span>
             <span className="text-xl md:text-4xl font-bold">

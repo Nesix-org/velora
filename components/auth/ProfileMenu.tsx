@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 //Context & Hooks
-import { useAuth } from "@/components/context/AuthContext";
+import { useAuth } from "@/context/AuthContext";
 import { useStatus } from "@/hooks/status";
 // Images & Icons
 import avatar from "@/public/assets/signup/avatar.png";
