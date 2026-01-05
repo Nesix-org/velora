@@ -1,15 +1,8 @@
 "use client";
 
-import { Metadata } from "next";
 import React, { useState } from "react";
 import { PhoneInput } from "react-international-phone";
 import "react-international-phone/style.css";
-
-
-export const metadata: Metadata = {
-    title: "Velora || My Account",
-    description: "The user account page of Velora Website",
-};
 
 const AccountPage = () => {
   const [activeSection, setActiveSection] = useState("profile");
@@ -21,6 +14,25 @@ const AccountPage = () => {
     password: "",
     confirmPassword: "",
   });
+
+  // Navigation structure
+  const navigationSections = [
+    {
+      title: "Manage My Account",
+      items: [
+        { id: "profile", label: "My Profile" },
+        { id: "address", label: "Address Book" },
+        { id: "payment", label: "My Payment Options" },
+      ],
+    },
+    {
+      title: "My Orders",
+      items: [
+        { id: "returns", label: "My Returns" },
+        { id: "cancellations", label: "My Cancellations" },
+      ],
+    },
+  ];
 
   const handleInputChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
@@ -45,73 +57,29 @@ const AccountPage = () => {
           {/* Left Sidebar */}
           <div className="w-full md:w-64">
             <div className="space-y-6">
-              {/* Manage My Account Section */}
-              <div>
-                <h3 className="text-base font-semibold text-gray-900 mb-3">
-                  Manage My Account
-                </h3>
-                <div className="space-y-2 pl-4">
-                  <button
-                    onClick={() => setActiveSection("profile")}
-                    className={`block w-full text-left py-2 text-sm transition-colors ${
-                      activeSection === "profile"
-                        ? "text-bgLemon font-medium"
-                        : "text-gray-600 hover:text-gray-900"
-                    }`}
-                  >
-                    My Profile
-                  </button>
-                  <button
-                    onClick={() => setActiveSection("address")}
-                    className={`block w-full text-left py-2 text-sm transition-colors ${
-                      activeSection === "address"
-                        ? "text-bgLemon font-medium"
-                        : "text-gray-600 hover:text-gray-900"
-                    }`}
-                  >
-                    Address Book
-                  </button>
-                  <button
-                    onClick={() => setActiveSection("payment")}
-                    className={`block w-full text-left py-2 text-sm transition-colors ${
-                      activeSection === "payment"
-                        ? "text-bgLemon font-medium"
-                        : "text-gray-600 hover:text-gray-900"
-                    }`}
-                  >
-                    My Payment Options
-                  </button>
+              {/* Navigation Sections */}
+              {navigationSections.map((section) => (
+                <div key={section.title}>
+                  <h3 className="text-base font-semibold text-gray-900 mb-3">
+                    {section.title}
+                  </h3>
+                  <div className="space-y-2 pl-4">
+                    {section.items.map((item) => (
+                      <button
+                        key={item.id}
+                        onClick={() => setActiveSection(item.id)}
+                        className={`block w-full text-left py-2 text-sm transition-colors ${
+                          activeSection === item.id
+                            ? "text-bgLemon font-medium"
+                            : "text-gray-600 hover:text-gray-900"
+                        }`}
+                      >
+                        {item.label}
+                      </button>
+                    ))}
+                  </div>
                 </div>
-              </div>
-
-              {/* My Orders Section */}
-              <div>
-                <h3 className="text-base font-semibold text-gray-900 mb-3">
-                  My Orders
-                </h3>
-                <div className="space-y-2 pl-4">
-                  <button
-                    onClick={() => setActiveSection("returns")}
-                    className={`block w-full text-left py-2 text-sm transition-colors ${
-                      activeSection === "returns"
-                        ? "text-bgLemon font-medium"
-                        : "text-gray-600 hover:text-gray-900"
-                    }`}
-                  >
-                    My Returns
-                  </button>
-                  <button
-                    onClick={() => setActiveSection("cancellations")}
-                    className={`block w-full text-left py-2 text-sm transition-colors ${
-                      activeSection === "cancellations"
-                        ? "text-bgLemon font-medium"
-                        : "text-gray-600 hover:text-gray-900"
-                    }`}
-                  >
-                    My Cancellations
-                  </button>
-                </div>
-              </div>
+              ))}
 
               {/* Logout Section */}
               <div>
@@ -123,7 +91,7 @@ const AccountPage = () => {
           </div>
 
           {/* Right Content Area */}
-          <div className="flex-1 p-6 md:p-8">
+          <div className="flex-1 p-6 md:p-8 w-190">
             {activeSection === "profile" && (
               <div>
                 <h2 className="text-sm font-semibold text-bgLemon mb-6">
