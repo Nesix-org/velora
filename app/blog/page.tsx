@@ -2,6 +2,7 @@ import Image from "next/image";
 import { Poppins, Inter } from "next/font/google";
 import { icons, veloraTeam, blogCard } from "@/constants/blogCard";
 import shoppingImg from "@/public/assets/blogPage/storyImg.svg";
+import { Metadata } from "next";
 
 const poppins = Poppins({
   weight: ["400", "500", "600", "700"],
@@ -13,10 +14,15 @@ const inter = Inter({
   subsets: ["latin"],
 });
 
+export const metadata: Metadata = {
+    title: "Velora || Blog",
+    description: "The Blog Page of Velora Website",
+};
+
 export default function BlogPage() {
   return (
-    <main className="w-full md:max-w-3xl lg:max-w-7xl px-5 lg:px-10 flex flex-col gap-14 md:gap-20 py-10 mx-auto">
-      <section className="flex flex-col-reverse md:flex-row md:items-end md:justify-between">
+    <main className="w-full md:max-w-3xl lg:max-w-7xl px-5 lg:px-10 flex flex-col gap-14 md:gap-20  mx-auto">
+      <section className="flex flex-col-reverse md:flex-row md:items-end md:justify-between h-dvh">
         <div className="w-full md:max-w-[520px]">
           <header>
             <h3 className="border-l-15 md:border-l-25 border-bgLemon p-2 px-2 md:text-2xl mb-2 font-medium">
@@ -26,8 +32,8 @@ export default function BlogPage() {
           <h2 className="text-2xl md:text-5xl lg:text-5xl font-medium text-gray-900 dark:text-gray-100">
             Our Story
           </h2>
-          <div className="w-full mt-4 md:mt-7 space-y-3 md:space-y-4">
-            <p className="text-gray-400 text-[14px] md:text-xl">
+          <div className="w-full mt-4 md:mt-5 space-y-3 md:space-y-4 ">
+            <p className="text-gray-400 text-[14px]  md:text-xl leading-[26px]">
               Launched in 2015, Velora is South Asia&apos;s premier online
               shopping marketplace with an active presence in Bangladesh.
               Supported by wide range of tailored marketing, data and service
@@ -82,7 +88,7 @@ export default function BlogPage() {
         <h2 className="text-2xl md:text-5xl lg:text-5xl font-medium text-gray-900 dark:text-gray-100">
           Meet the Team
         </h2>
-        <div className="w-full flex flex-col gap-7 md:gap-5 md:flex-row justify-center mt-8 md:mt-10">
+        <div className="w-full flex flex-col gap-7 md:gap-5 md:flex-row justify-center mt-8 md:mt-10 md:mb-6">
           {veloraTeam.map((team) => (
             <article className="w-full max-w-[400px]" key={team.id}>
               <div className="relative aspect-square overflow-hidden rounded-lg">
@@ -90,7 +96,7 @@ export default function BlogPage() {
                   src={team.imageUrl}
                   alt={team.title}
                   fill
-                  className="object-cover"
+                  className="object-cover hover:grayscale transition-colors duration-300 ease-in-out"
                 />
               </div>
               <p

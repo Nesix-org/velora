@@ -1,3 +1,10 @@
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "Velora || Company",
+    description: "The About Page of Velora Website",
+};
+
 export default function CompanyPage() {
   return (
     <div className="border-t-24 border-bgLemon ml-[2rem] min-w-[500px] md:w-[700px] lg:w-[1280px] max-w-7xl md:mx-auto flex flex-col items-center justify-center min-h-screen py-8 text-bgGray px-4 dark:bg-gray-900 dark:text-white rounded-lg">

@@ -9,7 +9,7 @@ import Icon from "../public/assets/icons/Logo.svg";
 import heartIcon from "../public/assets/icons/heart.svg";
 import Search from "../public/assets/icons/search.svg";
 import { buttonVariants, Button } from "@/components/ui/button";
-import { X, Menu, ChevronDown, ChevronUp, User,  } from "lucide-react";
+import { X, Menu, ChevronDown, ChevronUp, User } from "lucide-react";
 // States
 import { useState } from "react";
 // Animation
@@ -18,7 +18,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import MenuItem from "./menuItem";
 import { menus } from "../lib/menus";
 // Auth Context
-import { useAuth } from "@/components/context/AuthContext";
+import { useAuth } from "@/context/AuthContext";
 import ProfileMenu from "./auth/ProfileMenu";
 import { CartButton } from "./navbarComponents/cartButton";
 
@@ -205,7 +205,7 @@ export default function Navbar() {
           >
             <Image src={heartIcon} alt="wishlist" className="w-7 h-7"></Image>
           </Link>
-            <CartButton />
+          <CartButton />
 
           {/* signup btn */}
           {!user ? (

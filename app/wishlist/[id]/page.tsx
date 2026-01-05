@@ -1,17 +1,41 @@
 import JustForYou from "@/components/cartComponents/justForYou";
 import { wishlistProduct } from "@/constants/products";
+import type {WishlistProduct} from "@/constants/products"
 import Image from "next/image";
 import storeLogo from '@/public/assets/wishlistproduct/store logo.png'
+import heartIcon from "../../../public/assets/icons/heart.svg";
+import { Metadata } from "next";
+
+
+
+type Props = {
+    params: { id: string }
+}
+
+export async function generateMetadata ({ params }: Props): Promise<Metadata> {
+    const id = (await params).id
+    const product = wishlistProduct.find((product) => product.id === Number(id)) as WishlistProduct;
+
+    return {
+        title: `${product.name} - Velora Store`,
+        description: product.description,
+        openGraph: {
+            title: product.name,
+            description: product.description,
+        }   
+    }
+}
+
 
 const sizes: string[] = ["xs", "s", "m", "l", "x" ]
 
 function WishlistProduct () {
     return (
         <main className="w-full px-5 md:px-8 max-w-7xl mx-auto mt-12 dark:bg-gray-900">
-            <section className="flex justify-between">
+            <section className="flex">
                 <div className="flex">
                     {wishlistProduct.map(product => (
-                        <div key={product.id} className="flex justify-between gap-12">
+                        <div key={product.id} className="flex flex-col md:flex-row md:justify-between justify-between gap-12">
                             <div className="flex justify-between gap-4 flex-1">
                                 <div className="flex flex-col gap-2">
                                     {Array.from({length: 4}, (_,i) => (
@@ -95,6 +119,97 @@ function WishlistProduct () {
                                                         {size.toUpperCase()}
                                                     </button>
                                                 ))}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="flex items-center justify-between mt-4">
+                                        <div className="flex flex-row items-center justify-center gap-2 bg-gray-300 py-2 px-2 rounded-sm">
+                                            <button
+                                                // onClick={() => handleDecrement(item.id, item.quantity)}
+                                                // disabled={item.quantity === 1}
+                                                aria-label="Decrease quantity"
+                                                className="px-3 py-1 bg-white text-xl rounded-sm hover:bg-gray-100 disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
+                                            >
+                                            -
+                                            </button>
+                                            <input
+                                                type="number"
+                                                value='1'
+                                                min="1"
+                                                max="99"
+                                                aria-label="Quantity"
+                                                className="w-12 text-center py-1 focus:outline-none [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
+                                                // onChange={(e) => {
+                                                //     const newQuantity = parseInt(e.target.value);
+                                                //     if (newQuantity > 0 && newQuantity <= 99 && !isNaN(newQuantity)) {
+                                                //         updateQuantity(item.id, newQuantity);
+                                                //     }
+                                                // }}
+                                            />
+                                            <button
+                                                // onClick={() => handleIncrement(item.id, item.quantity)}
+                                                // disabled={item.quantity >= 99}
+                                                aria-label="Increase quantity"
+                                                className="px-3 py-1 text-xl bg-white rounded-sm hover:bg-gray-100 disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
+                                            >
+                                                +
+                                            </button>
+                                        </div>
+                                        <div className="flex items-center justify-between gap-6">
+                                            <button className="max-w-[154px] w-full rounded-[30px] bg-bgLemon px-4 py-3 flex items-center gap-2 cursor-pointer hover:bg-bgLemon/70 transition-colors duration-300">
+                                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M20.2048 14.97C19.6678 17.657 19.3988 19 18.5118 19.865C18.3471 20.025 18.1705 20.1697 17.9818 20.299C16.9588 21 15.5888 21 12.8488 21H11.1488C8.40879 21 7.03979 21 6.01779 20.3C5.829 20.1704 5.65168 20.0249 5.48779 19.865C4.59879 19 4.32879 17.657 3.79179 14.97C3.02079 11.114 2.63479 9.186 3.52279 7.82C3.68368 7.57236 3.87149 7.3433 4.08279 7.137C5.24879 6 7.21379 6 11.1468 6H12.8498C16.7818 6 18.7478 6 19.9138 7.138C20.1248 7.34435 20.3122 7.57341 20.4728 7.821C20.9838 8.607 21.0728 9.581 20.9088 11" stroke="black" stroke-width="1.5" stroke-linecap="round"/>
+                                                    <path d="M15 11C15.5523 11 16 10.5523 16 10C16 9.44772 15.5523 9 15 9C14.4477 9 14 9.44772 14 10C14 10.5523 14.4477 11 15 11Z" fill="black"/>
+                                                    <path d="M9 11C9.55228 11 10 10.5523 10 10C10 9.44772 9.55228 9 9 9C8.44772 9 8 9.44772 8 10C8 10.5523 8.44772 11 9 11Z" fill="black"/>
+                                                    <path d="M9 6V5C9 4.20435 9.31607 3.44129 9.87868 2.87868C10.4413 2.31607 11.2044 2 12 2C12.7956 2 13.5587 2.31607 14.1213 2.87868C14.6839 3.44129 15 4.20435 15 5V6" stroke="black" stroke-width="1.5" stroke-linecap="round"/>
+                                                </svg>
+                                                <span className="font-bold text-[16px]">Add to Cart</span>
+                                            </button>
+                                            <button className="w-[43px] h-[43px] rounded-[5px] border border-black/50 flex justify-center items-center cursor-pointer">
+                                                <Image src={heartIcon} alt="wishlist" className="w-7 h-7"/>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div className="border border-black/50 px-4 py-6 rounded-sm flex flex-col gap-4 mt-6">
+                                        {/* free delivery */}
+                                        <div className="flex items-center gap-2">
+                                            <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <g clip-path="url(#clip0_1070_5484)">
+                                                <path d="M12.7639 34.644C14.7779 34.644 16.4106 33.0113 16.4106 30.9973C16.4106 28.9833 14.7779 27.3506 12.7639 27.3506C10.7499 27.3506 9.11719 28.9833 9.11719 30.9973C9.11719 33.0113 10.7499 34.644 12.7639 34.644Z" stroke="black" stroke-width="2.18803" stroke-linecap="round" stroke-linejoin="round"/>
+                                                <path d="M30.9983 34.644C33.0123 34.644 34.645 33.0113 34.645 30.9973C34.645 28.9833 33.0123 27.3506 30.9983 27.3506C28.9843 27.3506 27.3516 28.9833 27.3516 30.9973C27.3516 33.0113 28.9843 34.644 30.9983 34.644Z" stroke="black" stroke-width="2.18803" stroke-linecap="round" stroke-linejoin="round"/>
+                                                <path d="M9.11852 30.9975H7.65984C6.45142 30.9975 5.4718 30.0179 5.4718 28.8095V23.7041M3.64844 9.11719H21.5174C22.7258 9.11719 23.7054 10.0968 23.7054 11.3052V30.9975M16.412 30.9975H27.3521M34.6456 30.9975H36.1043C37.3127 30.9975 38.2923 30.0179 38.2923 28.8095V20.0574M38.2923 20.0574H23.7054M38.2923 20.0574L33.4596 12.0028C33.0642 11.3438 32.352 10.9405 31.5834 10.9405H23.7054" stroke="black" stroke-width="2.18803" stroke-linecap="round" stroke-linejoin="round"/>
+                                                <path d="M8.75134 30.6323H7.29265C6.08423 30.6323 5.10461 29.6527 5.10461 28.4443V23.3388M3.28125 8.75195H21.1502C22.3586 8.75195 23.3382 9.73157 23.3382 10.94V30.6323M16.4095 30.6323H26.985M35.0077 30.6323H35.7371C36.9455 30.6323 37.9251 29.6527 37.9251 28.4443V19.6921M37.9251 19.6921H23.3382M37.9251 19.6921L33.0924 11.6376C32.697 10.9786 31.9848 10.5753 31.2162 10.5753H23.3382" stroke="black" stroke-width="2.18803" stroke-linecap="round" stroke-linejoin="round"/>
+                                                <path d="M5.46875 12.9292H12.7622" stroke="black" stroke-width="2.18803" stroke-linecap="round" stroke-linejoin="round"/>
+                                                <path d="M1.98828 16.9077H9.28173" stroke="black" stroke-width="2.18803" stroke-linecap="round" stroke-linejoin="round"/>
+                                                <path d="M5.46875 20.8857H12.7622" stroke="black" stroke-width="2.18803" stroke-linecap="round" stroke-linejoin="round"/>
+                                                </g>
+                                                <defs>
+                                                <clipPath id="clip0_1070_5484">
+                                                <rect width="43.7607" height="43.7607" fill="white"/>
+                                                </clipPath>
+                                                </defs>
+                                            </svg>
+                                            <div className="flex flex-col gap-1">
+                                                <h3 className="font-semibold text-sm">Free Delivery</h3>
+                                                <p className="underline text-sm font-medium">Enter your postal code for Delivery Availability</p>
+                                            </div>
+                                        </div>
+                                        {/* return delivery  */}
+                                        <div className="flex items-center gap-2 border-t border-t-black/50 pt-2">
+                                            <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <g clip-path="url(#clip0_1070_5489)">
+                                                <path d="M36.4668 20.0571C36.0208 16.8484 34.5323 13.8753 32.2304 11.5958C29.9286 9.31627 26.9411 7.85683 23.7282 7.44226C20.5152 7.02769 17.2551 7.68099 14.45 9.30153C11.6449 10.9221 9.45046 13.4199 8.20465 16.4104M7.29297 9.11692V16.4104H14.5864" stroke="black" stroke-width="2.18803" stroke-linecap="round" stroke-linejoin="round"/>
+                                                <path d="M7.29297 23.7036C7.73889 26.9123 9.22743 29.8854 11.5293 32.1649C13.8312 34.4444 16.8187 35.9039 20.0316 36.3184C23.2445 36.733 26.5046 36.0797 29.3097 34.4592C32.1148 32.8386 34.3093 30.3408 35.5551 27.3503M36.4668 34.6438V27.3503H29.1733" stroke="black" stroke-width="2.18803" stroke-linecap="round" stroke-linejoin="round"/>
+                                                </g>
+                                                <defs>
+                                                <clipPath id="clip0_1070_5489">
+                                                <rect width="43.7607" height="43.7607" fill="white"/>
+                                                </clipPath>
+                                                </defs>
+                                            </svg>
+                                            <div className="flex flex-col gap-1">
+                                                <h3 className="font-semibold text-sm">Return Delivery</h3>
+                                                <p className="text-sm font-medium">Free 30 Days Delivery Returns. Details</p>
                                             </div>
                                         </div>
                                     </div>

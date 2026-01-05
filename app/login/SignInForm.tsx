@@ -14,7 +14,7 @@ import apple from "@/public/assets/signup/apple.svg";
 import google from "@/public/assets/signup/google.svg";
 // state
 import { useState } from "react";
-import { useAuth } from "@/components/context/AuthContext";
+import { useAuth } from "@/context/AuthContext";
 
 const LoginSchema = z.object({
   email: z.string().email("Invalid email"),

@@ -1,4 +1,13 @@
-export default function HelpPage() {
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "Velora || Help Page",
+    description: "The Help Page of Velora Website",
+};
+
+
+
+function HelpPage() {
   return (
     <div className="border-t-24 border-bgLemon ml-[2rem] min-w-[500px] md:w-[700px] lg:w-[1280px] max-w-7xl md:mx-auto flex flex-col items-center justify-center min-h-screen py-8 text-bgGray px-4 dark:bg-gray-900 dark:text-white rounded-lg">
       <p className="text-xl text-center max-w-2xl md:text-2xl">
@@ -69,3 +78,6 @@ export default function HelpPage() {
     </div>
   );
 }
+
+
+export default HelpPage;

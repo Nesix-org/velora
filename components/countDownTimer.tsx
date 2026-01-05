@@ -26,7 +26,7 @@ const calculateTimeLeft = (targetTimeStamp: number): TimeLeft => {
 };
 
 
-const saleDate = new Date(process.env.NEXT_PUBLIC_FLASH_SALE_DATE || "2025-12-31T23:59:59").getTime();
+const saleDate = new Date(process.env.NEXT_PUBLIC_FLASH_SALE_DATE || "2026-03-31T23:59:59").getTime();
 
 export default function CountDownTimer() {
     const [timeLeft, setTimeLeft] = useState<TimeLeft>(durationLeft);

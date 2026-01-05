@@ -13,7 +13,10 @@ export default function EmptyCart() {
           height={80}
         />
         <p className="text-gray-500 font-semibold text-3xl">No items here</p>
-        <Link href={"/"} className="mt-2 text-2xl text-bgLemon px-4">
+        <Link
+          href={"/"}
+          className="cursor-pointer mt-2 text-2xl text-bgLemon px-4"
+        >
           Continue Shopping
         </Link>
       </div>

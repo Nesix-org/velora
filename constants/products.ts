@@ -43,7 +43,7 @@ export const cards: Product[] = [
   {
     id: 2,
     image: menShoe1,
-    price: 210,
+    price: 350.50,
     name: "Men's Shoes",
     discount: "-30%",
     rating: 4.5,
@@ -53,7 +53,7 @@ export const cards: Product[] = [
   {
     id: 3,
     image: menShoe2,
-    price: 210,
+    price: 545.25,
     name: "Men casual shoe",
     discount: "-30%",
     rating: 4.5,
@@ -63,7 +63,7 @@ export const cards: Product[] = [
   {
     id: 4,
     image: menClothe,
-    price: 210,
+    price: 225,
     name: "Men's Jacket",
     discount: "-30%",
     rating: 4.5,
@@ -73,7 +73,7 @@ export const cards: Product[] = [
   {
     id: 5,
     image: menShoe2,
-    price: 210,
+    price: 205,
     name: "Men's Jacket",
     discount: "-30%",
     rating: 4.5,
@@ -83,7 +83,7 @@ export const cards: Product[] = [
   {
     id: 6,
     image: menClothe,
-    price: 210,
+    price: 255.50,
     name: "Men's Jacket",
     discount: "-30%",
     rating: 4.5,
@@ -93,7 +93,7 @@ export const cards: Product[] = [
   {
     id: 7,
     image: menShoe1,
-    price: 210,
+    price: 260,
     name: "Men's Jacket",
     discount: "-30%",
     rating: 4.5,
@@ -103,7 +103,7 @@ export const cards: Product[] = [
   {
     id: 8,
     image: menShoe2,
-    price: 210,
+    price: 285,
     name: "Men's Jacket",
     discount: "-30%",
     rating: 4.5,
@@ -113,7 +113,7 @@ export const cards: Product[] = [
   {
     id: 9,
     image: menClothe,
-    price: 210,
+    price: 299.99,
     name: "Men's Jacket",
     discount: "-30%",
     rating: 4.5,
@@ -123,7 +123,7 @@ export const cards: Product[] = [
   {
     id: 10,
     image: menShoe2,
-    price: 210,
+    price: 300.05,
     name: "Men's Jacket",
     discount: "-30%",
     rating: 4.5,
@@ -133,7 +133,7 @@ export const cards: Product[] = [
   {
     id: 11,
     image: menShoe2,
-    price: 210,
+    price: 350.80,
     name: "Men's Jacket",
     discount: "-30%",
     rating: 4.5,
@@ -143,7 +143,7 @@ export const cards: Product[] = [
   {
     id: 12,
     image: menClothe,
-    price: 210,
+    price: 250.89,
     name: "Men's Jacket",
     discount: "-30%",
     rating: 4.5,
@@ -153,7 +153,7 @@ export const cards: Product[] = [
   {
     id: 13,
     image: menShoe1,
-    price: 210,
+    price: 200.45,
     name: "Men's Jacket",
     discount: "-30%",
     rating: 4.5,
@@ -163,7 +163,7 @@ export const cards: Product[] = [
   {
     id: 14,
     image: menShoe2,
-    price: 210,
+    price: 175.65,
     name: "Men's Jacket",
     discount: "-30%",
     rating: 4.5,
@@ -173,7 +173,7 @@ export const cards: Product[] = [
   {
     id: 15,
     image: menClothe,
-    price: 210,
+    price: 215.75,
     name: "Men's Jacket",
     discount: "-30%",
     rating: 4.5,
@@ -183,7 +183,7 @@ export const cards: Product[] = [
   {
     id: 16,
     image: menShoe2,
-    price: 210,
+    price: 230.10,
     name: "Men's Jacket",
     discount: "-30%",
     rating: 4.5,
