@@ -12,12 +12,13 @@ model User {
   name          String
   email         String    @unique
   emailVerified DateTime?
-  password      String
+  password      String?
   phone         String?
   role          Role      @default(CUSTOMER)
   createdAt     DateTime  @default(now())
   updatedAt     DateTime  @updatedAt
 
+  accounts      Account[]
   addresses     Address[]
   orders        Order[]
   wishlistItems WishlistItem[]
@@ -29,6 +30,32 @@ model User {
 enum Role {
   CUSTOMER
   ADMIN
+}
+
+model Account {
+  id                String  @id @default(cuid())
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String?
+  access_token      String?
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String?
+  session_state     String?
+  user              User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+}
+
+model VerificationToken {
+  identifier String
+  token      String   @unique
+  expires    DateTime
+
+  @@unique([identifier, token])
 }
 
 model Session {
