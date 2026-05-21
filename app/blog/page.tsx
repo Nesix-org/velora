@@ -22,7 +22,7 @@ export const metadata: Metadata = {
 export default function BlogPage() {
   return (
     <main className="w-full md:max-w-3xl lg:max-w-7xl px-5 lg:px-10 flex flex-col gap-14 md:gap-20  mx-auto">
-      <section className="flex flex-col-reverse md:flex-row md:items-end md:justify-between h-dvh">
+      <section className="flex flex-col-reverse md:flex-row md:items-end md:justify-between md:mt-70 h-dvh">
         <div className="w-full md:max-w-[520px]">
           <header>
             <h3 className="border-l-15 md:border-l-25 border-bgLemon p-2 px-2 md:text-2xl mb-2 font-medium">
