@@ -154,6 +154,31 @@ Run ESLint to check for code issues:
 npm run lint
 ```
 
+## Cloudinary Setup
+
+1. Copy `.env.example` to `.env.local`.
+2. Fill in `CLOUDINARY_CLOUD_NAME`, `CLOUDINARY_API_KEY`, and `CLOUDINARY_API_SECRET` from your Cloudinary dashboard.
+3. Install dependencies so the `cloudinary` package is available:
+
+```bash
+npm install
+```
+
+The project is configured to accept remote product images from `res.cloudinary.com` through Next.js image optimization.
+
+### Product Image Upload
+
+- `POST /api/admin/product-images`
+  Uploads a product image to Cloudinary using multipart form data with `file`, and optional `folder` and `alt`.
+- `DELETE /api/admin/product-images`
+  Deletes a Cloudinary image using `{ "publicId": "..." }`.
+- `components/admin/ProductImageUploader.tsx`
+  Reusable client uploader for an admin product form.
+- `/resources/image-upload`
+  Internal demo page to test upload, preview, and delete flow.
+- `/admin/products/new`
+  Mock admin product creation page backed by browser local storage.
+
 ## 📁 Project Structure
 
 ```

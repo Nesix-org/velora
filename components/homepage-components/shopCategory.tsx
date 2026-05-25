@@ -1,10 +1,10 @@
 "use client";
 
 import React, { useState } from "react";
-import { ChevronRight, Star } from "lucide-react";
-import { cards, productsByCategory } from "../../constants/products"; // Adjust path as needed
+import { Star } from "lucide-react";
 import Image from "next/image";
 import ViewAllProducts from "../ViewAllProducts";
+import { useCatalogProducts } from "@/hooks/useCatalogProducts";
 
 interface Category {
   id: string;
@@ -14,6 +14,7 @@ interface Category {
 const ShopCategory: React.FC = () => {
   const [selectedCategory, setSelectedCategory] =
     useState<string>("men-clothes");
+  const { productsByCategory } = useCatalogProducts();
 
   const categories: Category[] = [
     { id: "women-footwear", name: "Women Footwear" },

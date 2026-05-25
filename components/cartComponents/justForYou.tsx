@@ -3,12 +3,13 @@
 import { useState } from "react";
 import { Carousel, CarouselContent, CarouselItem } from "../ui/carousel";
 import ProductCard from "../productCard";
-import { cards } from "@/constants/products";
 import { type CarouselApi } from "@/components/ui/carousel";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { useCatalogProducts } from "@/hooks/useCatalogProducts";
 
 export default function  JustForYou() {
   const [carouselApi, setCarouselApi] = useState<CarouselApi>();
+  const { products } = useCatalogProducts();
 
   const handlePrev = () => {
     carouselApi?.scrollPrev();
@@ -30,7 +31,7 @@ export default function  JustForYou() {
         </h2>
       </section>
       <div className="grid grid-cols-2 gap-5 md:hidden translate-y-10">
-        {cards.map((card) => (
+        {products.map((card) => (
           <ProductCard
             key={card.id}
             id={card.id}
@@ -67,7 +68,7 @@ export default function  JustForYou() {
         className="translate-y-10 lg:translate-y-3 hidden md:block"
       >
         <CarouselContent className=" md:flex gap-3">
-          {cards.map((card) => (
+          {products.map((card) => (
             <CarouselItem
               key={card.id}
               className="basis-1/2 md:basis-1/3 lg:basis-1/4 sm:basis-1/3"

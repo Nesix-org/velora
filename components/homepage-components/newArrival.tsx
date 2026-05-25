@@ -2,15 +2,16 @@
 
 import { Carousel, CarouselContent, CarouselItem } from "../ui/carousel";
 import ProductCard from "../productCard";
-import { cards } from "@/constants/products";
 import { type CarouselApi } from "@/components/ui/carousel";
 import { useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import ViewAllProducts from "@/components/ViewAllProducts";
+import { useCatalogProducts } from "@/hooks/useCatalogProducts";
 
 export default function NewArrival() {
   const [firstRowApi, setFirstRowApi] = useState<CarouselApi>();
   const [secondRowApi, setSecondRowApi] = useState<CarouselApi>();
+  const { products } = useCatalogProducts();
 
   const handlePrev = () => {
     firstRowApi?.scrollPrev();
@@ -23,8 +24,8 @@ export default function NewArrival() {
   };
 
   // Split cards into two rows
-  const row1Cards = cards.slice(0, Math.ceil(cards.length / 2));
-  const row2Cards = cards.slice(Math.ceil(cards.length / 2));
+  const row1Cards = products.slice(0, Math.ceil(products.length / 2));
+  const row2Cards = products.slice(Math.ceil(products.length / 2));
 
   return (
     <section className="lg:max-w-7xl w-full px-10 ">
@@ -38,7 +39,7 @@ export default function NewArrival() {
       </header>
 
       <div className="grid grid-cols-2 gap-5 md:hidden translate-y-10">
-        {cards.map((card) => (
+        {products.map((card) => (
           <ProductCard
             id={card.id}
             key={card.id}

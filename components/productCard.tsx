@@ -45,7 +45,7 @@ export default function ProductCard({
 
   return (
     <section className="w-full lg:max-w-7xl h-[250px] lg:w-[245px] md:h-[370px]">
-      <div className="relative group w-full h-[70%] bg-[#DBDBDB] rounded-3xl">
+      <div className="relative group w-full h-[70%] overflow-hidden bg-[#DBDBDB] rounded-3xl">
         <button
           type="button"
           onClick={handleAddToCart}
@@ -54,7 +54,7 @@ export default function ProductCard({
         >
           Add to cart
         </button>
-        <span className="absolute hidden md:block top-5 px-3 py-2 bg-[#A1C249] font-medium text-xl ">
+        <span className="absolute hidden md:block top-5 left-0 px-3 py-2 bg-[#A1C249] font-medium text-xl z-20">
           {discount}
         </span>
         <button
@@ -71,11 +71,12 @@ export default function ProductCard({
           />
         </button>
         <Image
-          className="object-contain"
+          className="object-cover"
           src={image}
           fill
           alt="product image"
           loading="eager"
+          sizes="(max-width: 768px) 100vw, 245px"
         />
       </div>
       <span className="md:text-xl font-medium"> {productName} </span>

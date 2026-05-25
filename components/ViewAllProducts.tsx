@@ -2,22 +2,12 @@
 
 import { useState } from 'react';
 import ProductCard from './productCard';
-import { StaticImageData } from 'next/image';
-import { cards as products } from '@/constants/products';
-
-// Define the Product type to match the data structure(products.ts)
-interface Product {
-  id: number;
-  image: string | StaticImageData;
-  name: string;
-  price: number;
-  discount: string;
-  rating: number;
-  reviews: string;
-}
+import { useCatalogProducts } from "@/hooks/useCatalogProducts";
+import type { Product } from "@/constants/products";
 
 function ViewAllProducts() {
   const [showAllProducts, setShowAllProducts] = useState<boolean>(false);
+  const { products } = useCatalogProducts();
 
   const handleViewAll = (): void => {
     setShowAllProducts(!showAllProducts);
